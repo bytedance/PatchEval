@@ -1,0 +1,49 @@
+agent:
+  model:
+    name: **********
+    api_base: **********
+    api_key: **********
+    api_version: ""
+    per_instance_call_limit: 100
+    per_instance_cost_limit: 10
+  templates:
+    instance_template: |-
+      <uploaded_files>
+      {{working_dir}}
+      </uploaded_files>
+      I've uploaded a python code repository in the directory {{working_dir}}. Consider the following PR description:
+
+      <pr_description>
+      {{problem_statement}}
+      </pr_description>
+
+      Can you help me implement the necessary changes to the repository so that the requirements specified in the <pr_description> are met?
+      I've already taken care of all changes to any of the test files described in the <pr_description>. This means you DON'T have to modify the testing logic or any of the tests in any way!
+      Your task is to make the minimal changes to non-tests files in the {{working_dir}} directory to ensure the <pr_description> is satisfied.
+      Follow these steps to resolve the issue:
+      1. As a first step, it might be a good idea to find and read code relevant to the <pr_description>
+      2. Run `check_vulnerability` to verify if the vulnerability exists and analyze the output. $JS_POC
+      3. Modify the source code to fix the vulnerability with minimal changes.
+      4. Rerun `check_vulnerability` and confirm that the vulnerability is fixed!
+      5. Think about edgecases and make sure your fix handles them as well
+      Your thinking should be thorough and so it's fine if it's very long.
+
+    
+env:
+  deployment:
+    type: docker
+    image: $IMAGE  
+  repo:
+    type: preexisting
+    repo_name: $WORK_DIR
+  post_startup_commands:
+    - chmod +x /workspace/*.sh 
+    - find /workspace/ -maxdepth 1 -type f -name "*.patch" ! -name "test.patch" -exec rm -v {} +
+    - export PATH=$PATH:$ALL_OTHER_PATH && export HOME=/root
+    - mkdir -p /tmp/secret && cp /workspace/test.patch /tmp/secret/test.patch && rm /workspace/test.patch
+    - $EXTRA_COMMAND
+  
+problem_statement:
+  type: text_file
+  path: configs/$PREFIX/$CVEID_problem.md  
+

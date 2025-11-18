@@ -1,0 +1,121 @@
+diff -ruN claude-code-proxy_ori/.env.example claude-code-proxy/.env.example
+--- claude-code-proxy_ori/.env.example	2025-11-18 19:18:51.871002914 +0800
++++ claude-code-proxy/.env.example	2025-11-18 18:27:44.310713333 +0800
+@@ -1,51 +1,19 @@
+-# Required: Your OpenAI API key
+-OPENAI_API_KEY="sk-your-openai-api-key-here"
+-
+-# Optional: Expected Anthropic API key for client validation
+-# If set, clients must provide this exact API key to access the proxy
+-ANTHROPIC_API_KEY="your-expected-anthropic-api-key"
+-
+-# Optional: OpenAI API base URL (default: https://api.openai.com/v1)
+-# You can change this to use other providers like Azure OpenAI, local models, etc.
+-OPENAI_BASE_URL="https://api.openai.com/v1"
+-
+-# Optional: Model mappings (BIG and SMALL models)
+-BIG_MODEL="gpt-4o"
+-# Used for Claude opus requests
+-MIDDLE_MODEL="gpt-4o"
+-# Used for Claude sonnet requests
+-SMALL_MODEL="gpt-4o-mini"    
+-# Used for Claude haiku requests
+-
+ # Optional: Server settings
+ HOST="0.0.0.0"
+-PORT="8082"
++# PORT="8082"
+ LOG_LEVEL="INFO"  
+ # DEBUG, INFO, WARNING, ERROR, CRITICAL
+ 
+ # Optional: Performance settings  
+-MAX_TOKENS_LIMIT="4096"
++MAX_TOKENS_LIMIT="128000"
+ # Minimum tokens limit for requests (to avoid errors with thinking model)
+ MIN_TOKENS_LIMIT="4096"
+-REQUEST_TIMEOUT="90"
+-MAX_RETRIES="2"
+-
+-# Examples for other providers:
+-
+-# For Azure OpenAI (recommended if OpenAI is not available in your region):
+-# OPENAI_API_KEY="your-azure-api-key"
+-# OPENAI_BASE_URL="https://your-resource-name.openai.azure.com/openai/deployments/your-deployment-name"
+-# AZURE_API_VERSION="2024-03-01-preview"
+-# BIG_MODEL="gpt-4"
+-# MIDDLE_MODEL="gpt-4"
+-# SMALL_MODEL="gpt-35-turbo"
+-
+-# For local models (like Ollama):
+-# OPENAI_API_KEY="dummy-key"  # Required but can be any value for local models
+-# OPENAI_BASE_URL="http://localhost:11434/v1"
+-# BIG_MODEL="llama3.1:70b"
+-# MIDDLE_MODEL="llama3.1:70b"
+-# SMALL_MODEL="llama3.1:8b"
++REQUEST_TIMEOUT="300"
++MAX_RETRIES="100"
+ 
+-# Note: If you get "unsupported_country_region_territory" errors,
+-# consider using Azure OpenAI or a local model setup instead.
++# OPENAI LLM Provider
++OPENAI_API_KEY="xxxxx"
++OPENAI_BASE_URL="xxxxxxx"
++BIG_MODEL="xxxxxxx"
++MIDDLE_MODEL="xxxxxxxx"
++SMALL_MODEL="xxxxxxxxxx"
+\ No newline at end of file
+diff -ruN claude-code-proxy_ori/src/conversion/request_converter.py claude-code-proxy/src/conversion/request_converter.py
+--- claude-code-proxy_ori/src/conversion/request_converter.py	2025-11-18 19:06:28.820979817 +0800
++++ claude-code-proxy/src/conversion/request_converter.py	2025-11-18 18:27:44.319713539 +0800
+@@ -98,6 +98,10 @@
+         openai_tools = []
+         for tool in claude_request.tools:
+             if tool.name and tool.name.strip():
++                # if "gemini" in openai_model:
++                #     tool.input_schema.pop("$schema")
++                tool.input_schema.pop("$schema")
++                # print(tool.input_schema)
+                 openai_tools.append(
+                     {
+                         "type": Constants.TOOL_FUNCTION,
+@@ -125,7 +129,7 @@
+             }
+         else:
+             openai_request["tool_choice"] = "auto"
+-
++    # print(openai_request)
+     return openai_request
+ 
+ 
+diff -ruN claude-code-proxy_ori/src/conversion/response_converter.py claude-code-proxy/src/conversion/response_converter.py
+--- claude-code-proxy_ori/src/conversion/response_converter.py	2025-11-18 19:06:28.820979817 +0800
++++ claude-code-proxy/src/conversion/response_converter.py	2025-11-18 18:27:44.319713539 +0800
+@@ -246,7 +246,6 @@
+                 logger.info(f"Client disconnected, cancelling request {request_id}")
+                 openai_client.cancel_request(request_id)
+                 break
+-
+             if line.strip():
+                 if line.startswith("data: "):
+                     chunk_data = line[6:]
+@@ -255,7 +254,7 @@
+ 
+                     try:
+                         chunk = json.loads(chunk_data)
+-                        # logger.info(f"OpenAI chunk: {chunk}")
++                        logger.info(f"OpenAI chunk: {chunk}")
+                         usage = chunk.get("usage", None)
+                         if usage:
+                             cache_read_input_tokens = 0
+diff -ruN claude-code-proxy_ori/src/core/client.py claude-code-proxy/src/core/client.py
+--- claude-code-proxy_ori/src/core/client.py	2025-11-18 19:11:07.087355426 +0800
++++ claude-code-proxy/src/core/client.py	2025-11-18 18:27:44.319713539 +0800
+@@ -98,7 +98,7 @@
+         
+         try:
+             # Ensure stream is enabled
+-            request["stream"] = True
++            request["stream"] = False
+             if "stream_options" not in request:
+                 request["stream_options"] = {}
+             request["stream_options"]["include_usage"] = True

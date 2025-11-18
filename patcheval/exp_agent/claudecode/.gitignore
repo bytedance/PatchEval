@@ -1,0 +1,20 @@
+# Ignore all generated files under outputs/ but keep the directory by committing a placeholder
+outputs/**
+!outputs/.gitkeep
+
+# Ignore cpython bytecode caches for the project and the patcheval package
+__pycache__/
+patcheval/__pycache__/
+
+# Common extras
+.DS_Store
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+logs/
+claude-code-proxy/uv.lock
+evaluation/process_data/*
+evaluation/results/*

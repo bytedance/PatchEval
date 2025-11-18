@@ -1,0 +1,3 @@
+# Minimal dependencies for Claude-CVEBench
+# Python 3.9+
+docker>=6.0.0
