@@ -206,7 +206,7 @@ class FuncReplacer:
                 f"{e.stderr if e.stderr else '<Empty>'}\n"
                 "----------------------"
             )
-            self.logger.error(error_msg)
+            self.logger.warning(error_msg)
             return None
         except subprocess.TimeoutExpired as e:
             self.logger.error(f"Git command timed out: {' '.join(e.cmd)}")
@@ -253,15 +253,15 @@ class FuncReplacer:
         
         dest_path_abs.parent.mkdir(parents=True, exist_ok=True)
 
-        try:
-            self.logger.debug(f"Creating new worktree for commit '{commit_ref}' at '{dest_path_abs}'...")
-            self.run_cmd(
-                ["git", "worktree", "add", "--detach", str(dest_path_abs), commit_ref],
-                cwd=str(repo_path_abs),
-            )
+        self.logger.debug(f"Creating new worktree for commit '{commit_ref}' at '{dest_path_abs}'...")
+        result = self.run_cmd(
+            ["git", "worktree", "add", "--detach", str(dest_path_abs), commit_ref],
+            cwd=str(repo_path_abs),
+        )
+        if result is not None:
             self.logger.debug("Successfully created clean workspace.")
             return True
-        except subprocess.CalledProcessError:
+        else:
             self.logger.warning(f"Failed to create worktree. Attempting to fetch '{commit_ref}' from origin...")
             try:
                 self.run_cmd(["git", "fetch", "origin", commit_ref], cwd=str(repo_path_abs))
