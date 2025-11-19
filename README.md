@@ -72,6 +72,16 @@ pip install -r requirements.txt
 
 
 ## 📊 Evaluation
+### Docker Images
+PatchEval includes 230 Docker images, where each contains five key files in `/workspace` for patch validation:
+```
+llm.patch: The ground-truth (official) patch.
+fix-run.sh: Run fix-run.sh to execute the PoC and verify that the patched vulnerability is no longer exploitable.
+vul-run.sh: Run vul-run.sh to execute the PoC and verify that the original (unpatched) vulnerability is exploitable.
+unit_test.sh: (if present) Run unit_test.sh to execute unit tests and validate functional correctness.
+prepare.sh: Resets all changes in the repository. Run this script before each evaluation.
+```
+
 ### Dataset
 The vulnerability dataset is located in `patcheval/datasets`.
 The file `input.json` contains CVE metadata required to run vulnerability repair experiments, such as `cve_id`, `cve_description`, `programing_language` and `vul_func`.
