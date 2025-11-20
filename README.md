@@ -89,7 +89,6 @@ The file `input.json` contains CVE metadata required to run vulnerability repair
 To download Docker images for patch validation, follow these steps:
 ```bash
 cd scripts
-echo "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" | docker login ghcr.io -u anonymous2578-data --password-stdin
 python download_images.py
 ```
 
