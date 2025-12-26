@@ -11,7 +11,7 @@ cve_description: (str) - The official description of the CVE from NVD.
 cwe_info: (dict) - A dictionary containing details about the associated Common Weakness Enumeration (CWE).
 repo: (str) - The URL of the GitHub repository.
 patch_url: (list[str]) - A list of URLs on GitHub.
-programing_language: (str) - The primary programming language of the vulnerable code.
+programming_language: (str) - The primary programming language of the vulnerable code.
 vul_func: (list[dict]) - A list of vulnerable code snippet.
 fix_func: (list[dict]) - A list of fixed code snippet.
 vul_patch: (str) - The patch diff of the CVE.

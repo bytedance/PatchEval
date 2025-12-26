@@ -373,7 +373,7 @@ class FileOps:
             entry["cve_id"]: {
                 k: entry.get(k, "")
                 for k in (
-                    "programing_language",
+                    "programming_language",
                     "cwe_id",
                     "cve_description",
                     "cwe_info",

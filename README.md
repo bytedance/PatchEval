@@ -84,7 +84,7 @@ prepare.sh: Resets all changes in the repository. Run this script before each ev
 
 ### Dataset
 The vulnerability dataset is located in `patcheval/datasets`.
-The file `input.json` contains CVE metadata required to run vulnerability repair experiments, such as `cve_id`, `cve_description`, `programing_language` and `vul_func`.
+The file `input.json` contains CVE metadata required to run vulnerability repair experiments, such as `cve_id`, `cve_description`, `programming_language` and `vul_func`.
 
 To download Docker images for patch validation, follow these steps:
 ```bash

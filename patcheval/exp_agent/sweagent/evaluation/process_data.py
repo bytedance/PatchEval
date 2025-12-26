@@ -18,7 +18,7 @@ from pathlib import Path
 import argparse
 def main():
     test_data = json.load(open(args.test_data_path))
-    cve2language = {it['cve_id']: it["programing_language"] for it in test_data}
+    cve2language = {it['cve_id']: it["programming_language"] for it in test_data}
     dataset_path = args.dataset_path
     dataset = utils.load_jsonl_file(dataset_path)
     output_dir = args.output_dir

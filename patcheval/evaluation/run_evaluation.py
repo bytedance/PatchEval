@@ -242,7 +242,7 @@ class Evaluation:
 def main():
     def _init():
         all_info = utils.read_json(args.input_file)
-        cve2lang = {item["cve_id"]: item["programing_language"] for item in all_info}
+        cve2lang = {item["cve_id"]: item["programming_language"] for item in all_info}
         return cve2lang
 
     import utils
