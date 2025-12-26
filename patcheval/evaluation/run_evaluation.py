@@ -216,7 +216,7 @@ class Evaluation:
 
 
     def _error_type(self, error_log, language):
-        if "patch does not apply" in error_log:
+        if "patch does not apply" in error_log or "error: corrupt patch at line" in error_log:
             return "apply_fail"
 
         if language == "Python":
@@ -303,13 +303,13 @@ def main():
             if is_strict_success:
                 with open(f"{log_dir}/success_output.log", 'w') as f: f.write(output)
             else:
-                with open(f"{log_dir}/erro_output.log", 'w') as f: f.write(output)
+                with open(f"{log_dir}/error_output.log", 'w') as f: f.write(output)
             
             return (cve, language, validation_type, image_name, is_strict_success, is_poc_success, False)
         except Exception as e:
             task_logger.error(f"{image_name} RUN ERROR")
             task_logger.error(e)
-            with open(f"{log_dir}/erro_output.log", 'w') as f:
+            with open(f"{log_dir}/error_output.log", 'w') as f:
                 f.write(str(e))
             return (cve, language, validation_type, image_name, False, False, True)  
         finally:
