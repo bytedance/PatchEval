@@ -214,6 +214,7 @@ class VulFixer:
             )  
             ctx_logger.info("▷ Processing Vulnerability")
 
+            early_stop = False
             # multi-round iteration to fix vulnerabilities
             for current_epoch in range(self.args.epochs):
                 for pass_idx in range(self.args.pass_k):
@@ -403,10 +404,13 @@ class VulFixer:
 
                         if evaluation_result:
                             ctx_logger.debug(f"Evaluation success in {current_epoch+1} epochs {pass_idx+1} pass@{self.args.pass_k}")
+                            early_stop = True
                             break
 
                 # update results
-                results.extend(pass_results)    
+                results.extend(pass_results)  
+                if early_stop:
+                    break  
                 # update feedback for next round
                 self.feedback_helper.update_feedback(last_feedbacks, vul_code_cache, test_msg, feedback_template)
 

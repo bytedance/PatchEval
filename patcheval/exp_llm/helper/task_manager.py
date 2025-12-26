@@ -173,7 +173,7 @@ class TaskManager:
             "vul_id": vul_entry["id"],
             "cwe_id": cve_knowledge["cwe_id"],
             "patch_url": cve_knowledge["patch_url"],
-            "language": cve_knowledge["language"],
+            "language": cve_knowledge["programing_language"],
             "groundtruth": cve_knowledge["fix_func"],
             "start_ts": start_ts,
             "start_time": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(start_ts)),
