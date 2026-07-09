@@ -70,7 +70,7 @@ class DockerManager:
             )
             return container_name
         except Exception as e:
-            self.logger.debug(f"Failed to start container: {e}", extra={"cve": self.cve})
+            self.logger.error(f"Failed to start container: {e}", extra={"cve": self.cve})
             return None
         finally:
             # clean up temp file
@@ -188,7 +188,7 @@ class Evaluation:
         if not self.docker_manager.start_container(cve, container_name, llm_patch):
             fail_msg = f"Failed to start container {container_name}"
             self.logger.error(fail_msg)
-            return None, fail_msg, None, None, None
+            return None, fail_msg, None, None, "execution_error"
 
         run_poc_result, run_poc_msg = self._run_sh_cmd(container_name, "poc")
         run_poc_msg = "="*30 + " Run PoC " + "="*30 + "\n" + run_poc_msg
@@ -289,6 +289,7 @@ def main():
         if cve in success_cves_all:
             return None  
         _, log_dir = utils.creat_patch_file(f"./evaluation_output/{args.output}/logs/{cve}", fix_patch)
+        validation_type = "execution_error"
         try:
             run_poc_result, run_poc_msg, unittest_result, unittest_msg, validation_type = evaluation.run_evaluation(
                 cve=cve, llm_patch=fix_patch, language=language, test_name="run_evaluation", cve_logs=[]
