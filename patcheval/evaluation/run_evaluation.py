@@ -39,6 +39,7 @@ class DockerManager:
         self.logger = logger
         self.cve = cve
         self.client = docker.from_env()
+        self._tmp_patch_files = []
 
     def start_container(self, cve: str, container_name: str, llm_patch: Optional[str] = None) -> Optional[str]:
         """
@@ -47,6 +48,7 @@ class DockerManager:
         """
         image_name = f"ghcr.io/anonymous2578-data/{cve.lower()}:latest"
         volumes = {}
+        tmp_file_path = None
         def _create_patch_file(llm_patch):
             fd, tmp_file_path = tempfile.mkstemp(suffix='.patch')
             with os.fdopen(fd, 'w', encoding='utf-8') as tmp_file:
@@ -57,6 +59,7 @@ class DockerManager:
         
         if llm_patch is not None:
             tmp_file_path = _create_patch_file(llm_patch)
+            self._tmp_patch_files.append(tmp_file_path)
             volumes[tmp_file_path] = {'bind': '/workspace/fix.patch', 'mode': 'rw'}
         try:
             self.client.containers.run(
@@ -71,12 +74,11 @@ class DockerManager:
             return container_name
         except Exception as e:
             self.logger.debug(f"Failed to start container: {e}", extra={"cve": self.cve})
-            return None
-        finally:
-            # clean up temp file
+            if tmp_file_path in self._tmp_patch_files:
+                self._tmp_patch_files.remove(tmp_file_path)
             if tmp_file_path and os.path.exists(tmp_file_path):
                 os.unlink(tmp_file_path)
-                tmp_file_path = None
+            return None
 
     def rm_container(self, container_name: str) -> None:
         """Stop and remove the container if it exists. Also remove temp patch file if exists."""
@@ -87,6 +89,11 @@ class DockerManager:
         except Exception as e:
             if self.verbose:
                 self.logger.debug(f"Failed to remove container: {e}", extra={"cve": self.cve})
+        finally:
+            while self._tmp_patch_files:
+                tmp_file_path = self._tmp_patch_files.pop()
+                if os.path.exists(tmp_file_path):
+                    os.unlink(tmp_file_path)
 
     def exec_container(self, container_name: str, cmd: str, flag: bool = False, timeout: int = 600) -> Tuple[Optional[str], Optional[str]]:
         """Execute a command inside the container using bash -c."""
