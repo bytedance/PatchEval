@@ -71,17 +71,3 @@ def get_logger(log_path, log_level=logging.INFO):
         console_handler.setFormatter(formatter)
         logger.addHandler(console_handler)
     return logger
-
-def convert_json(json_file, epoch=1):
-    origin_datas = read_json(json_file)
-    eval_datas = []
-    for origin_data in origin_datas:
-        for cve, items in origin_data.items():
-            for item in items:
-                if item['epoch'] == epoch and item['diff_content'] is not None:
-                    eval_datas.append({
-                        "cve": cve,
-                        "fix_patch": item['diff_content'],
-                    })
-                    break
-    return eval_datas

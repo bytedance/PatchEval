@@ -23,9 +23,7 @@ import json
 import tempfile
 from typing import Optional, Tuple
 import docker
-import tempfile
 import tqdm
-from typing import Any
 from logging.handlers import MemoryHandler
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -34,19 +32,16 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 class DockerManager:
     """A small facade around Docker Python SDK."""
 
-    def __init__(self, logger: logging.Logger, cve: str, verbose: bool = True):
-        self.verbose = verbose
+    def __init__(self, logger: logging.Logger, cve: str):
         self.logger = logger
         self.cve = cve
         self.client = docker.from_env()
 
-    def start_container(self, cve: str, container_name: str, llm_patch: Optional[str] = None) -> Optional[str]:
+    def start_container(self, image_name: str, container_name: str, llm_patch: str) -> str | None:
         """
-        Start a Docker container for the given CVE image tag.
+        Start a Docker container for the given image tag.
         If llm_patch is provided, create a temp file and mount it to /workspace/fix.patch in the container.
         """
-        image_name = f"ghcr.io/anonymous2578-data/{cve.lower()}:latest"
-        volumes = {}
         def _create_patch_file(llm_patch):
             fd, tmp_file_path = tempfile.mkstemp(suffix='.patch')
             with os.fdopen(fd, 'w', encoding='utf-8') as tmp_file:
@@ -55,9 +50,8 @@ class DockerManager:
                     tmp_file.write('\n')
             return tmp_file_path
         
-        if llm_patch is not None:
-            tmp_file_path = _create_patch_file(llm_patch)
-            volumes[tmp_file_path] = {'bind': '/workspace/fix.patch', 'mode': 'rw'}
+        tmp_file_path = _create_patch_file(llm_patch)
+        volumes = {tmp_file_path: {'bind': '/workspace/fix.patch', 'mode': 'rw'}}
         try:
             self.client.containers.run(
                 image_name,
@@ -66,7 +60,7 @@ class DockerManager:
                 detach=True,
                 tty=True,
                 stdin_open=True,
-                volumes=volumes if volumes else None
+                volumes=volumes
             )
             return container_name
         except Exception as e:
@@ -85,10 +79,9 @@ class DockerManager:
             container.stop()
             container.remove(force=True)
         except Exception as e:
-            if self.verbose:
-                self.logger.debug(f"Failed to remove container: {e}", extra={"cve": self.cve})
+            self.logger.debug(f"Failed to remove container: {e}", extra={"cve": self.cve})
 
-    def exec_container(self, container_name: str, cmd: str, flag: bool = False, timeout: int = 600) -> Tuple[Optional[str], Optional[str]]:
+    def exec_container(self, container_name: str, cmd: str, timeout: int = 600) -> Tuple[Optional[str], Optional[str]]:
         """Execute a command inside the container using bash -c."""
         try:
             shell_cmd = cmd
@@ -127,27 +120,11 @@ class DockerManager:
             )
             return None, error_msg
 
-    def is_container_exist(self, container_name: str) -> bool:
-        """Return True if container exists."""
-        try:
-            container = self.client.containers.get(container_name)
-            return True
-        except docker.errors.NotFound:
-            return False
-        except Exception as e:
-            if self.verbose:
-                self.logger.debug(f"Error checking container existence: {e}", extra={"cve": self.cve})
-            return False
-
 class Evaluation:
     """Evaluation orchestrator using DockerManager."""
 
-    def __init__(self, log_manager: Any=None, cve: str="", logger: Any=None):
-        if log_manager is not None:
-            log_manager.bind_current_task(cve)
-            self.logger = log_manager.get_current_logger() 
-        else:
-            self.logger = logger
+    def __init__(self, logger: logging.Logger, cve: str=""):
+        self.logger = logger
         self.cve = cve
         self.docker_manager = DockerManager(self.logger, self.cve)
 
@@ -159,64 +136,55 @@ class Evaluation:
             return None, msg  
         return exit_code == 0, msg
 
-    def _run_sh_cmd(self, container_name: str, flag: str) -> Tuple[Optional[bool], Optional[str]]:
-        """Execute prepare.sh and then run.sh or unit_test.sh depending on flag."""
-        _, prepare_msg = self.docker_manager.exec_container(container_name, "bash prepare.sh")
-        self.logger.debug(f"init docker run env")
+    def _run_sh_cmd(self, container_name: str) -> Tuple[Optional[bool], Optional[str]]:
+        """Run the PatchEval validation script from /workspace.
 
-        if flag == "poc":
-            return self._run_script(container_name, "fix-run.sh")
-        elif flag == "unittest":
-            exit_code, exists_msg = self.docker_manager.exec_container(container_name, "ls unit_test.sh")
-            if exit_code != 0 or "No such file" in (exists_msg or ""):
-                self.logger.debug(f"unit_test.sh not exist")
-                return True, "No unit-test"
-            return self._run_script(container_name, "unit_test.sh")
-        return None, None
+        PatchEval images are pre-normalized to the prepared baseline. Running
+        prepare.sh again during evaluation can mutate lockfiles/module metadata
+        and make the collected patch no longer apply to the evaluated tree.  The
+        per-case validation entrypoint is always /workspace/fix-run.sh, so run it
+        from /workspace regardless of the image's Docker WORKDIR.
+        """
+        exit_code, msg = self.docker_manager.exec_container(
+            container_name,
+            "bash -lc 'cd /workspace && bash fix-run.sh'",
+        )
+        self.logger.debug(f"Run fix-run.sh from /workspace: {msg}")
+        if exit_code is None:
+            return None, msg
+        return exit_code == 0, msg
 
     def run_evaluation(
-        self, cve: str, llm_patch: str, language: str, test_name: str, cve_logs: Optional[list] = None
-    ) -> Tuple[Optional[bool], Optional[str], Optional[bool], Optional[str]]:
-        """Execute evaluation: start container, prepare files, run PoC and unit tests, clean up."""
+        self, cve: str, llm_patch: str, language: str, test_name: str, image_name: str
+    ) -> Tuple[Optional[bool], Optional[str], Optional[str]]:
+        """Execute evaluation: start container, prepare files, run PoC, clean up."""
         
         container_name = f"{test_name}_{cve.lower()}_tmp_{secrets.token_hex(4)}"
 
-        if self.docker_manager.is_container_exist(container_name):
-            self.docker_manager.rm_container(container_name)
-            self.logger.debug(f"Remove existing container {container_name}")
-
-        if not self.docker_manager.start_container(cve, container_name, llm_patch):
+        if not self.docker_manager.start_container(image_name, container_name, llm_patch):
             fail_msg = f"Failed to start container {container_name}"
             self.logger.error(fail_msg)
-            return None, fail_msg, None, None, None
+            return None, fail_msg, None
 
-        run_poc_result, run_poc_msg = self._run_sh_cmd(container_name, "poc")
+        run_poc_result, run_poc_msg = self._run_sh_cmd(container_name)
         run_poc_msg = "="*30 + " Run PoC " + "="*30 + "\n" + run_poc_msg
-        if run_poc_result:
-            unittest_result, unittest_msg = self._run_sh_cmd(container_name, "unittest")
-        else:
-            unittest_result, unittest_msg = None, None
-        if unittest_result is not None:
-            unittest_msg = "="*30 + " Run Unit Test " + "="*30 + "\n" + unittest_msg
         self.logger.debug(f"Successfully Evaluate")
 
         self.docker_manager.rm_container(container_name)
         self.logger.info(f"Finish eval and remove container {container_name}")
 
-        if run_poc_result and unittest_result:
+        if run_poc_result:
             errpr_type="Repair Success"
         elif run_poc_result==False and run_poc_msg is not None:
             errpr_type=self._error_type(run_poc_msg, language)
-        elif unittest_result==False and unittest_msg is not None:
-            errpr_type=self._error_type(unittest_msg, language)
         else:
             errpr_type=None
             
-        return run_poc_result, run_poc_msg, unittest_result, unittest_msg, errpr_type
+        return run_poc_result, run_poc_msg, errpr_type
 
 
     def _error_type(self, error_log, language):
-        if "patch does not apply" in error_log or "error: corrupt patch at line" in error_log:
+        if "patch does not apply" in error_log:
             return "apply_fail"
 
         if language == "Python":
@@ -242,30 +210,30 @@ class Evaluation:
 def main():
     def _init():
         all_info = utils.read_json(args.input_file)
-        cve2lang = {item["cve_id"]: item["programming_language"] for item in all_info}
-        return cve2lang
+        cve2lang = {item["cve_id"]: item["programing_language"] for item in all_info}
+        cve2image = {item["cve_id"]: item.get("image_url") for item in all_info if item.get("image_url")}
+        missing = [item["cve_id"] for item in all_info if not item.get("image_url")]
+        if missing:
+            preview = ", ".join(missing[:10])
+            suffix = "" if len(missing) <= 10 else f", ... ({len(missing)} total)"
+            raise ValueError(f"dataset samples missing image_url: {preview}{suffix}")
+        return cve2lang, cve2image
 
     import utils
-    if args.artifact_eval:
-        patchs = utils.convert_json(args.patch_file)
+    if args.patch_file.endswith(".json"):
+        patchs = utils.read_json(args.patch_file)
     else:
-        if args.patch_file.endswith(".json"):
-            patchs = utils.read_json(args.patch_file)
-        else:
-            patchs = utils.read_jsonl(args.patch_file)
+        patchs = utils.read_jsonl(args.patch_file)
 
-    cve2lang = _init()
+    cve2lang, cve2image = _init()
     if args.log_level.upper() == "DEBUG":
         log_level = logging.DEBUG
     else:
         log_level = logging.INFO
     main_logger = utils.get_logger(f"./evaluation_output/{args.output}/run_evaluation.log", log_level)
-    success_cves_all = []
     main_logger.info(args, extra={'cve': 'SETUP'})
     def process_patch(patch):
         cve, fix_patch = patch['cve'], patch['fix_patch']
-        if "ghcr.io/anonymous2578-data/" in cve:
-            cve = cve.split("/")[-1].split(":")[0]
         
         task_logger_name = f"task-{cve}-{threading.get_ident()}"
         task_logger = logging.getLogger(task_logger_name)
@@ -281,37 +249,33 @@ def main():
         task_logger.addHandler(buffer_handler)
         evaluation = Evaluation(logger=task_logger)
         
-        if "language" in patch:
-            language = patch['language']
-        else:
-            language = cve2lang[cve]
-        image_name = f"ghcr.io/anonymous2578-data/{cve.lower()}:latest"
-        if cve in success_cves_all:
-            return None  
+        language = patch.get("language") or cve2lang[cve]
+        image_name = patch.get("image_url") or cve2image.get(cve)
+        if not image_name:
+            raise ValueError(f"missing image_url for {cve}")
         _, log_dir = utils.creat_patch_file(f"./evaluation_output/{args.output}/logs/{cve}", fix_patch)
+        validation_type = None
         try:
-            run_poc_result, run_poc_msg, unittest_result, unittest_msg, validation_type = evaluation.run_evaluation(
-                cve=cve, llm_patch=fix_patch, language=language, test_name="run_evaluation", cve_logs=[]
+            run_poc_result, run_poc_msg, validation_type = evaluation.run_evaluation(
+                cve=cve, llm_patch=fix_patch, language=language, test_name="run_evaluation", image_name=image_name
             )
             output = (f"[PoC RESULT]: {run_poc_result}\n" + f"[PoC MSG]:\n{run_poc_msg}\n\n" +
-                      f"[UnitTest RESULT]: {unittest_result}\n" + f"[UnitTest MSG]:\n {unittest_msg}\n\n" +
                       f"[Validation TYPE]: {validation_type}")
             
-            is_strict_success = (validation_type == "Repair Success")
-            is_poc_success = (run_poc_result is True)
+            is_success = (validation_type == "Repair Success")
 
-            if is_strict_success:
+            if is_success:
                 with open(f"{log_dir}/success_output.log", 'w') as f: f.write(output)
             else:
-                with open(f"{log_dir}/error_output.log", 'w') as f: f.write(output)
+                with open(f"{log_dir}/erro_output.log", 'w') as f: f.write(output)
             
-            return (cve, language, validation_type, image_name, is_strict_success, is_poc_success, False)
+            return (cve, language, validation_type, image_name, is_success, False)
         except Exception as e:
             task_logger.error(f"{image_name} RUN ERROR")
             task_logger.error(e)
-            with open(f"{log_dir}/error_output.log", 'w') as f:
+            with open(f"{log_dir}/erro_output.log", 'w') as f:
                 f.write(str(e))
-            return (cve, language, validation_type, image_name, False, False, True)  
+            return (cve, language, validation_type, image_name, False, True)  
         finally:
             buffer_handler.flush()
             buffer_handler.close()
@@ -330,24 +294,18 @@ def main():
                 patch = future_to_patch[future]
                 main_logger.error(f"Task for CVE {patch['cve']} failed unexpectedly: {e}", exc_info=True, extra={'cve': 'EXECUTOR'})
 
-    strict_summary = defaultdict(list)
-    poc_summary = defaultdict(list)
+    success_summary = defaultdict(list)
     fail_summary = defaultdict(list)
     error_images = []
 
     for res in all_results:
-        cve, language, validation_type, image_name, is_strict_success, is_poc_success, is_error = res
+        cve, language, validation_type, image_name, is_success, is_error = res
         
-        if is_strict_success:
-            strict_summary[language].append(cve)
-        
-        if is_poc_success:
-            poc_summary[language].append(cve)
+        if is_success:
+            success_summary[language].append(cve)
 
-        if not is_strict_success:
+        if not is_success:
             fail_summary[f"{language}_{validation_type}"].append(cve)
-            if validation_type == 'all_apply_error_case':
-                 fail_summary['all_apply_error_case'].append(cve)
 
         if is_error:
             error_images.append(image_name)
@@ -392,15 +350,11 @@ def main():
 
     total_patches = len(patchs)
     
-    strict_report_str, strict_report_json = generate_summary_report(
-        "Strict Evaluation Summary (PoC + Unit Test)", strict_summary, total_patches
-    )
-    
-    poc_report_str, poc_report_json = generate_summary_report(
-        "PoC-Only Evaluation Summary", poc_summary, total_patches
+    eval_report_str, eval_report_json = generate_summary_report(
+        "PoC Evaluation Summary", success_summary, total_patches
     )
 
-    final_report_str = f"{strict_report_str}\n\n{poc_report_str}"
+    final_report_str = eval_report_str
     
     fail_analysis = {key: len(cves) for key, cves in fail_summary.items()}
     fail_report_str = "\n" + "="*60 + f"\n{'Failure Analysis':^60}\n" + "="*60 + "\n"
@@ -425,8 +379,7 @@ def main():
         f.write(final_report_str)
 
     full_json_summary = {
-        "strict_evaluation": strict_report_json,
-        "poc_only_evaluation": poc_report_json,
+        "poc_evaluation": eval_report_json,
         "failure_analysis": {
             "breakdown": fail_analysis,
             "failed_cves": {key: cves for key, cves in fail_summary.items()}
@@ -440,9 +393,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=str, required=False)
     parser.add_argument("--patch_file", type=str, required=True)
-    parser.add_argument("--input_file", type=str, required=False, default="../datasets/input.json")
+    parser.add_argument("--input_file", type=str, required=False, default="../datasets/patcheval_verified.json")
     parser.add_argument("--log_level", type=str, required=False, default="INFO")
-    parser.add_argument("--artifact_eval", action="store_true", default=False, required=False, help="Use this mode only when evaluating results in the patcheval/log/llm directory.")
     parser.add_argument("--max_workers", type=int, default=4, required=False, help="max workers")
     args = parser.parse_args()
     main()

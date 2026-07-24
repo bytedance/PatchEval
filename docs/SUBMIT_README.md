@@ -1,4 +1,4 @@
-# PatchEval: A New Benchmark for Evaluating LLMs on Patching Real-World Vulnerabilitie
+# PatchEval: A New Benchmark for Evaluating LLMs on Patching Real-World Vulnerabilities
 
 <p align="center">
   <a href="https://arxiv.org/abs/2511.11019">
@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/Dataset-HuggingFace-orange">
   </a>
   <a href="https://patcheval.github.io/">
-    <img alt="Leaderboard" src="https://img.shields.io/badge/Leaderboard-PatchEval-bule">
+    <img alt="Leaderboard" src="https://img.shields.io/badge/Leaderboard-PatchEval-blue">
   </a>
   <a href="https://www.python.org/">
     <img alt="Python" src="https://img.shields.io/badge/Python-3.10+-1f425f.svg?color=purple">
@@ -59,7 +59,7 @@ If you would like to submit your model results to [PatchEval](https://patcheval.
         │   ├── fix.patch
         │   └── success_output.log
         └── CVE-ID
-            ├── error_output.log
+            ├── erro_output.log
             └── fix.patch
         ```
     - `metadata.yaml`: Metadata of your submission, including how it will be displayed on the website:

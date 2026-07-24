@@ -17,7 +17,7 @@ import os
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-def pull_one_image(image, ghcr_token=None, logger=None):
+def pull_one_image(image, logger):
     try:
         client = docker.from_env()
         client.ping()
@@ -41,10 +41,9 @@ def pull_one_image(image, ghcr_token=None, logger=None):
         logger.error(f"[{image}] pull fail: {e}")
         return False, image
 
-def batch_pull_github_images(
+def batch_pull_images(
     images_file="images.txt",
     log_file="pull.log",
-    ghcr_token=None,
     max_workers=4   
 ):
     """
@@ -55,7 +54,7 @@ def batch_pull_github_images(
         format="%(asctime)s - %(levelname)s - %(message)s",
         handlers=[logging.FileHandler(log_file), logging.StreamHandler()],
     )
-    logger = logging.getLogger("ghcr_puller")
+    logger = logging.getLogger("image_puller")
 
     if not os.path.exists(images_file):
         logger.error(f"Image list file {images_file} does not exist!")
@@ -86,7 +85,7 @@ def batch_pull_github_images(
     # Multi-threaded pull images
     with ThreadPoolExecutor(max_workers=max_workers) as pool:
         futures = [
-            pool.submit(pull_one_image, image, ghcr_token, logger)
+            pool.submit(pull_one_image, image, logger)
             for image in images
         ]
         for future in as_completed(futures):
@@ -100,9 +99,8 @@ def batch_pull_github_images(
     return success, fail
 
 if __name__ == "__main__":
-    batch_pull_github_images(
+    batch_pull_images(
         images_file="images.txt",
         log_file="pull_images.log",
-        ghcr_token="",  
         max_workers=16,  
     )

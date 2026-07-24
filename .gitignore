@@ -1,0 +1,61 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python environments
+.env
+.venv/
+venv/
+env/
+ENV/
+.pdm.toml
+.pdm-python
+.pdm-build/
+__pypackages__/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+*.egg
+MANIFEST
+
+# Logs
+*.log
+
+# PatchEval generated artifacts
+patcheval/exp_agent/agent_runs/
+patcheval/exp_agent/outputs/
+patcheval/exp_agent/eval_inputs/
+patcheval/exp_agent/evaluation/
+patcheval/exp_agent/evaluation_output/
+patcheval/evaluation/evaluation_output/
+
+# Local runtime/config/credentials
+*.local
+*.secret
+*.token
+local_settings.py
+
+# Large/local datasets or workdirs accidentally placed in repo
+cvelist/
+cvelistV5/
+*shared/
+*simulation_environments/
+*volumes/
