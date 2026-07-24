@@ -16,6 +16,34 @@ if [[ ! -x "$CODEX_BIN" ]]; then
   echo "CODEX_BIN does not exist or is not executable: $CODEX_BIN" >&2
   exit 1
 fi
+
+# The npm-installed `codex` command is a JavaScript launcher whose package
+# dependencies are resolved relative to the installation tree. Mounting that
+# launcher as a single file into a case container therefore does not work. On
+# Linux, resolve it to the packaged native binary, which is self-contained and
+# can safely be mounted at /usr/local/bin/codex.
+if [[ "$(basename "$CODEX_BIN")" == "codex.js" ]]; then
+  codex_package_root="$(cd "$(dirname "$CODEX_BIN")/.." && pwd)"
+  native_candidates=(
+    "${codex_package_root}"/node_modules/@openai/codex-linux-*/vendor/*/bin/codex
+  )
+  resolved_native=""
+  for candidate in "${native_candidates[@]}"; do
+    if [[ -x "$candidate" ]]; then
+      if [[ -n "$resolved_native" ]]; then
+        echo "Multiple native Codex binaries found under $codex_package_root; set CODEX_BIN to one explicitly" >&2
+        exit 1
+      fi
+      resolved_native="$candidate"
+    fi
+  done
+  if [[ -z "$resolved_native" ]]; then
+    echo "CODEX_BIN points to the npm JavaScript launcher, but no Linux native binary was found under $codex_package_root" >&2
+    echo "Set CODEX_BIN to the packaged Linux native binary explicitly" >&2
+    exit 1
+  fi
+  CODEX_BIN="$(realpath "$resolved_native")"
+fi
 CODEX_CONFIG="$(realpath "$CODEX_CONFIG")"
 if [[ ! -f "$CODEX_CONFIG" ]]; then
   echo "CODEX_CONFIG does not exist or is not a file: $CODEX_CONFIG" >&2
