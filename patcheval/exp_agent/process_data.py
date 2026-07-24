@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert patch_agent_runner.py outputs to SecPatch run_evaluation.py JSONL."""
+"""Convert patch_agent_runner.py outputs to PatchEval evaluation JSONL."""
 from __future__ import annotations
 
 import argparse

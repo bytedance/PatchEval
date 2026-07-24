@@ -16,7 +16,7 @@ This directory contains the PatchEval PoC evaluator. It evaluates an existing pa
 A `language` field may be supplied. If absent, language is read from:
 
 ```text
-../datasets/patcheval_230.json
+../datasets/patcheval_verified.json
 ```
 
 ## Run manually
@@ -26,8 +26,7 @@ cd patcheval/evaluation
 python run_evaluation.py \
   --output example \
   --patch_file ./example_patch.json \
-  --input_file ../datasets/patcheval_230.json \
-  --images_file ../../scripts/images.txt \
+  --input_file ../datasets/patcheval_verified.json \
   --max_workers 4 \
   --log_level INFO
 ```
@@ -43,7 +42,7 @@ evaluation_output/<output>/
 ├── summary.json
 └── logs/<CVE>/
     ├── fix.patch
-    └── success_output.log or erro_output.log
+    └── success_output.log or error_output.log
 ```
 
 When invoked from `patcheval/exp_agent/run_eval.sh`, the output name is `results/<prefix>`, so results are written to:
@@ -54,6 +53,7 @@ patcheval/evaluation/evaluation_output/results/<prefix>/
 
 ## Notes
 
-- The evaluator uses `scripts/images.txt` to map CVE IDs to Docker images.
-- `patcheval_230.json` provides CVE metadata such as `programing_language`.
+- The evaluator reads each Docker image from the dataset's `image_url` field.
+- `patcheval_verified.json` provides CVE metadata such as `programing_language`.
 - The current verified workflow evaluates patches with the case PoC validation command.
+- Failure categories are inferred heuristically from validation logs.

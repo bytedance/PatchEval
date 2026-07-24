@@ -1,7 +1,7 @@
 # PatchEval CLI Agent Patch Generation
 
 This directory contains a lightweight patch-generation workflow for CLI coding agents.
-It is designed to plug into the SecPatch/PatchEval evaluation flow:
+It is designed to plug into the PatchEval-Verified evaluation flow:
 
 ```text
 run_infer.sh + patch_agent_runner.py
@@ -74,11 +74,10 @@ exp_agent/
 By default, scripts use:
 
 ```text
-../datasets/patcheval_230.json
-../../scripts/images.txt
+../datasets/patcheval_verified.json
 ```
 
-`patcheval_230.json` provides CVE metadata and prompt content. `images.txt` maps each CVE to the Docker image used for agent execution and evaluation.
+`patcheval_verified.json` provides CVE metadata, prompt content, and the `image_url` used for agent execution and evaluation. `../../scripts/images.txt` contains the same 230 image references for bulk download.
 
 ## Step 1: Generate patches
 
@@ -214,7 +213,7 @@ bash run_eval.sh codex_my_profile
 `run_eval.sh` will:
 
 1. find the latest `agent_runs/*-<prefix>` directory;
-2. convert `patches/*.patch` to SecPatch evaluation JSONL with `process_data.py`;
+2. convert `patches/*.patch` to PatchEval evaluation JSONL with `process_data.py`;
 3. call `../evaluation/run_evaluation.py`.
 
 The converted patch file is written to:
@@ -241,7 +240,7 @@ bash run_eval.sh <prefix> /path/to/agent_runs/<timestamp>-<prefix>
 
 For each sample it:
 
-1. looks up the CVE image in `images.txt`;
+1. reads the CVE image from the sample's `image_url` field;
 2. starts a Docker container;
 3. selects the repository workdir from `/workspace/<repo basename>`, then `/workspace/<repo basename lower-case>`, then `/workspace`;
 4. hides non-repository files under `/workspace` when a repository subdirectory is selected;
@@ -269,4 +268,7 @@ agent_runs/<timestamp>-<prefix>/
 - During patch generation, the CLI prints case-level progress when a case
   finishes. Detailed agent logs are written under `.work/<case>/agent_stdout.txt`
   and `.work/<case>/agent_stderr.txt`.
+- `run_infer.sh` exits with a non-zero status if any selected case fails, while
+  preserving all generated patches and logs. Failed cases are represented by
+  empty patch files and are counted as failed repairs during evaluation.
 - Keep credentials and runtime homes outside version control.

@@ -267,13 +267,13 @@ def main():
             if is_success:
                 with open(f"{log_dir}/success_output.log", 'w') as f: f.write(output)
             else:
-                with open(f"{log_dir}/erro_output.log", 'w') as f: f.write(output)
+                with open(f"{log_dir}/error_output.log", 'w') as f: f.write(output)
             
             return (cve, language, validation_type, image_name, is_success, False)
         except Exception as e:
             task_logger.error(f"{image_name} RUN ERROR")
             task_logger.error(e)
-            with open(f"{log_dir}/erro_output.log", 'w') as f:
+            with open(f"{log_dir}/error_output.log", 'w') as f:
                 f.write(str(e))
             return (cve, language, validation_type, image_name, False, True)  
         finally:

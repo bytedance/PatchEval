@@ -59,7 +59,7 @@ If you would like to submit your model results to [PatchEval](https://patcheval.
         │   ├── fix.patch
         │   └── success_output.log
         └── CVE-ID
-            ├── erro_output.log
+            ├── error_output.log
             └── fix.patch
         ```
     - `metadata.yaml`: Metadata of your submission, including how it will be displayed on the website:

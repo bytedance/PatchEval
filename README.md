@@ -1,6 +1,6 @@
 <div align="center">
   <img src="docs/figs/banner1.jpg" alt="Logo" width="400">
-  <h3 align="center">A Benchmark and Workflow for Evaluating Coding Agents on Real-World Vulnerability Repair</h3>
+  <h3 align="center">A New Benchmark for Evaluating LLMs / Agents on Patching Real-World Vulnerabilities</h3>
 </div>
 
 <p align="center">
@@ -10,9 +10,9 @@
   <a href="https://huggingface.co/datasets/ByteDance/PatchEval">
     <img src="https://img.shields.io/badge/Dataset-HuggingFace-orange">
   </a>
-  <a href="https://patcheval.github.io/">
+  <!-- <a href="https://patcheval.github.io/">
     <img alt="Leaderboard" src="https://img.shields.io/badge/Leaderboard-PatchEval-blue">
-  </a>
+  </a> -->
   <a href="https://www.python.org/">
     <img alt="Python" src="https://img.shields.io/badge/Python-3.10+-1f425f.svg?color=purple">
   </a>
@@ -25,32 +25,43 @@
 
 ## 📢 News
 
+* **[2026/07/24]** We release **PatchEval-Verified**, with updated Docker evaluation environments for 230 CVEs. In the original PatchEval, some PoC tests were adapted from project regression tests and were tied too closely to particular patch implementations. We revised these tests to evaluate whether a vulnerability is fixed, rather than requiring a specific fix, improving robustness and reducing false negatives.
 * **[2025/11/18]** PatchEval is released as a benchmark for evaluating Large Language Models and agents on real-world vulnerability repair.
 
 ## 👋 Overview
 
-PatchEval is a benchmark for evaluating automated vulnerability repair. It contains CVE-derived tasks across Go, JavaScript, and Python, and a 230-case subset with Dockerized sandbox environments for runtime validation.
+**PatchEval-Verified** evaluates LLMs and coding agents on automated repair of real-world vulnerabilities. This repository provides **230 CVE cases with Docker-based evaluation environments**, covering vulnerabilities reported between 2015 and 2025 across Go, JavaScript, and Python. Every image contains the vulnerable repository and a validation entrypoint.
 
-This `SecPatch-verified` copy focuses on a streamlined two-stage workflow:
+The main improvement over the original PatchEval release is the upgraded evaluation harness:
+
+* **Less implementation coupling:** a valid repair should not need to reproduce the official patch or one specific implementation strategy.
+* **Stronger vulnerability validation:** the validation tests are designed to check whether the vulnerability remains exploitable after applying the generated patch.
+* **More robust scoring:** strengthened test logic reduces accidental passes and rejection of semantically correct alternative fixes.
+
+The repository also provides a streamlined two-stage workflow:
 
 ```text
-1. Patch generation with a CLI coding agent
+1. Generate patches with a CLI coding agent
    patcheval/exp_agent/run_infer.sh
 
-2. Patch evaluation
+2. Evaluate generated patches in the verified Docker environments
    patcheval/exp_agent/run_eval.sh
    -> patcheval/evaluation/run_evaluation.py
 ```
 
-Currently supported CLI agents:
+The included agent adapters are:
 
 ```text
 Codex CLI
 OpenCode
-TraeCLI / TraeX
+TraeCLI
 ```
 
-The generated patches are evaluated with the case validation script.
+The figure below illustrates the overall design of the original PatchEval benchmark. This repository focuses on the 230 Docker-verified cases and the dynamic evaluation workflow.
+
+<p align="center">
+  <img src="docs/figs/overview.png" style="max-width: 60%; height: auto;"/>
+</p>
 
 ## 💻 Getting Started
 
@@ -59,61 +70,65 @@ The generated patches are evaluated with the case validation script.
 * **Operating System**: Linux.
 * **Python**: Python 3.10+; Python 3.12 is recommended.
 * **Docker**: Docker must be installed and available to the current user.
-* **Disk Storage**: The full 230-image PatchEval set is large. Reserve hundreds of GB if pulling all images locally.
+* **CPU**: 16 or more cores are recommended for parallel experiments.
+* **Disk Storage**: Reserve at least 500 GB if pulling all 230 images locally.
 
 ### Setup
 
 ```bash
-git clone <your-repo-url>
-cd SecPatch-verified
+git clone https://github.com/bytedance/PatchEval.git
+cd PatchEval
 
 conda create -n patcheval python=3.12
 conda activate patcheval
 pip install -r requirements.txt
 ```
 
-Verify the Python Docker SDK is installed:
+Verify both Docker and the Python Docker SDK:
 
 ```bash
+docker version
 python -c "import docker; print(docker.__version__)"
 ```
 
-## 📜 Repo Structure
+## 📜 Repository Structure
 
 ```text
 ./
 ├── docs/
 ├── patcheval/
 │   ├── datasets/
-│   │   └── patcheval_230.json        # 230-case metadata used by generation/evaluation
+│   │   └── patcheval_verified.json   # metadata and image URL for 230 verified cases
 │   ├── evaluation/
-│   │   ├── run_evaluation.py         # patch evaluator
+│   │   ├── README.md
+│   │   ├── run_evaluation.py         # Docker-based patch evaluator
+│   │   ├── utils.py
 │   │   └── example_patch.json
 │   └── exp_agent/
-│       ├── agents/                   # agent adapters: codex/opencode/traecli
+│       ├── agents/                   # Codex, OpenCode, and TraeCLI adapters
 │       ├── patch_agent_runner.py     # patch-generation-only runner
-│       ├── process_data.py           # converts generated patches to eval JSONL
-│       ├── run_infer.sh              # unified patch generation entrypoint
-│       ├── run_eval.sh               # unified evaluation entrypoint
+│       ├── process_data.py           # converts generated patches to evaluation JSONL
+│       ├── run_infer.sh              # patch generation entrypoint
+│       ├── run_eval.sh               # evaluation entrypoint
 │       └── README.md
 ├── scripts/
 │   ├── download_images.py
-│   └── images.txt                    # CVE -> Docker image list
+│   └── images.txt                    # list of the 230 Docker images
 ├── README.md
 └── requirements.txt
 ```
 
-## 📊 Dataset and Docker Images
+## 📊 Verified Dataset and Docker Images
 
 ### Dataset
 
-The verified 230-case metadata file is:
+The metadata used by both patch generation and evaluation is:
 
 ```text
-patcheval/datasets/patcheval_230.json
+patcheval/datasets/patcheval_verified.json
 ```
 
-Each entry keeps benchmark metadata such as:
+It contains 230 entries with fields including:
 
 ```text
 cve_id
@@ -124,42 +139,34 @@ patch_url
 programing_language
 vul_func
 fix_func
+image_url
 ```
 
-The agent runner uses `cve_description` as the vulnerability description and derives runtime details from the Docker image and repository metadata.
+> [!NOTE]
+> `programing_language` is the field name used by the released dataset and is intentionally preserved for compatibility.
+
+The agent runner uses `cve_description`, `repo`, and `image_url` to construct the task and runtime environment. Reference information such as `patch_url` and `fix_func` is not included in the agent prompt and should not be used as a repair source.
 
 ### Docker Images
 
-The image list is:
+`scripts/images.txt` contains the same 230 image references recorded by `image_url` in the verified dataset. Image names follow this form:
 
 ```text
-scripts/images.txt
+ghcr.io/patcheval-cve/patcheval-cve:cve-<year>-<id>
 ```
 
-Each line is a Docker image reference for a PatchEval CVE case. Use a CVE-style image basename, for example:
-
-```text
-<registry>/<namespace>/cve-<year>-<id>:<tag>
-```
-
-To pull all images:
+Pull all images with:
 
 ```bash
 cd scripts
 python download_images.py
 ```
 
+The script pulls images concurrently. Make sure the images required by your selected cases are available locally before evaluation.
+
 ## 🚀 CLI Agent Patch Generation and Evaluation
 
-This verified workflow has been smoke-tested with all three supported CLI agents:
-
-```text
-codex
-opencode
-traecli
-```
-
-Each agent follows the same two-step interface:
+The verified workflow has been smoke-tested with the included `codex`, `opencode`, and `traecli` adapters. All adapters use the same two-step interface:
 
 ```bash
 conda activate patcheval
@@ -168,7 +175,7 @@ bash run_infer.sh <agent> <prefix>   # generate patches
 bash run_eval.sh <prefix>            # evaluate generated patches
 ```
 
-Start with a one-case smoke test, then scale to all 230 cases.
+Start with one case before scaling to the complete dataset.
 
 ### Codex smoke test
 
@@ -177,10 +184,10 @@ conda activate patcheval
 cd patcheval/exp_agent
 
 export CODEX_BIN=/path/to/codex
-export CODEX_CONFIG=/path/to/codex-home/gpt54-gggso.config.toml
+export CODEX_CONFIG=/path/to/codex-home/<profile>.config.toml
 
 LIMIT=1 CONCURRENCY=1 bash run_infer.sh codex codex_smoke
-bash run_eval.sh codex_smoke
+MAX_WORKERS=1 bash run_eval.sh codex_smoke
 ```
 
 ### Full 230-case run
@@ -190,46 +197,84 @@ conda activate patcheval
 cd patcheval/exp_agent
 
 CONCURRENCY=10 bash run_infer.sh codex codex_full
-bash run_eval.sh codex_full
+MAX_WORKERS=4 bash run_eval.sh codex_full
 ```
 
-Replace `codex` with `opencode` or `traecli` to run other tested adapters. See [patcheval/exp_agent/README.md](patcheval/exp_agent/README.md) for the required environment variables and detailed agent-specific examples.
+`CONCURRENCY` controls parallel patch-generation containers, while `MAX_WORKERS` controls parallel evaluation containers. Replace `codex` with `opencode` or `traecli` to use another adapter. See [patcheval/exp_agent/README.md](patcheval/exp_agent/README.md) for the required agent-specific environment variables.
 
-## 🧪 Patch Evaluation
+## 🧪 Standalone Patch Evaluation
 
-For normal usage, evaluate generated patches through the agent workflow:
+To evaluate patches generated by another system, prepare a JSON or JSONL file whose entries contain:
+
+```json
+{
+  "cve": "CVE-2021-23376",
+  "fix_patch": "diff --git ..."
+}
+```
+
+Then run:
 
 ```bash
-conda activate patcheval
-cd patcheval/exp_agent
-bash run_eval.sh <prefix>
+cd patcheval/evaluation
+python run_evaluation.py \
+  --output my_run \
+  --patch_file /path/to/patches.jsonl \
+  --input_file ../datasets/patcheval_verified.json \
+  --max_workers 4 \
+  --log_level INFO
 ```
 
-For standalone patch-file evaluation, see [patcheval/evaluation/README.md](patcheval/evaluation/README.md).
+For every patch, the evaluator:
 
-## 📁 Patch Generation Outputs
+1. starts the Docker image specified by the case's `image_url`;
+2. mounts the submitted patch at `/workspace/fix.patch`;
+3. runs `cd /workspace && bash fix-run.sh` with a 600-second command timeout;
+4. classifies failures heuristically as patch-application, compilation, validation, or execution errors;
+5. removes the temporary container.
 
-A generation run creates:
+A repair passes only when `fix-run.sh` exits successfully. See [patcheval/evaluation/README.md](patcheval/evaluation/README.md) for details.
+
+`run_infer.sh` returns a non-zero exit code if any selected case fails, while preserving all generated patches and logs. Failed generation cases are represented by empty patch files and remain in the evaluation input, where they are counted as failed repairs.
+
+## 📁 Outputs
+
+A patch-generation run creates:
 
 ```text
 patcheval/exp_agent/agent_runs/<timestamp>-<prefix>/
-├── patches/           # CVE-keyed patches for evaluation
-├── .work/             # prompt and agent stdout/stderr
-├── results.jsonl
+├── patches/           # one patch file per CVE
+├── .work/             # prompts and agent stdout/stderr
+├── results.jsonl      # per-case generation status
 ├── run_metadata.json
-└── summary.json
+└── summary.json       # generated/failed counts
 ```
 
-During patch generation, the CLI prints case-level progress when each case finishes. Detailed logs are available in:
+`run_eval.sh` converts these patches to:
 
 ```text
-.work/<case>/agent_stdout.txt
-.work/<case>/agent_stderr.txt
+patcheval/exp_agent/eval_inputs/<prefix>.jsonl
 ```
+
+Evaluation results are written to:
+
+```text
+patcheval/evaluation/evaluation_output/results/<prefix>/
+├── run_evaluation.log
+├── summary_report.txt
+├── summary.json
+└── logs/<CVE>/
+    ├── fix.patch
+    └── success_output.log or error_output.log
+```
+
+## 📈 Results on PatchEval-Verified
+
+Coming soon...
 
 ## 🚀 Contributions
 
-We welcome issues, bug reports, improvements to agent adapters, and additional reproducibility scripts.
+We welcome issues, bug reports, improvements to the verified validation environments, agent adapters, and reproducibility scripts.
 
 ## 📖 Citation
 
