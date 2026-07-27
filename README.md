@@ -28,6 +28,18 @@
 * **[2026/07/24]** We release **PatchEval-Verified**, with updated Docker evaluation environments for 230 CVEs. In the original PatchEval, some PoC tests were adapted from project regression tests and were tied too closely to particular patch implementations. We revised these tests to evaluate whether a vulnerability is fixed, rather than requiring a specific fix, improving robustness and reducing false negatives.
 * **[2025/11/18]** PatchEval is released as a benchmark for evaluating Large Language Models and agents on real-world vulnerability repair.
 
+## 📈 Results on PatchEval-Verified
+
+| Agent | Model | Pass@1 |
+| --- | --- | ---: |
+| codex | gpt-5.6-sol | 193/230 (83.91%) |
+| codex | gpt-5.5 | 187/230 (81.30%) |
+| codex | gpt-5.4 | 181/230 (78.70%) |
+| trae | seed-2.1-turbo | 166/230 (72.17%) |
+| Opencode | kimi-2.7-code | 157/230 (68.26%) |
+| Opencode | GLM 5.2 | 154/230 (66.96%) |
+| Opencode | Deepseek V4 Pro | 143/230 (62.17%) |
+
 ## 👋 Overview
 
 **PatchEval-Verified** evaluates LLMs and coding agents on automated repair of real-world vulnerabilities. This repository provides **230 CVE cases with Docker-based evaluation environments**, covering vulnerabilities reported between 2015 and 2025 across Go, JavaScript, and Python. Every image contains the vulnerable repository and a validation entrypoint.
@@ -267,10 +279,6 @@ patcheval/evaluation/evaluation_output/results/<prefix>/
     ├── fix.patch
     └── success_output.log or error_output.log
 ```
-
-## 📈 Results on PatchEval-Verified
-
-Coming soon...
 
 ## 🚀 Contributions
 
