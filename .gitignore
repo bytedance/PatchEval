@@ -1,0 +1,10 @@
+*.py[cod]
+__pycache__/
+.pytest_cache/
+.inspect-data/
+.local/
+.venv/
+logs/
+inspect-logs/
+*run-config*.json
+*generate-config*.json

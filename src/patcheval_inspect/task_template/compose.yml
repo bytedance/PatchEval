@@ -1,0 +1,16 @@
+services:
+  # Agent sandbox: the repair agent explores and edits here, then writes
+  # /workspace/fix.patch.
+  default:
+    image: ${SAMPLE_METADATA_IMAGE_URL}
+    command: /bin/bash -lc "tail -f /dev/null"
+    init: true
+    stop_grace_period: 1s
+
+  # Evaluation sandbox: the scorer writes the collected patch here and runs
+  # fix-run.sh in a clean container from the same image.
+  evaluator:
+    image: ${SAMPLE_METADATA_IMAGE_URL}
+    command: /bin/bash -lc "tail -f /dev/null"
+    init: true
+    stop_grace_period: 1s
