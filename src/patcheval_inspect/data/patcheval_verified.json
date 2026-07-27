@@ -1,0 +1,1382 @@
+[
+  {
+    "cve_id": "CVE-2021-23376",
+    "description": "This affects all versions of package ffmpegdotjs. If attacker-controlled user input is given to the trimvideo function, it is possible for an attacker to execute arbitrary commands. This is due to use of the child_process exec function without input sanitization.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-23376",
+    "workdir": "/workspace/ffmpegdotjs"
+  },
+  {
+    "cve_id": "CVE-2020-26215",
+    "description": "Jupyter Notebook before version 6.1.5 has an Open redirect vulnerability. A maliciously crafted link to a notebook server could redirect the browser to a different website. All notebook servers are technically affected, however, these maliciously crafted links can only be reasonably made for known notebook server hosts. A link to your notebook server may appear safe, but ultimately redirect to a spoofed server on the public internet. The issue is patched in version 6.1.5.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-26215",
+    "workdir": "/workspace/notebook"
+  },
+  {
+    "cve_id": "CVE-2022-1986",
+    "description": "OS Command Injection in GitHub repository gogs/gogs prior to 0.12.9.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-1986",
+    "workdir": "/workspace/gogs"
+  },
+  {
+    "cve_id": "CVE-2024-25620",
+    "description": "Helm is a tool for managing Charts. Charts are packages of pre-configured Kubernetes resources. When either the Helm client or SDK is used to save a chart whose name within the `Chart.yaml` file includes a relative path change, the chart would be saved outside its expected directory based on the changes in the relative path. The validation and linting did not detect the path changes in the name. This issue has been resolved in Helm v3.14.1. Users unable to upgrade should check all charts used by Helm for path changes in their name as found in the `Chart.yaml` file. This includes dependencies.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-25620",
+    "workdir": "/workspace/helm"
+  },
+  {
+    "cve_id": "CVE-2020-25459",
+    "description": "An issue was discovered in function sync_tree in hetero_decision_tree_guest.py in WeBank FATE (Federated AI Technology Enabler) 0.1 through 1.4.2 allows attackers to read sensitive information during the training process of machine learning joint modeling.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-25459",
+    "workdir": "/workspace/FATE"
+  },
+  {
+    "cve_id": "CVE-2020-28494",
+    "description": "This affects the package total.js before 3.4.7. The issue occurs in the image.pipe and image.stream functions. The type parameter is used to build the command that is then executed using child_process.spawn. The issue occurs because child_process.spawn is called with the option shell set to true and because the type parameter is not properly sanitized.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-28494",
+    "workdir": "/workspace/framework"
+  },
+  {
+    "cve_id": "CVE-2025-24806",
+    "description": "Authelia is an open-source authentication and authorization server providing two-factor authentication and single sign-on (SSO) for applications via a web portal. If users are allowed to sign in via both username and email the regulation system treats these as separate login events. This leads to the regulation limitations being effectively doubled assuming an attacker using brute-force to find a user password. It's important to note that due to the effective operation of regulation where no user-facing sign of their regulation ban being visible either via timing or via API responses, it's effectively impossible to determine if a failure occurs due to a bad username password combination, or a effective ban blocking the attempt which heavily mitigates any form of brute-force. This occurs because the records and counting process for this system uses the method utilized for sign in rather than the effective username attribute. This has a minimal impact on account security, this impact is increased naturally in scenarios when there is no two-factor authentication required and weak passwords are used. This makes it a bit easier to brute-force a password. A patch for this issue has been applied to versions 4.38.19, and 4.39.0. Users are advised to upgrade. Users unable to upgrade should 1. Not heavily modify the default settings in a way that ends up with shorter or less frequent regulation bans. The default settings effectively mitigate any potential for this issue to be exploited. and 2. Disable the ability for users to login via an email address.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-24806",
+    "workdir": "/workspace/authelia"
+  },
+  {
+    "cve_id": "CVE-2023-22736",
+    "description": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Versions starting with 2.5.0-rc1 and above, prior to 2.5.8, and version 2.6.0-rc4, are vulnerable to an authorization bypass bug which allows a malicious Argo CD user to deploy Applications outside the configured allowed namespaces. Reconciled Application namespaces are specified as a comma-delimited list of glob patterns. When sharding is enabled on the Application controller, it does not enforce that list of patterns when reconciling Applications. For example, if Application namespaces are configured to be argocd-*, the Application controller may reconcile an Application installed in a namespace called other, even though it does not start with argocd-. Reconciliation of the out-of-bounds Application is only triggered when the Application is updated, so the attacker must be able to cause an update operation on the Application resource. This bug only applies to users who have explicitly enabled the \"apps-in-any-namespace\" feature by setting `application.namespaces` in the argocd-cmd-params-cm ConfigMap or otherwise setting the `--application-namespaces` flags on the Application controller and API server components. The apps-in-any-namespace feature is in beta as of this Security Advisory's publish date. The bug is also limited to Argo CD instances where sharding is enabled by increasing the `replicas` count for the Application controller. Finally, the AppProjects' `sourceNamespaces` field acts as a secondary check against this exploit. To cause reconciliation of an Application in an out-of-bounds namespace, an AppProject must be available which permits Applications in the out-of-bounds namespace. A patch for this vulnerability has been released in versions 2.5.8 and 2.6.0-rc5. As a workaround, running only one replica of the Application controller will prevent exploitation of this bug. Making sure all AppProjects' sourceNamespaces are restricted within the confines of the configured Application namespaces will also prevent exploitation of this bug.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-22736",
+    "workdir": "/workspace/argo-cd"
+  },
+  {
+    "cve_id": "CVE-2022-31506",
+    "description": "The cmusatyalab/opendiamond repository through 10.1.1 on GitHub allows absolute path traversal because the Flask send_file function is used unsafely.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-31506",
+    "workdir": "/workspace/opendiamond"
+  },
+  {
+    "cve_id": "CVE-2025-48374",
+    "description": "zot is ancontainer image/artifact registry based on the Open Container Initiative Distribution Specification. Prior to version 2.1.3 (corresponding to pseudoversion 1.4.4-0.20250522160828-8a99a3ed231f), when using Keycloak as an oidc provider, the clientsecret gets printed into the container stdout logs for an example at container startup. Version 2.1.3 (corresponding to pseudoversion 1.4.4-0.20250522160828-8a99a3ed231f) fixes the issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-48374",
+    "workdir": "/workspace/zot"
+  },
+  {
+    "cve_id": "CVE-2017-16100",
+    "description": "dns-sync is a sync/blocking dns resolver. If untrusted user input is allowed into the resolve() method then command injection is possible.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-16100",
+    "workdir": "/workspace/node-dns-sync"
+  },
+  {
+    "cve_id": "CVE-2021-21360",
+    "description": "Products.GenericSetup is a mini-framework for expressing the configured state of a Zope Site as a set of filesystem artifacts. In Products.GenericSetup before version 2.1.1 there is an information disclosure vulnerability - anonymous visitors may view log and snapshot files generated by the Generic Setup Tool. The problem has been fixed in version 2.1.1. Depending on how you have installed Products.GenericSetup, you should change the buildout version pin to 2.1.1 and re-run the buildout, or if you used pip simply do pip install `\"Products.GenericSetup>=2.1.1\"`.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-21360",
+    "workdir": "/workspace/Products.GenericSetup"
+  },
+  {
+    "cve_id": "CVE-2018-3772",
+    "description": "Concatenating unsanitized user input in the `whereis` npm module < 0.4.1 allowed an attacker to execute arbitrary commands. The `whereis` module is deprecated and it is recommended to use the `which` npm module instead.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-3772",
+    "workdir": "/workspace/node-whereis"
+  },
+  {
+    "cve_id": "CVE-2022-4724",
+    "description": "Improper Access Control in GitHub repository ikus060/rdiffweb prior to 2.5.5.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-4724",
+    "workdir": "/workspace/rdiffweb"
+  },
+  {
+    "cve_id": "CVE-2023-25165",
+    "description": "Helm is a tool that streamlines installing and managing Kubernetes applications.`getHostByName` is a Helm template function introduced in Helm v3. The function is able to accept a hostname and return an IP address for that hostname. To get the IP address the function performs a DNS lookup. The DNS lookup happens when used with `helm install|upgrade|template` or when the Helm SDK is used to render a chart. Information passed into the chart can be disclosed to the DNS servers used to lookup the IP address. For example, a malicious chart could inject `getHostByName` into a chart in order to disclose values to a malicious DNS server. The issue has been fixed in Helm 3.11.1. Prior to using a chart with Helm verify the `getHostByName` function is not being used in a template to disclose any information you do not want passed to DNS servers.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-25165",
+    "workdir": "/workspace/helm"
+  },
+  {
+    "cve_id": "CVE-2022-23538",
+    "description": "github.com/sylabs/scs-library-client is the Go client for the Singularity Container Services (SCS) Container Library Service. When the scs-library-client is used to pull a container image, with authentication, the HTTP Authorization header sent by the client to the library service may be incorrectly leaked to an S3 backing storage provider. This occurs in a specific flow, where the library service redirects the client to a backing S3 storage server, to perform a multi-part concurrent download. Depending on site configuration, the S3 service may be provided by a third party. An attacker with access to the S3 service may be able to extract user credentials, allowing them to impersonate the user. The vulnerable multi-part concurrent download flow, with redirect to S3, is only used when communicating with a Singularity Enterprise 1.x installation, or third party server implementing this flow. Interaction with Singularity Enterprise 2.x, and Singularity Container Services (cloud.sylabs.io), does not trigger the vulnerable flow. We encourage all users to update. Users who interact with a Singularity Enterprise 1.x installation, using a 3rd party S3 storage service, are advised to revoke and recreate their authentication tokens within Singularity Enterprise. There is no workaround available at this time.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-23538",
+    "workdir": "/workspace/scs-library-client"
+  },
+  {
+    "cve_id": "CVE-2023-28155",
+    "description": "The Request package through 2.88.1 for Node.js allows a bypass of SSRF mitigations via an attacker-controller server that does a cross-protocol redirect (HTTP to HTTPS, or HTTPS to HTTP). NOTE: This vulnerability only affects products that are no longer supported by the maintainer.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-28155",
+    "workdir": "/workspace/request"
+  },
+  {
+    "cve_id": "CVE-2022-28347",
+    "description": "A SQL injection issue was discovered in QuerySet.explain() in Django 2.2 before 2.2.28, 3.2 before 3.2.13, and 4.0 before 4.0.4. This occurs by passing a crafted dictionary (with dictionary expansion) as the **options argument, and placing the injection payload in an option name.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-28347",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2017-16042",
+    "description": "Growl adds growl notification support to nodejs. Growl before 1.10.2 does not properly sanitize input before passing it to exec, allowing for arbitrary command execution.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-16042",
+    "workdir": "/workspace/node-growl"
+  },
+  {
+    "cve_id": "CVE-2023-33967",
+    "description": "EaseProbe's MySQL and PostgreSQL data-checking probes build SQL statements from configured data keys whose components identify the database, table, selected field, lookup key, and expected value. The identifier components of those data keys are attacker- or operator-controlled configuration input, but they are concatenated directly into SQL query strings and, for PostgreSQL, also influence the selected database connection. An attacker who can supply or modify these data-checking entries can inject identifier-closing characters or SQL syntax so that the generated query no longer treats the input as identifiers, potentially altering the health-check query, bypassing checks, reading unintended data, or executing destructive SQL depending on database behavior and permissions.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-33967",
+    "workdir": "/workspace/easeprobe"
+  },
+  {
+    "cve_id": "CVE-2024-21542",
+    "description": "Versions of the package luigi before 3.6.0 are vulnerable to Arbitrary File Write via Archive Extraction (Zip Slip) due to improper destination file path validation in the _extract_packages_archive function.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-21542",
+    "workdir": "/workspace/luigi"
+  },
+  {
+    "cve_id": "CVE-2022-1883",
+    "description": "SQL Injection in GitHub repository camptocamp/terraboard prior to 2.2.0.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-1883",
+    "workdir": "/workspace/terraboard"
+  },
+  {
+    "cve_id": "CVE-2024-27302",
+    "description": "go-zero is a web and rpc framework. Go-zero allows user to specify a CORS Filter with a configurable allows param - which is an array of domains allowed in CORS policy. However, the `isOriginAllowed` uses `strings.HasSuffix` to check the origin, which leads to bypass via a malicious domain. This vulnerability is capable of breaking CORS policy and thus allowing any page to make requests and/or retrieve data on behalf of other users. Version 1.4.4 fixes this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-27302",
+    "workdir": "/workspace/go-zero"
+  },
+  {
+    "cve_id": "CVE-2022-41672",
+    "description": "In Apache Airflow, prior to version 2.4.1, deactivating a user wouldn't prevent an already authenticated user from being able to continue using the UI or API.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-41672",
+    "workdir": "/workspace/airflow"
+  },
+  {
+    "cve_id": "CVE-2021-23727",
+    "description": "Celery's result backend exception deserialization trusts exception metadata read from the backend. In BaseBackend.exception_to_python, attacker-controlled backend fields such as exc_module, exc_type, and exc_message can cause Celery to resolve and instantiate an arbitrary Python object instead of a real exception class. If an attacker can write or tamper with task result metadata in a Celery backend, this can turn stored backend data into execution of attacker-selected callables, including command-execution sinks, or cause non-exception objects to be treated as task exceptions.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-23727",
+    "workdir": "/workspace/celery"
+  },
+  {
+    "cve_id": "CVE-2018-14574",
+    "description": "django.middleware.common.CommonMiddleware in Django 1.11.x before 1.11.15 and 2.0.x before 2.0.8 has an Open Redirect.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-14574",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2021-21291",
+    "description": "OAuth2 Proxy is an open-source reverse proxy and static file server that provides authentication using Providers (Google, GitHub, and others) to validate accounts by email, domain or group. In OAuth2 Proxy before version 7.0.0, for users that use the whitelist domain feature, a domain that ended in a similar way to the intended domain could have been allowed as a redirect. For example, if a whitelist domain was configured for \".example.com\", the intention is that subdomains of example.com are allowed. Instead, \"example.com\" and \"badexample.com\" could also match. This is fixed in version 7.0.0 onwards. As a workaround, one can disable the whitelist domain feature and run separate OAuth2 Proxy instances for each subdomain.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-21291",
+    "workdir": "/workspace/oauth2-proxy"
+  },
+  {
+    "cve_id": "CVE-2020-8559",
+    "description": "The Kubernetes kube-apiserver in versions v1.6-v1.15, and versions prior to v1.16.13, v1.17.9 and v1.18.6 are vulnerable to an unvalidated redirect on proxied upgrade requests that could allow an attacker to escalate privileges from a node compromise to a full cluster compromise.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-8559",
+    "workdir": "/workspace/kubernetes"
+  },
+  {
+    "cve_id": "CVE-2020-7627",
+    "description": "node-key-sender through 1.0.11 is vulnerable to Command Injection. It allows execution of arbitrary commands via the 'arrParams' argument in the 'execute()' function.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7627",
+    "workdir": "/workspace/node-key-sender"
+  },
+  {
+    "cve_id": "CVE-2021-21432",
+    "description": "Vela's direct token authentication flow accepts a user-supplied GitHub token and uses it to authenticate the requester. Tokens issued for Vela's own configured GitHub OAuth application can be injected into build environments, such as through a generated ~/.netrc file, and must not be reusable as bearer credentials against Vela's /authenticate/token-style authentication path. An attacker who can obtain or cause use of such injected Vela OAuth credentials could authenticate as the associated GitHub user and gain access to protected Vela resources or secrets.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-21432",
+    "workdir": "/workspace/server"
+  },
+  {
+    "cve_id": "CVE-2019-19499",
+    "description": "Grafana's MySQL data source setup builds a go-sql-driver/mysql connection string from administrator-configurable data source fields without sufficiently separating untrusted field values from DSN syntax. An authenticated user who can create or modify MySQL data source configurations can place DSN delimiters or parameters in fields such as the database name so that the resulting driver configuration enables unsafe local infile behavior, including options such as allowAllFiles. If this reaches the MySQL driver, later use of LOAD DATA LOCAL INFILE can bypass the driver's local file restrictions and allow arbitrary files on the Grafana server to be read.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-19499",
+    "workdir": "/workspace/grafana"
+  },
+  {
+    "cve_id": "CVE-2021-3281",
+    "description": "In Django 2.2 before 2.2.18, 3.0 before 3.0.12, and 3.1 before 3.1.6, the django.utils.archive.extract method (used by \"startapp --template\" and \"startproject --template\") allows directory traversal via an archive with absolute paths or relative paths with dot segments.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-3281",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2024-47616",
+    "description": "Pomerium is an identity and context-aware access proxy. The Pomerium databroker service is responsible for managing all persistent Pomerium application state. Requests to the databroker service API are authorized by the presence of a JSON Web Token (JWT) signed by a key known by all Pomerium services in the same deployment. However, incomplete validation of this JWT meant that some service account access tokens would incorrectly be treated as valid for the purpose of databroker API authorization. Improper access to the databroker API could allow exfiltration of user info, spoofing of user sessions, or tampering with Pomerium routes, policies, and other settings. A Pomerium deployment is susceptible to this issue if all of the following conditions are met, you have issued a service account access token using Pomerium Zero or Pomerium Enterprise, the access token has an explicit expiration date in the future, and the core Pomerium databroker gRPC API is not otherwise secured by network access controls. This vulnerability is fixed in 0.27.1.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-47616",
+    "workdir": "/workspace/pomerium"
+  },
+  {
+    "cve_id": "CVE-2024-29041",
+    "description": "Express.js minimalist web framework for node. Versions of Express.js prior to 4.19.0 and all pre-release alpha and beta versions of 5.0 are affected by an open redirect vulnerability using malformed URLs. When a user of Express performs a redirect using a user-provided URL Express performs an encode [using `encodeurl`](https://github.com/pillarjs/encodeurl) on the contents before passing it to the `location` header. This can cause malformed URLs to be evaluated in unexpected ways by common redirect allow list implementations in Express applications, leading to an Open Redirect via bypass of a properly implemented allow list. The main method impacted is `res.location()` but this is also called from within `res.redirect()`. The vulnerability is fixed in 4.19.2 and 5.0.0-beta.3.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-29041",
+    "workdir": "/workspace/express"
+  },
+  {
+    "cve_id": "CVE-2021-22538",
+    "description": "A privilege escalation vulnerability impacting the Google Exposure Notification Verification Server (versions prior to 0.23.1), allows an attacker who (1) has UserWrite permissions and (2) is using a carefully crafted request or malicious proxy, to create another user with higher privileges than their own. This occurs due to insufficient checks on the allowed set of permissions. The new user creation event would be captured in the Event Log.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-22538",
+    "workdir": "/workspace/exposure-notifications-verification-server"
+  },
+  {
+    "cve_id": "CVE-2017-16025",
+    "description": "Nes is a websocket extension library for hapi. Hapi is a webserver framework. Versions below and including 6.4.0 have a denial of service vulnerability via an invalid Cookie header. This is only present when websocket authentication is set to `cookie`. Submitting an invalid cookie on the websocket upgrade request will cause the node process to error out.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-16025",
+    "workdir": "/workspace/nes"
+  },
+  {
+    "cve_id": "CVE-2022-2421",
+    "description": "Socket.IO parser's binary attachment reconstruction trusts placeholder metadata supplied in encoded packets. When decoding a binary event or acknowledgement, a remote peer can provide a malformed placeholder object with a truthy non-boolean `_placeholder` value or a `num` value that is not a valid attachment index, such as a string naming an inherited Array property or another invalid index. The reconstruction logic may then index the attachment buffer array with attacker-controlled metadata and insert a function object or other non-attachment reference into the decoded packet payload instead of an actual binary attachment. This can expose application code to attacker-controlled unexpected values in event data and cause type confusion or unsafe downstream behavior.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-2421",
+    "workdir": "/workspace/socket.io-parser"
+  },
+  {
+    "cve_id": "CVE-2019-10856",
+    "description": "Jupyter Notebook's login redirect handling is vulnerable to an open redirect when processing the attacker-controlled next parameter. The handler attempts to allow local redirects under the configured base_url, but URL parsing can treat certain absolute-looking inputs as having an empty netloc even though browsers may interpret them as external or non-local destinations. An attacker who can cause a user to visit or submit the login flow with such a crafted next value could make the server emit a Location header that sends the user's browser away from the Notebook application, enabling phishing or other redirect-based attacks.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-10856",
+    "workdir": "/workspace/notebook"
+  },
+  {
+    "cve_id": "CVE-2015-1326",
+    "description": "python-dbusmock before version 0.15.1 AddTemplate() D-Bus method call or DBusTestCase.spawn_server_template() method could be tricked into executing malicious code if an attacker supplies a .pyc file.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2015-1326",
+    "workdir": "/workspace/python-dbusmock"
+  },
+  {
+    "cve_id": "CVE-2024-39330",
+    "description": "An issue was discovered in Django 5.0 before 5.0.7 and 4.2 before 4.2.14. Derived classes of the django.core.files.storage.Storage base class, when they override generate_filename() without replicating the file-path validations from the parent class, potentially allow directory traversal via certain inputs during a save() call. (Built-in Storage sub-classes are unaffected.)",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-39330",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2022-21712",
+    "description": "Twisted's HTTP redirect-following clients, including twisted.web.client.RedirectAgent and BrowserLikeRedirectAgent, can leak credential-bearing request headers when they automatically follow a redirect from one origin to another. An attacker who can cause a request carrying cookies or authorization credentials to receive a redirect to an attacker-controlled URL may receive headers such as Cookie, Cookie2, Authorization, or Proxy-Authorization on the redirected request. This exposes user/session credentials to a different scheme, host, or port than the one for which they were intended.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-21712",
+    "workdir": "/workspace/twisted"
+  },
+  {
+    "cve_id": "CVE-2018-20834",
+    "description": "A vulnerability was found in node-tar before version 4.4.2 (excluding version 2.2.2). An Arbitrary File Overwrite issue exists when extracting a tarball containing a hardlink to a file that already exists on the system, in conjunction with a later plain file with the same name as the hardlink. This plain file content replaces the existing file content. A patch has been applied to node-tar v2.2.2).",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-20834",
+    "workdir": "/workspace/node-tar"
+  },
+  {
+    "cve_id": "CVE-2018-3734",
+    "description": "The stattic module's HTTP static file handler is vulnerable to path traversal. It derives a filesystem path from the attacker-controlled request URL pathname and joins it with the configured static root directory without reliably ensuring that the resulting target remains inside that root. An attacker who knows or can guess a filesystem path can send a URL containing parent-directory traversal segments to cause the server to read and return files outside the configured static content directory. This can disclose arbitrary local file contents through the HTTP response.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-3734",
+    "workdir": "/workspace/stattic"
+  },
+  {
+    "cve_id": "CVE-2021-4315",
+    "description": "A vulnerability has been found in NYUCCL psiTurk up to 3.2.0 and classified as critical. This vulnerability affects unknown code of the file psiturk/experiment.py. The manipulation of the argument mode leads to improper neutralization of special elements used in a template engine. The exploit has been disclosed to the public and may be used. Upgrading to version 3.2.1 is able to address this issue. The name of the patch is 47787e15cecd66f2aa87687bf852ae0194a4335f. It is recommended to upgrade the affected component. The identifier of this vulnerability is VDB-219676.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-4315",
+    "workdir": "/workspace/psiTurk"
+  },
+  {
+    "cve_id": "CVE-2020-26237",
+    "description": "Highlight.js is a syntax highlighter written in JavaScript. Highlight.js versions before 9.18.2 and 10.1.2 are vulnerable to Prototype Pollution. A malicious HTML code block can be crafted that will result in prototype pollution of the base object's prototype during highlighting. If you allow users to insert custom HTML code blocks into your page/app via parsing Markdown code blocks (or similar) and do not filter the language names the user can provide you may be vulnerable. The pollution should just be harmless data but this can cause problems for applications not expecting these properties to exist and can result in strange behavior or application crashes, i.e. a potential DOS vector. If your website or application does not render user provided data it should be unaffected. Versions 9.18.2 and 10.1.2 and newer include fixes for this vulnerability. If you are using version 7 or 8 you are encouraged to upgrade to a newer release.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-26237",
+    "workdir": "/workspace/highlight.js"
+  },
+  {
+    "cve_id": "CVE-2024-22199",
+    "description": "The Django/Pongo2 template engine adapter for Fiber renders template variables without HTML autoescaping by default. In applications that pass attacker-controlled data into template render bindings, including values reached through nested maps or other template-accessible data structures, malicious HTML or JavaScript markup can be emitted into the response and interpreted by the browser, enabling cross-site scripting. The vulnerable behavior occurs during normal template rendering, including rendering through layouts, whenever user-supplied values are interpolated into HTML output.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-22199",
+    "workdir": "/workspace/template"
+  },
+  {
+    "cve_id": "CVE-2024-48911",
+    "description": "OpenCanary can cross a privilege boundary when the daemon is started with elevated privileges but its configuration is discovered from locations writable by an unprivileged user, such as the current working directory or the user's home directory. An attacker who can control those configuration files, or the environment used while they are parsed, may influence command execution paths during configuration loading, error handling, or modules that build privileged system commands from configuration values. This can allow local privilege escalation by causing attacker-controlled commands or command arguments to run with the daemon's privileges.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-48911",
+    "workdir": "/workspace/opencanary"
+  },
+  {
+    "cve_id": "CVE-2023-29159",
+    "description": "Directory traversal vulnerability in Starlette versions 0.13.5 and later and prior to 0.27.0 allows a remote unauthenticated attacker to view files in a web service which was built using Starlette.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-29159",
+    "workdir": "/workspace/starlette"
+  },
+  {
+    "cve_id": "CVE-2023-25173",
+    "description": "containerd's OCI spec generation can produce process credentials where the current primary GID is not included in the group list passed to the runtime when user or group settings are resolved from image, OCI, CRI, or client-library configuration. Because container startup may apply the generated supplementary group list with setgroups-like behavior, omitting the primary GID can cause the container process to run with an unintended set of group credentials: the primary group may be dropped while other supplementary groups remain. An attacker who can influence the container user/group configuration or has direct access to the resulting container may abuse this incorrect group setup to bypass expected group-based access restrictions, potentially gaining access to sensitive files or execution capabilities inside the container.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-25173",
+    "workdir": "/workspace/containerd"
+  },
+  {
+    "cve_id": "CVE-2022-23542",
+    "description": "OpenFGA's authorization check logic can incorrectly authorize access using relationship tuples that remain in storage but are no longer valid under the authorization model selected for the Check request. In particular, when an authorization model is changed or tightened, a tuple that was valid under an older model may violate the current model's type restrictions, yet Check may still treat that stale tuple as evidence of access. An attacker who can rely on previously stored relationship tuples, or trigger checks against objects whose tuples were written under an older model, may be granted permissions that the current model no longer allows.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-23542",
+    "workdir": "/workspace/openfga"
+  },
+  {
+    "cve_id": "CVE-2022-35949",
+    "description": "undici is an HTTP/1.1 client, written from scratch for Node.js.`undici` is vulnerable to SSRF (Server-side Request Forgery) when an application takes in **user input** into the `path/pathname` option of `undici.request`. If a user specifies a URL such as `http://127.0.0.1` or `//127.0.0.1` ```js const undici = require(\"undici\") undici.request({origin: \"http://example.com\", pathname: \"//127.0.0.1\"}) ``` Instead of processing the request as `http://example.org//127.0.0.1` (or `http://example.org/http://127.0.0.1` when `http://127.0.0.1 is used`), it actually processes the request as `http://127.0.0.1/` and sends it to `http://127.0.0.1`. If a developer passes in user input into `path` parameter of `undici.request`, it can result in an _SSRF_ as they will assume that the hostname cannot change, when in actual fact it can change because the specified path parameter is combined with the base URL. This issue was fixed in `undici@5.8.1`. The best workaround is to validate user input before passing it to the `undici.request` call.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-35949",
+    "workdir": "/workspace/undici"
+  },
+  {
+    "cve_id": "CVE-2022-0512",
+    "description": "Authorization Bypass Through User-Controlled Key in NPM url-parse prior to 1.5.6.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0512",
+    "workdir": "/workspace/url-parse"
+  },
+  {
+    "cve_id": "CVE-2022-39340",
+    "description": "OpenFGA is an authorization/permission engine. Prior to version 0.2.4, the `streamed-list-objects` endpoint was not validating the authorization header, resulting in disclosure of objects in the store. Users `openfga/openfga` versions 0.2.3 and prior who are exposing the OpenFGA service to the internet are vulnerable. Version 0.2.4 contains a patch for this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-39340",
+    "workdir": "/workspace/openfga"
+  },
+  {
+    "cve_id": "CVE-2024-6257",
+    "description": "The Git getter in go-getter invokes the external git command with a repository URL supplied by the caller. If that URL is option-like, such as a repository operand that begins with a dash, git may parse the attacker-controlled repository string as command-line options instead of as a repository name. An attacker who can influence the Git source URL can therefore inject git options during operations such as remote discovery or cloning, which can affect git configuration or command behavior and may lead to arbitrary command execution in environments that process untrusted go-getter URLs.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-6257",
+    "workdir": "/workspace/go-getter"
+  },
+  {
+    "cve_id": "CVE-2024-24579",
+    "description": "stereoscope is a go library for processing container images and simulating a squash filesystem.  Prior to version 0.0.1, it is possible to craft an OCI tar archive that, when stereoscope attempts to unarchive the contents, will result in writing to paths outside of the unarchive temporary directory. Specifically, use of `github.com/anchore/stereoscope/pkg/file.UntarToDirectory()` function, the  `github.com/anchore/stereoscope/pkg/image/oci.TarballImageProvider` struct, or the higher level `github.com/anchore/stereoscope/pkg/image.Image.Read()` function express this vulnerability. As a workaround, if you are using the OCI archive as input into stereoscope then you can switch to using an OCI layout by unarchiving the tar archive and provide the unarchived directory to stereoscope.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-24579",
+    "workdir": "/workspace/stereoscope"
+  },
+  {
+    "cve_id": "CVE-2020-17479",
+    "description": "jpv (aka Json Pattern Validator) before 2.2.2 does not properly validate input, as demonstrated by a corrupted array.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-17479",
+    "workdir": "/workspace/jpv"
+  },
+  {
+    "cve_id": "CVE-2021-32804",
+    "description": "The npm package \"tar\" (aka node-tar) before versions 6.1.1, 5.0.6, 4.4.14, and 3.3.2 has a arbitrary File Creation/Overwrite vulnerability due to insufficient absolute path sanitization. node-tar aims to prevent extraction of absolute file paths by turning absolute paths into relative paths when the `preservePaths` flag is not set to `true`. This is achieved by stripping the absolute path root from any absolute file paths contained in a tar file. For example `/home/user/.bashrc` would turn into `home/user/.bashrc`. This logic was insufficient when file paths contained repeated path roots such as `////home/user/.bashrc`. `node-tar` would only strip a single path root from such paths. When given an absolute file path with repeating path roots, the resulting path (e.g. `///home/user/.bashrc`) would still resolve to an absolute path, thus allowing arbitrary file creation and overwrite. This issue was addressed in releases 3.2.2, 4.4.14, 5.0.6 and 6.1.1. Users may work around this vulnerability without upgrading by creating a custom `onentry` method which sanitizes the `entry.path` or a `filter` method which removes entries with absolute paths. See referenced GitHub Advisory for details. Be aware of CVE-2021-32803 which fixes a similar bug in later versions of tar.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-32804",
+    "workdir": "/workspace/node-tar"
+  },
+  {
+    "cve_id": "CVE-2020-26299",
+    "description": "ftp-srv is an open-source FTP server designed to be simple yet configurable. In ftp-srv before version 4.4.0 there is a path-traversal vulnerability. Clients of FTP servers utilizing ftp-srv hosted on Windows machines can escape the FTP user's defined root folder using the expected FTP commands, for example, CWD and UPDR. When windows separators exist within the path (`\\`), `path.resolve` leaves the upper pointers intact and allows the user to move beyond the root folder defined for that user. We did not take that into account when creating the path resolve function. The issue is patched in version 4.4.0 (commit 457b859450a37cba10ff3c431eb4aa67771122e3).",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-26299",
+    "workdir": "/workspace/ftp-srv"
+  },
+  {
+    "cve_id": "CVE-2019-10795",
+    "description": "undefsafe before 2.0.3 is vulnerable to Prototype Pollution. The 'a' function could be tricked into adding or modifying properties of Object.prototype using a __proto__ payload.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-10795",
+    "workdir": "/workspace/undefsafe"
+  },
+  {
+    "cve_id": "CVE-2025-23221",
+    "description": "Fedify is a TypeScript library for building federated server apps powered by ActivityPub and other standards. This vulnerability allows a user to maneuver the Webfinger mechanism to perform a GET request to any internal resource on any Host, Port, URL combination regardless of present security mechanisms, and forcing the victim’s server into an infinite loop causing Denial of Service. Moreover, this issue can also be maneuvered into performing a Blind SSRF attack. This vulnerability is fixed in 1.0.14, 1.1.11, 1.2.11, and 1.3.4.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-23221",
+    "workdir": "/workspace/fedify"
+  },
+  {
+    "cve_id": "CVE-2022-36009",
+    "description": "gomatrixserverlib is a Go library for matrix protocol federation. Dendrite is a Matrix homeserver written in Go, an alternative to Synapse. The power level parsing within gomatrixserverlib was failing to parse the `\"events_default\"` key of the `m.room.power_levels` event, defaulting the event default power level to zero in all cases. Power levels are the matrix terminology for user access level. In rooms where the `\"events_default\"` power level had been changed, this could result in events either being incorrectly authorised or rejected by Dendrite servers. gomatrixserverlib contains a fix as of commit `723fd49` and Dendrite 0.9.3 has been updated accordingly. Matrix rooms where the `\"events_default\"` power level has not been changed from the default of zero are not vulnerable. Users are advised to upgrade. There are no known workarounds for this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-36009",
+    "workdir": "/workspace/gomatrixserverlib"
+  },
+  {
+    "cve_id": "CVE-2021-33203",
+    "description": "Django before 2.2.24, 3.x before 3.1.12, and 3.2.x before 3.2.4 has a potential directory traversal via django.contrib.admindocs. Staff members could use the TemplateDetailView view to check the existence of arbitrary files. Additionally, if (and only if) the default admindocs templates have been customized by application developers to also show file contents, then not only the existence but also the file contents would have been exposed. In other words, there is directory traversal outside of the template root directories.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-33203",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2024-1724",
+    "description": "In snapd versions prior to 2.62, when using AppArmor for enforcement of \nsandbox permissions, snapd failed to restrict writes to the $HOME/bin\npath. In Ubuntu, when this path exists, it is automatically added to\nthe users PATH. An attacker who could convince a user to install a\nmalicious snap which used the 'home' plug could use this vulnerability\nto install arbitrary scripts into the users PATH which may then be run\nby the user outside of the expected snap sandbox and hence allow them\nto escape confinement.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-1724",
+    "workdir": "/workspace/snapd"
+  },
+  {
+    "cve_id": "CVE-2021-26921",
+    "description": "In util/session/sessionmanager.go in Argo CD before 1.8.4, tokens continue to work even when the user account is disabled.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-26921",
+    "workdir": "/workspace/argo-cd"
+  },
+  {
+    "cve_id": "CVE-2019-16789",
+    "description": "In Waitress through version 1.4.0, if a proxy server is used in front of waitress, an invalid request may be sent by an attacker that bypasses the front-end and is parsed differently by waitress leading to a potential for HTTP request smuggling. Specially crafted requests containing special whitespace characters in the Transfer-Encoding header would get parsed by Waitress as being a chunked request, but a front-end server would use the Content-Length instead as the Transfer-Encoding header is considered invalid due to containing invalid characters. If a front-end server does HTTP pipelining to a backend Waitress server this could lead to HTTP request splitting which may lead to potential cache poisoning or unexpected information disclosure. This issue is fixed in Waitress 1.4.1 through more strict HTTP field validation.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-16789",
+    "workdir": "/workspace/waitress"
+  },
+  {
+    "cve_id": "CVE-2020-15084",
+    "description": "In express-jwt (NPM package) up and including version 5.3.3, the algorithms entry to be specified in the configuration is not being enforced. When algorithms is not specified in the configuration, with the combination of jwks-rsa, it may lead to authorization bypass. You are affected by this vulnerability if all of the following conditions apply: - You are using express-jwt - You do not have **algorithms** configured in your express-jwt configuration. - You are using libraries such as jwks-rsa as the **secret**. You can fix this by specifying **algorithms** in the express-jwt configuration. See linked GHSA for example. This is also fixed in version 6.0.0.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-15084",
+    "workdir": "/workspace/express-jwt"
+  },
+  {
+    "cve_id": "CVE-2023-41040",
+    "description": "GitPython is a python library used to interact with Git repositories. In order to resolve some git references, GitPython reads files from the `.git` directory, in some places the name of the file being read is provided by the user, GitPython doesn't check if this file is located outside the `.git` directory. This allows an attacker to make GitPython read any file from the system. This vulnerability is present in https://github.com/gitpython-developers/GitPython/blob/1c8310d7cae144f74a671cbe17e51f63a830adbf/git/refs/symbolic.py#L174-L175. That code joins the base directory with a user given string without checking if the final path is located outside the base directory. This vulnerability cannot be used to read the contents of files but could in theory be used to trigger a denial of service for the program. This issue has been addressed in version 3.1.37.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-41040",
+    "workdir": "/workspace/GitPython"
+  },
+  {
+    "cve_id": "CVE-2025-46331",
+    "description": "OpenFGA's CachedCheckResolver can incorrectly treat cycle-dependent Check results as reusable, context-independent authorization decisions. When an authorization model and relationship tuples create recursive or cyclic relationships, a Check or ListObjects evaluation may reach the same tuple subproblem under different path-sensitive evaluation contexts, including different visited-path/cycle state or recursion depth metadata. A result produced while a cycle was detected may be valid only for the parent resolution context that produced it, whether the result is allowed or denied, and must not be reused to decide a later evaluation context where the same tuple subproblem has different cycle semantics.\n\nAn attacker who can influence authorization models, relationship tuples, or requests that trigger cyclic relationship evaluation can cause a stale cycle-dependent Check result to be reused across Check/ListObjects resolution paths. This can incorrectly grant access that should be denied, resulting in an authorization bypass, and can also produce other incorrect authorization decisions.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-46331",
+    "workdir": "/workspace/openfga"
+  },
+  {
+    "cve_id": "CVE-2021-46561",
+    "description": "controller/org.controller/org.controller.js in the CVE Services API 1.1.1 before 5c50baf3bda28133a3bc90b854765a64fb538304 allows an organizational administrator to transfer a user account to an arbitrary new organization, and thereby achieve unintended access within the context of that new organization.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-46561",
+    "workdir": "/workspace/cve-services"
+  },
+  {
+    "cve_id": "CVE-2021-45452",
+    "description": "Django's file storage save path is vulnerable to directory traversal when Storage.save() processes unsafe storage names without adequately confining them to the storage namespace. An attacker or application input that controls the filename passed to save operations may supply absolute paths, parent-directory components, or platform-specific separator variants that could cause a concrete storage backend such as FileSystemStorage to write outside its configured storage root. In addition, Storage.save() must not trust an unsafe name reported back by the storage backend's _save() implementation, because returning an absolute or parent-traversal storage name can expose an escaped path to callers and downstream code. The security impact is unauthorized file creation or path exposure outside the intended media/storage location.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-45452",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2023-41039",
+    "description": "RestrictedPython is a restricted execution environment for Python to run untrusted code. Python's \"format\" functionality allows someone controlling the format string to \"read\" all objects accessible through recursive attribute lookup and subscription from objects he can access. This can lead to critical information disclosure. With `RestrictedPython`, the format functionality is available via the `format` and `format_map` methods of `str` (and `unicode`) (accessed either via the class or its instances) and via `string.Formatter`. All known versions of `RestrictedPython` are vulnerable. This issue has been addressed in commit `4134aedcff1` which has been included in the 5.4 and 6.2 releases. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-41039",
+    "workdir": "/workspace/RestrictedPython"
+  },
+  {
+    "cve_id": "CVE-2024-45388",
+    "description": "Hoverfly is a lightweight service virtualization/ API simulation / API mocking tool for developers and testers. The `/api/v2/simulation` POST handler allows users to create new simulation views from the contents of a user-specified file. This feature can be abused by an attacker to read arbitrary files from the Hoverfly server. Note that, although the code prevents absolute paths from being specified, an attacker can escape out of the `hf.Cfg.ResponsesBodyFilesPath` base path by using `../` segments and reach any arbitrary files. This issue was found using the Uncontrolled data used in path expression CodeQL query for python. Users are advised to make sure the final path (`filepath.Join(hf.Cfg.ResponsesBodyFilesPath, filePath)`) is contained within the expected base path (`filepath.Join(hf.Cfg.ResponsesBodyFilesPath, \"/\")`). This issue is also tracked as GHSL-2023-274.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-45388",
+    "workdir": "/workspace/hoverfly"
+  },
+  {
+    "cve_id": "CVE-2021-31542",
+    "description": "Django's uploaded-file name handling is vulnerable to directory traversal when attacker-controlled filenames from multipart uploads or file objects are later used to construct storage paths. Components in the upload chain, including MultiPartParser, UploadedFile, FieldFile/FileField, and storage filename generation, must not allow crafted filenames to be interpreted as absolute paths, parent/current-directory components, empty basenames, or POSIX/Windows path-like names. An attacker who supplies such a filename in a file upload could cause the application or upload handler to expose an unsafe name or write a file outside the intended MEDIA_ROOT/upload/storage directory.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-31542",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2022-24450",
+    "description": "NATS nats-server before 2.7.2 has Incorrect Access Control. Any authenticated user can obtain the privileges of the System account by misusing the \"dynamically provisioned sandbox accounts\" feature.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-24450",
+    "workdir": "/workspace/nats-server"
+  },
+  {
+    "cve_id": "CVE-2020-28360",
+    "description": "The private-ip package exposes an isPrivate(ip) classifier that callers may use to decide whether a server-side request target is unsafe. Its current regular-expression-based checks do not reliably classify IPv4 destinations in private, reserved, or special-use address space, especially when the same destination is supplied through non-canonical decimal IPv4 spellings such as compact inet_aton-style forms or zero-padded decimal components. An attacker who can control an IP address or URL host that is checked with this package can use these reserved or special-use IPv4 destinations to bypass SSRF filtering and cause server-side requests to reach loopback, internal, link-local, shared, documentation, benchmarking, protocol-assignment, broadcast, or otherwise non-public network resources.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-28360",
+    "workdir": "/workspace/private-ip"
+  },
+  {
+    "cve_id": "CVE-2019-10787",
+    "description": "im-resize through 2.3.2 allows remote attackers to execute arbitrary commands via the \"exec\" argument. The cmd argument used within index.js, can be controlled by user without any sanitization.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-10787",
+    "workdir": "/workspace/node-im-resize"
+  },
+  {
+    "cve_id": "CVE-2024-52010",
+    "description": "Zoraxy is a general purpose HTTP reverse proxy and forwarding tool. A command injection vulnerability in the Web SSH feature allows an authenticated attacker to execute arbitrary commands as root on the host. Zoraxy has a Web SSH terminal feature that allows authenticated users to connect to SSH servers from their browsers. In HandleCreateProxySession the request to create an SSH session is handled. An attacker can exploit the username variable to escape from the bash command and inject arbitrary commands into sshCommand. This is possible, because, unlike hostname and port, the username is not validated or sanitized.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-52010",
+    "workdir": "/workspace/zoraxy"
+  },
+  {
+    "cve_id": "CVE-2022-37109",
+    "description": "patrickfuller camp up to and including commit bbd53a256ed70e79bd8758080936afbf6d738767 is vulnerable to Incorrect Access Control. Access to the password.txt file is not properly restricted as it is in the root directory served by StaticFileHandler and the Tornado rule to throw a 403 error when password.txt is accessed can be bypassed. Furthermore, it is not necessary to crack the password hash to authenticate with the application because the password hash is also used as the cookie secret, so an attacker can generate his own authentication cookie.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-37109",
+    "workdir": "/workspace/camp"
+  },
+  {
+    "cve_id": "CVE-2020-7649",
+    "description": "This affects the package snyk-broker before 4.73.0. It allows arbitrary file reads for users with access to Snyk's internal network via directory traversal.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7649",
+    "workdir": "/workspace/broker"
+  },
+  {
+    "cve_id": "CVE-2020-11053",
+    "description": "In OAuth2 Proxy before 5.1.1, there is an open redirect vulnerability. Users can provide a redirect address for the proxy to send the authenticated user to at the end of the authentication flow. This is expected to be the original URL that the user was trying to access. This redirect URL is checked within the proxy and validated before redirecting the user to prevent malicious actors providing redirects to potentially harmful sites. However, by crafting a redirect URL with HTML encoded whitespace characters the validation could be bypassed and allow a redirect to any URL provided. This has been patched in 5.1.1.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-11053",
+    "workdir": "/workspace/oauth2-proxy"
+  },
+  {
+    "cve_id": "CVE-2020-8132",
+    "description": "Lack of input validation in pdf-image npm package version <= 2.0.0 may allow an attacker to run arbitrary code if PDF file path is constructed based on untrusted user input.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-8132",
+    "workdir": "/workspace/node-pdf-image"
+  },
+  {
+    "cve_id": "CVE-2017-1000189",
+    "description": "nodejs ejs version older than 2.5.5 is vulnerable to a denial-of-service due to weak input validation in the ejs.renderFile()",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-1000189",
+    "workdir": "/workspace/ejs"
+  },
+  {
+    "cve_id": "CVE-2020-7640",
+    "description": "pixl-class prior to 1.0.3 allows execution of arbitrary commands. The members argument of the create function can be controlled by users without any sanitization.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7640",
+    "workdir": "/workspace/pixl-class"
+  },
+  {
+    "cve_id": "CVE-2022-46146",
+    "description": "Prometheus Exporter Toolkit is a utility package to build exporters. Prior to versions 0.7.2 and 0.8.2, if someone has access to a Prometheus web.yml file and users' bcrypted passwords, they can bypass security by poisoning the built-in authentication cache. Versions 0.7.2 and 0.8.2 contain a fix for the issue. There is no workaround, but attacker must have access to the hashed password to use this functionality.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-46146",
+    "workdir": "/workspace/exporter-toolkit"
+  },
+  {
+    "cve_id": "CVE-2023-30625",
+    "description": "rudder-server is part of RudderStack, an open source Customer Data Platform (CDP). Versions of rudder-server prior to 1.3.0-rc.1 are vulnerable to SQL injection. This issue may lead to Remote Code Execution (RCE) due to the `rudder` role in PostgresSQL having superuser permissions by default. Version 1.3.0-rc.1 contains patches for this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-30625",
+    "workdir": "/workspace/rudder-server"
+  },
+  {
+    "cve_id": "CVE-2021-39163",
+    "description": "Matrix is an ecosystem for open federated Instant Messaging and Voice over IP. In versions 1.41.0 and prior, unauthorised users can access the name, avatar, topic and number of members of a room if they know the ID of the room. This vulnerability is limited to homeservers where the vulnerable homeserver is in the room and untrusted users are permitted to create groups (communities). By default, only homeserver administrators can create groups. However, homeserver administrators can already access this information in the database or using the admin API. As a result, only homeservers where the configuration setting `enable_group_creation` has been set to `true` are impacted. Server administrators should upgrade to 1.41.1 or higher to patch the vulnerability. There are two potential workarounds. Server administrators can set `enable_group_creation` to `false` in their homeserver configuration (this is the default value) to prevent creation of groups by non-administrators. Administrators that are using a reverse proxy could, with partial loss of group functionality, block the endpoints `/_matrix/client/r0/groups/{group_id}/rooms` and `/_matrix/client/unstable/groups/{group_id}/rooms`.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-39163",
+    "workdir": "/workspace/synapse"
+  },
+  {
+    "cve_id": "CVE-2018-3733",
+    "description": "crud-file-server node module before 0.9.0 suffers from a Path Traversal vulnerability due to incorrect validation of url, which allows a malicious user to read content of any file with known path.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-3733",
+    "workdir": "/workspace/crud-file-server"
+  },
+  {
+    "cve_id": "CVE-2022-31145",
+    "description": "FlyteAdmin's external OAuth2/OIDC resource server validation accepts tokens issued by an external identity provider without correctly enforcing the JWT time-validity claims. An authenticated user or token holder can present a previously valid, externally issued Access Token or ID Token whose expiration time has already passed and still be treated as authenticated. This allows access to FlyteAdmin APIs and workflow administration capabilities beyond the token's intended lifetime, weakening session expiration and token revocation assumptions. The fix should ensure that, when FlyteAdmin is configured to trust an external identity provider, externally issued JWTs are accepted only if they are validly signed, intended for an allowed audience, and still valid according to their standard time-based claims, especially `exp`; expired tokens must be rejected and must not produce an authenticated identity, while valid unexpired external tokens should continue to work. Deployments using FlyteAdmin itself as the OAuth2 authorization server are outside the affected scope.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-31145",
+    "workdir": "/workspace/flyteadmin"
+  },
+  {
+    "cve_id": "CVE-2020-7674",
+    "description": "access-policy through 3.1.0 is vulnerable to Arbitrary Code Execution. User input provided to the `template` function is executed by the `eval` function resulting in code execution.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7674",
+    "workdir": "/workspace/access-policy"
+  },
+  {
+    "cve_id": "CVE-2019-15597",
+    "description": "A code injection exists in node-df v0.1.4 that can allow an attacker to remote code execution by unsanitized input.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-15597",
+    "workdir": "/workspace/node-df"
+  },
+  {
+    "cve_id": "CVE-2023-34457",
+    "description": "MechanicalSoup is a Python library for automating interaction with websites. Starting in version 0.2.0 and prior to version 1.3.0, a malicious web server can read arbitrary files on the client using a `<input type=\"file\" ...>` inside HTML form. All users of MechanicalSoup's form submission are affected, unless they took very specific (and manual) steps to reset HTML form field values. Version 1.3.0 contains a patch for this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-34457",
+    "workdir": "/workspace/MechanicalSoup"
+  },
+  {
+    "cve_id": "CVE-2022-0686",
+    "description": "Authorization Bypass Through User-Controlled Key in NPM url-parse prior to 1.5.8.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0686",
+    "workdir": "/workspace/url-parse"
+  },
+  {
+    "cve_id": "CVE-2020-29529",
+    "description": "HashiCorp go-slug's archive unpacking logic is vulnerable to directory traversal when extracting attacker-controlled gzip-compressed tar slug archives. A malicious archive can create symlinks inside the destination directory and then include later file or directory entries whose paths traverse through those symlinks, including multi-step symlink chains, causing extraction to materialize files outside the intended unpack destination. This can allow an attacker who supplies a slug archive to create or overwrite files elsewhere on the filesystem with the privileges of the unpacking process.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-29529",
+    "workdir": "/workspace/go-slug"
+  },
+  {
+    "cve_id": "CVE-2021-41246",
+    "description": "Express OpenID Connect is vulnerable to session fixation during the OpenID Connect callback login flow. Before authentication completes, an attacker may be able to make a victim use an application session cookie or server-side session identifier that the attacker knows or controls, such as an anonymous pre-login session or a session associated with another principal. If a successful callback stores the newly authenticated user's session under that same client-visible cookie or server-side id, the attacker can continue using the fixed identifier to access or confuse the victim's authenticated session. A fix should treat any callback that establishes a new authenticated principal over an unauthenticated session or a different existing user as a security boundary: the authenticated session must be bound to a fresh client-visible session cookie or server-side session id, and the attacker-known pre-login id must not resolve to the newly authenticated user's credentials or session data. Implementations may destroy the old session record or leave it only as a non-promoted anonymous or previous-user session, and they may choose whether to preserve unrelated anonymous application state, but these choices must not allow the old fixed identifier to become valid for the new authenticated user. Clearing or overwriting selected session fields without rotating the identifier and preventing old-id promotion is not sufficient.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-41246",
+    "workdir": "/workspace/express-openid-connect"
+  },
+  {
+    "cve_id": "CVE-2023-22480",
+    "description": "KubeOperator is an open source Kubernetes distribution focused on helping enterprises plan, deploy and operate production-level K8s clusters. In KubeOperator versions 3.16.3 and below, API interfaces with unauthorized entities and can leak sensitive information. This vulnerability could be used to take over the cluster under certain conditions. This issue has been patched in version 3.16.4.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-22480",
+    "workdir": "/workspace/KubeOperator"
+  },
+  {
+    "cve_id": "CVE-2025-29778",
+    "description": "Kyverno is a policy engine designed for cloud native platform engineering teams. Prior to version 1.14.0-alpha.1, Kyverno ignores subjectRegExp and IssuerRegExp while verifying artifact's sign with keyless mode. It allows the attacker to deploy kubernetes resources with the artifacts that were signed by unexpected certificate. Deploying these unauthorized kubernetes resources can lead to full compromise of kubernetes cluster. Version 1.14.0-alpha.1 contains a patch for the issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-29778",
+    "workdir": "/workspace/kyverno"
+  },
+  {
+    "cve_id": "CVE-2020-4053",
+    "description": "In Helm greater than or equal to 3.0.0 and less than 3.2.4, a path traversal attack is possible when installing Helm plugins from a tar archive over HTTP. It is possible for a malicious plugin author to inject a relative path into a plugin archive, and copy a file outside of the intended directory. This has been fixed in 3.2.4.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-4053",
+    "workdir": "/workspace/helm"
+  },
+  {
+    "cve_id": "CVE-2018-18074",
+    "description": "The Requests package before 2.20.0 for Python sends an HTTP Authorization header to an http URI upon receiving a same-hostname https-to-http redirect, which makes it easier for remote attackers to discover credentials by sniffing the network.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-18074",
+    "workdir": "/workspace/requests"
+  },
+  {
+    "cve_id": "CVE-2024-52309",
+    "description": "SFTPGo's EventManager allows administrators to configure command actions that run operating system commands when events occur. In the vulnerable behavior, an authenticated administrator who can access the WebAdmin or management API can configure arbitrary system commands as EventManager actions, even when those commands have not been explicitly approved by the system operator. This gives that administrator a path to execute commands on the host or container with the privileges of the SFTPGo process, which may be broader than the access they expect to have through the SFTPGo administration interface.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-52309",
+    "workdir": "/workspace/sftpgo"
+  },
+  {
+    "cve_id": "CVE-2024-56362",
+    "description": "Navidrome is an open source web-based music collection server and streamer. Navidrome stores the JWT secret in plaintext in the navidrome.db database file under the property table. This practice introduces a security risk because anyone with access to the database file can retrieve the secret. This vulnerability is fixed in 0.54.1.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-56362",
+    "workdir": "/workspace/navidrome"
+  },
+  {
+    "cve_id": "CVE-2021-3155",
+    "description": "snapd 2.54.2 and earlier created ~/snap directories in user home directories without specifying owner-only permissions. This could allow a local attacker to read information that should have been private. Fixed in snapd versions 2.54.3+18.04, 2.54.3+20.04 and 2.54.3+21.10.1",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-3155",
+    "workdir": "/workspace/snapd"
+  },
+  {
+    "cve_id": "CVE-2021-3664",
+    "description": "url-parse is vulnerable to URL Redirection to Untrusted Site",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-3664",
+    "workdir": "/workspace/url-parse"
+  },
+  {
+    "cve_id": "CVE-2022-21683",
+    "description": "Wagtail is a Django based content management system focused on flexibility and user experience. When notifications for new replies in comment threads are sent, they are sent to all users who have replied or commented anywhere on the site, rather than only in the relevant threads. This means that a user could listen in to new comment replies on pages they have not have editing access to, as long as they have left a comment or reply somewhere on the site. A patched version has been released as Wagtail 2.15.2, which restores the intended behaviour - to send notifications for new replies to the participants in the active thread only (editing permissions are not considered). New comments can be disabled by setting `WAGTAILADMIN_COMMENTS_ENABLED = False` in the Django settings file.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-21683",
+    "workdir": "/workspace/wagtail"
+  },
+  {
+    "cve_id": "CVE-2022-0639",
+    "description": "Authorization Bypass Through User-Controlled Key in NPM url-parse prior to 1.5.7.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0639",
+    "workdir": "/workspace/url-parse"
+  },
+  {
+    "cve_id": "CVE-2021-33420",
+    "description": "A deserialization issue discovered in inikulin replicator before 1.0.4 allows remote attackers to run arbitrary code via the fromSerializable function in TypedArray object.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-33420",
+    "workdir": "/workspace/replicator"
+  },
+  {
+    "cve_id": "CVE-2017-1001004",
+    "description": "typed-function dynamically generates and evaluates JavaScript source when creating typed functions. An attacker who can control the function name argument passed to typed(name, signatures) can embed JavaScript syntax in that name; if the name is concatenated into the generated source without proper validation or encoding, the injected code can execute during typed function construction, resulting in arbitrary code execution.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-1001004",
+    "workdir": "/workspace/typed-function"
+  },
+  {
+    "cve_id": "CVE-2024-5138",
+    "description": "The snapctl component within snapd allows a confined snap to interact with the snapd daemon to take certain privileged actions on behalf of the snap. It was found that snapctl did not properly parse command-line arguments, allowing an unprivileged user to trigger an authorised action on behalf of the snap that would normally require administrator privileges to perform. This could possibly allow an unprivileged user to perform a denial of service or similar.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-5138",
+    "workdir": "/workspace/snapd"
+  },
+  {
+    "cve_id": "CVE-2024-3848",
+    "description": "A path traversal vulnerability exists in mlflow/mlflow version 2.11.0, identified as a bypass for the previously addressed CVE-2023-6909. The vulnerability arises from the application's handling of artifact URLs, where a '#' character can be used to insert a path into the fragment, effectively skipping validation. This allows an attacker to construct a URL that, when processed, ignores the protocol scheme and uses the provided path for filesystem access. As a result, an attacker can read arbitrary files, including sensitive information such as SSH and cloud keys, by exploiting the way the application converts the URL into a filesystem path. The issue stems from insufficient validation of the fragment portion of the URL, leading to arbitrary file read through path traversal.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-3848",
+    "workdir": "/workspace/mlflow"
+  },
+  {
+    "cve_id": "CVE-2015-8213",
+    "description": "The get_format function in utils/formats.py in Django before 1.7.x before 1.7.11, 1.8.x before 1.8.7, and 1.9.x before 1.9rc2 might allow remote attackers to obtain sensitive application secrets via a settings key in place of a date/time format setting, as demonstrated by SECRET_KEY.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2015-8213",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2021-36157",
+    "description": "An issue was discovered in Grafana Cortex through 1.9.0. The header value X-Scope-OrgID is used to construct file paths for rules files, and if crafted to conduct directory traversal such as ae ../../sensitive/path/in/deployment pathname, then Cortex will attempt to parse a rules file at that location and include some of the contents in the error message. (Other Cortex API requests can also be sent a malicious OrgID header, e.g., tricking the ingester into writing metrics to a different location, but the effect is nuisance rather than information disclosure.)",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-36157",
+    "workdir": "/workspace/cortex"
+  },
+  {
+    "cve_id": "CVE-2020-28437",
+    "description": "This affects all versions of package heroku-env. The injection point is located in lib/get.js which is required by index.js.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-28437",
+    "workdir": "/workspace/node-heroku-env"
+  },
+  {
+    "cve_id": "CVE-2018-7753",
+    "description": "An issue was discovered in Bleach 2.1.x before 2.1.3. Attributes that have URI values weren't properly sanitized if the values contained character entities. Using character entities, it was possible to construct a URI value with a scheme that was not allowed that would slide through unsanitized.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-7753",
+    "workdir": "/workspace/bleach"
+  },
+  {
+    "cve_id": "CVE-2020-7613",
+    "description": "clamscan through 1.2.0 is vulnerable to Command Injection. It is possible to inject arbitrary commands as part of the `_is_clamav_binary` function located within `Index.js`. It should be noted that this vulnerability requires a pre-requisite that a folder should be created with the same command that will be chained to execute. This lowers the risk of this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7613",
+    "workdir": "/workspace/clamscan"
+  },
+  {
+    "cve_id": "CVE-2021-23363",
+    "description": "This affects the package kill-by-port before 0.0.2. If (attacker-controlled) user input is given to the killByPort function, it is possible for an attacker to execute arbitrary commands. This is due to use of the child_process exec function without input sanitization.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-23363",
+    "workdir": "/workspace/kill-by-port"
+  },
+  {
+    "cve_id": "CVE-2022-24738",
+    "description": "Evmos' claims module can incorrectly trust IBC transfer metadata from a counterparty chain when processing receive callbacks. An attacker who controls or connects a chain that does not enforce the same Ethereum key ownership/signature guarantees can craft an ICS-20 packet whose sender is a bech32 address on the counterparty chain and whose receiver is an Evmos address with the same underlying account bytes but a different human-readable prefix. If the claims callback normalizes the sender bytes and treats this packet as a valid attestation, it may migrate, merge, delete, or mark Evmos claims records as completed and may release claimable funds to an address whose ownership was not proven on Evmos. This allows unclaimed user funds to be drained through an unauthenticated IBC path.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-24738",
+    "workdir": "/workspace/evmos"
+  },
+  {
+    "cve_id": "CVE-2019-10792",
+    "description": "bodymen before 1.1.1 is vulnerable to Prototype Pollution. The handler function could be tricked into adding or modifying properties of Object.prototype using a __proto__ payload.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-10792",
+    "workdir": "/workspace/bodymen"
+  },
+  {
+    "cve_id": "CVE-2019-10788",
+    "description": "im-metadata through 3.0.1 allows remote attackers to execute arbitrary commands via the \"exec\" argument. It is possible to inject arbitrary commands as part of the metadata options which is given to the \"exec\" function.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-10788",
+    "workdir": "/workspace/node-im-metadata"
+  },
+  {
+    "cve_id": "CVE-2023-32303",
+    "description": "Planet is software that provides satellite data. The secret file stores the user's Planet API authentication information. It should only be accessible by the user, but before version 2.0.1, its permissions allowed the user's group and non-group to read the file as well. This issue was patched in version 2.0.1. As a workaround, set the secret file permissions to only user read/write by hand.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-32303",
+    "workdir": "/workspace/planet-client-python"
+  },
+  {
+    "cve_id": "CVE-2024-23334",
+    "description": "aiohttp is an asynchronous HTTP client/server framework for asyncio and Python. When using aiohttp as a web server and configuring static routes, it is necessary to specify the root path for static files. Additionally, the option 'follow_symlinks' can be used to determine whether to follow symbolic links outside the static root directory. When 'follow_symlinks' is set to True, there is no validation to check if reading a file is within the root directory. This can lead to directory traversal vulnerabilities, resulting in unauthorized access to arbitrary files on the system, even when symlinks are not present.  Disabling follow_symlinks and using a reverse proxy are encouraged mitigations.  Version 3.9.2 fixes this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-23334",
+    "workdir": "/workspace/aiohttp"
+  },
+  {
+    "cve_id": "CVE-2023-24623",
+    "description": "Paranoidhttp before 0.3.0 allows SSRF because [::] is equivalent to the 127.0.0.1 address, but does not match the filter for private addresses.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-24623",
+    "workdir": "/workspace/paranoidhttp"
+  },
+  {
+    "cve_id": "CVE-2024-5823",
+    "description": "The application exposes an online update operation in the ChuanhuChatGPT UI that can reach the repository update routine and modify application/configuration files without verifying that the caller is an authenticated administrator. An attacker who can access the Gradio web interface, including a request with no user identity or a non-admin identity, may trigger the update action and cause the updater to overwrite files that affect application behavior. This can lead to unauthorized configuration or code changes and may disrupt normal service operation.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-5823",
+    "workdir": "/workspace/chuanhuchatgpt"
+  },
+  {
+    "cve_id": "CVE-2022-0691",
+    "description": "Authorization Bypass Through User-Controlled Key in NPM url-parse prior to 1.5.9.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0691",
+    "workdir": "/workspace/url-parse"
+  },
+  {
+    "cve_id": "CVE-2021-41125",
+    "description": "Scrapy is a high-level web crawling and scraping framework for Python. If you use `HttpAuthMiddleware` (i.e. the `http_user` and `http_pass` spider attributes) for HTTP authentication, all requests will expose your credentials to the request target. This includes requests generated by Scrapy components, such as `robots.txt` requests sent by Scrapy when the `ROBOTSTXT_OBEY` setting is set to `True`, or as requests reached through redirects. Upgrade to Scrapy 2.5.1 and use the new `http_auth_domain` spider attribute to control which domains are allowed to receive the configured HTTP authentication credentials. If you are using Scrapy 1.8 or a lower version, and upgrading to Scrapy 2.5.1 is not an option, you may upgrade to Scrapy 1.8.1 instead. If you cannot upgrade, set your HTTP authentication credentials on a per-request basis, using for example the `w3lib.http.basic_auth_header` function to convert your credentials into a value that you can assign to the `Authorization` header of your request, instead of defining your credentials globally using `HttpAuthMiddleware`.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-41125",
+    "workdir": "/workspace/scrapy"
+  },
+  {
+    "cve_id": "CVE-2016-10548",
+    "description": "Arbitrary code execution is possible in reduce-css-calc node module <=1.2.4 through crafted css. This makes cross sites scripting (XSS) possible on the client and arbitrary code injection possible on the server and user input is passed to the `calc` function.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2016-10548",
+    "workdir": "/workspace/reduce-css-calc"
+  },
+  {
+    "cve_id": "CVE-2020-26226",
+    "description": "In the npm package semantic-release before version 17.2.3, secrets that would normally be masked by `semantic-release` can be accidentally disclosed if they contain characters that become encoded when included in a URL. Secrets that do not contain characters that become encoded when included in a URL are already masked properly. The issue is fixed in version 17.2.3.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-26226",
+    "workdir": "/workspace/semantic-release"
+  },
+  {
+    "cve_id": "CVE-2022-29217",
+    "description": "PyJWT is a Python implementation of RFC 7519. PyJWT supports multiple different JWT signing algorithms. With JWT, an attacker submitting the JWT token can choose the used signing algorithm. The PyJWT library requires that the application chooses what algorithms are supported. The application can specify `jwt.algorithms.get_default_algorithms()` to get support for all algorithms, or specify a single algorithm. The issue is not that big as `algorithms=jwt.algorithms.get_default_algorithms()` has to be used. Users should upgrade to v2.4.0 to receive a patch for this issue. As a workaround, always be explicit with the algorithms that are accepted and expected when decoding.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-29217",
+    "workdir": "/workspace/pyjwt"
+  },
+  {
+    "cve_id": "CVE-2023-25168",
+    "description": "Wings is Pterodactyl's server control plane. This vulnerability can be used to delete files and directories recursively on the host system.  This vulnerability can be combined with `GHSA-p8r3-83r8-jwj5` to overwrite files on the host system. In order to use this exploit, an attacker must have an existing \"server\" allocated and controlled by Wings. This vulnerability has been resolved in version `v1.11.4` of Wings, and has been back-ported to the 1.7 release series in `v1.7.4`. Anyone running `v1.11.x` should upgrade to `v1.11.4` and anyone running `v1.7.x` should upgrade to `v1.7.4`. There are no known workarounds for this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-25168",
+    "workdir": "/workspace/wings"
+  },
+  {
+    "cve_id": "CVE-2024-39877",
+    "description": "Apache Airflow's DAG documentation handling treats the DAG author-controlled `doc_md` value as template input and can render it with unsafe Jinja behavior during DAG parsing or scheduler-side processing. An authenticated DAG author can supply malicious documentation content, whether as inline markdown or documentation loaded from a markdown file, that abuses template evaluation to reach Python objects and execute arbitrary code or system commands in the scheduler context. This violates Airflow's security model by allowing DAG authors to escape the intended DAG author privilege boundary and affect scheduler-side files, secrets, credentials, or host state.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-39877",
+    "workdir": "/workspace/airflow"
+  },
+  {
+    "cve_id": "CVE-2021-32783",
+    "description": "Contour is a Kubernetes ingress controller using Envoy proxy. In Contour before version 1.17.1 a specially crafted ExternalName type Service may be used to access Envoy's admin interface, which Contour normally prevents from access outside the Envoy container. This can be used to shut down Envoy remotely (a denial of service), or to expose the existence of any Secret that Envoy is using for its configuration, including most notably TLS Keypairs. However, it *cannot* be used to get the *content* of those secrets. Since this attack allows access to the administration interface, a variety of administration options are available, such as shutting down the Envoy or draining traffic. In general, the Envoy admin interface cannot easily be used for making changes to the cluster, in-flight requests, or backend services, but it could be used to shut down or drain Envoy, change traffic routing, or to retrieve secret metadata, as mentioned above. The issue will be addressed in Contour v1.18.0 and a cherry-picked patch release, v1.17.1, has been released to cover users who cannot upgrade at this time. For more details refer to the linked GitHub Security Advisory.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-32783",
+    "workdir": "/workspace/contour"
+  },
+  {
+    "cve_id": "CVE-2020-26294",
+    "description": "Vela is a Pipeline Automation (CI/CD) framework built on Linux container technology written in Golang. In Vela compiler before version 0.6.1 there is a vulnerability which allows exposure of server configuration. It impacts all users of Vela. An attacker can use Sprig's `env` function to retrieve configuration information, see referenced GHSA for an example. This has been fixed in version 0.6.1. In addition to upgrading, it is recommended to rotate all secrets.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-26294",
+    "workdir": "/workspace/compiler"
+  },
+  {
+    "cve_id": "CVE-2022-3298",
+    "description": "Allocation of Resources Without Limits or Throttling in GitHub repository ikus060/rdiffweb prior to 2.4.8.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-3298",
+    "workdir": "/workspace/rdiffweb"
+  },
+  {
+    "cve_id": "CVE-2023-40029",
+    "description": "Argo CD is a declarative continuous deployment for Kubernetes. Argo CD Cluster secrets might be managed declaratively using Argo CD / kubectl apply. As a result, the full secret body is stored in`kubectl.kubernetes.io/last-applied-configuration` annotation. pull request #7139 introduced the ability to manage cluster labels and annotations. Since clusters are stored as secrets it also exposes the `kubectl.kubernetes.io/last-applied-configuration` annotation which includes full secret body. In order to view the cluster annotations via the Argo CD API, the user must have `clusters, get` RBAC access. **Note:** In many cases, cluster secrets do not contain any actually-secret information. But sometimes, as in bearer-token auth, the contents might be very sensitive. The bug has been patched in versions 2.8.3, 2.7.14, and 2.6.15. Users are advised to upgrade. Users unable to upgrade should update/deploy cluster secret with `server-side-apply` flag which does not use or rely on `kubectl.kubernetes.io/last-applied-configuration` annotation. Note: annotation for existing secrets will require manual removal.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-40029",
+    "workdir": "/workspace/argo-cd"
+  },
+  {
+    "cve_id": "CVE-2023-34233",
+    "description": "The Snowflake Connector for Python provides an interface for developing Python applications that can connect to Snowflake and perform all standard operations. Versions prior to 3.0.2 are vulnerable to command injection via single sign-on(SSO) browser URL authentication. In order to exploit the potential for command injection, an attacker would need to be successful in (1) establishing a malicious resource and (2) redirecting users to utilize the resource. The attacker could set up a malicious, publicly accessible server which responds to the SSO URL with an attack payload. If the attacker then tricked a user into visiting the maliciously crafted connection URL, the user’s local machine would render the malicious payload, leading to a remote code execution. This attack scenario can be mitigated through URL whitelisting as well as common anti-phishing resources. Version 3.0.2 contains a patch for this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-34233",
+    "workdir": "/workspace/snowflake-connector-python"
+  },
+  {
+    "cve_id": "CVE-2023-39631",
+    "description": "The numexpr expression compiler accepts expression strings through the public evaluate() API and converts them into an internal NumExpr expression tree. During this conversion, user-controlled expression text is compiled and evaluated with Python eval(), allowing expressions that are outside the NumExpr language to access Python runtime objects and potentially execute arbitrary code. An attacker who can supply an expression string, including through applications that pass untrusted input to numexpr.evaluate(), may abuse Python introspection, imports, or other non-NumExpr language constructs to trigger operating-system side effects or remote code execution.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-39631",
+    "workdir": "/workspace/numexpr"
+  },
+  {
+    "cve_id": "CVE-2021-21321",
+    "description": "fastify-reply-from is an npm package which is a fastify plugin to forward the current http request to another server. In fastify-reply-from before version 4.0.2, by crafting a specific URL, it is possible to escape the prefix of the proxied backend service. If the base url of the proxied server is \"/pub/\", a user expect that accessing \"/priv\" on the target service would not be possible. In affected versions, it is possible. This is fixed in version 4.0.2.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-21321",
+    "workdir": "/workspace/fastify-reply-from"
+  },
+  {
+    "cve_id": "CVE-2020-7764",
+    "description": "This affects the package find-my-way before 2.2.5, from 3.0.0 and before 3.0.5. It accepts the Accept-Version' header by default, and if versioned routes are not being used, this could lead to a denial of service. Accept-Version can be used as an unkeyed header in a cache poisoning attack.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7764",
+    "workdir": "/workspace/find-my-way"
+  },
+  {
+    "cve_id": "CVE-2020-15233",
+    "description": "ORY Fosite is a security first OAuth2 & OpenID Connect framework for Go. In Fosite from version 0.30.2 and before version 0.34.1, there is an issue in which an an attacker can override the registered redirect URL by performing an OAuth flow and requesting a redirect URL that is to the loopback adapter. Attackers can provide both custom URL query parameters to their loopback redirect URL, as well as actually overriding the host of the registered redirect URL. These attacks are only applicable in scenarios where the attacker has access over the loopback interface. This vulnerability has been patched in ORY Fosite v0.34.1.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-15233",
+    "workdir": "/workspace/fosite"
+  },
+  {
+    "cve_id": "CVE-2024-27289",
+    "description": "pgx is a PostgreSQL driver and toolkit for Go. Prior to version 4.18.2, SQL injection can occur when all of the following conditions are met: the non-default simple protocol is used; a placeholder for a numeric value must be immediately preceded by a minus; there must be a second placeholder for a string value after the first placeholder; both must be on the same line; and both parameter values must be user-controlled. The problem is resolved in v4.18.2. As a workaround, do not use the simple protocol or do not place a minus directly before a placeholder.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-27289",
+    "workdir": "/workspace/pgx"
+  },
+  {
+    "cve_id": "CVE-2017-7233",
+    "description": "Django 1.10 before 1.10.7, 1.9 before 1.9.13, and 1.8 before 1.8.18 relies on user input in some cases to redirect the user to an \"on success\" URL. The security check for these redirects (namely ``django.utils.http.is_safe_url()``) considered some numeric URLs \"safe\" when they shouldn't be, aka an open redirect vulnerability. Also, if a developer relies on ``is_safe_url()`` to provide safe redirect targets and puts such a URL into a link, they could suffer from an XSS attack.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-7233",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2021-29417",
+    "description": "gitjacker before 0.1.0 allows remote attackers to execute arbitrary code via a crafted .git directory because of directory traversal.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-29417",
+    "workdir": "/workspace/gitjacker"
+  },
+  {
+    "cve_id": "CVE-2020-7795",
+    "description": "The package get-npm-package-version before 1.0.7 are vulnerable to Command Injection via main function in index.js.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7795",
+    "workdir": "/workspace/get-npm-package-version"
+  },
+  {
+    "cve_id": "CVE-2018-12976",
+    "description": "In Go Doc Dot Org (gddo) through 2018-06-27, an attacker could use specially crafted <go-import> tags in packages being fetched by gddo to cause a directory traversal and remote code execution.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-12976",
+    "workdir": "/workspace/gddo"
+  },
+  {
+    "cve_id": "CVE-2019-7539",
+    "description": "A code injection issue was discovered in ipycache through 2016-05-31.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2019-7539",
+    "workdir": "/workspace/ipycache"
+  },
+  {
+    "cve_id": "CVE-2021-32803",
+    "description": "The npm package \"tar\" (aka node-tar) before versions 6.1.2, 5.0.7, 4.4.15, and 3.2.3 has an arbitrary File Creation/Overwrite vulnerability via insufficient symlink protection. `node-tar` aims to guarantee that any file whose location would be modified by a symbolic link is not extracted. This is, in part, achieved by ensuring that extracted directories are not symlinks. Additionally, in order to prevent unnecessary `stat` calls to determine whether a given path is a directory, paths are cached when directories are created. This logic was insufficient when extracting tar files that contained both a directory and a symlink with the same name as the directory. This order of operations resulted in the directory being created and added to the `node-tar` directory cache. When a directory is present in the directory cache, subsequent calls to mkdir for that directory are skipped. However, this is also where `node-tar` checks for symlinks occur. By first creating a directory, and then replacing that directory with a symlink, it was thus possible to bypass `node-tar` symlink checks on directories, essentially allowing an untrusted tar file to symlink into an arbitrary location and subsequently extracting arbitrary files into that location, thus allowing arbitrary file creation and overwrite. This issue was addressed in releases 3.2.3, 4.4.15, 5.0.7 and 6.1.2.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-32803",
+    "workdir": "/workspace/node-tar"
+  },
+  {
+    "cve_id": "CVE-2017-16083",
+    "description": "node-simple-router's static file serving logic is vulnerable to directory traversal. An attacker who can send HTTP requests to the router can control the requested URL path and include raw or encoded dot-dot path segments, or other path forms that normalize outside the configured static_route directory. If the router builds a filesystem path from that URL without enforcing a canonical, path-boundary-aware containment check, the request can read and return files outside the intended static document root, including files in sibling directories whose names share the static root's string prefix. This can expose sensitive server-side files.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-16083",
+    "workdir": "/workspace/node-simple-router"
+  },
+  {
+    "cve_id": "CVE-2022-39286",
+    "description": "Jupyter Core is a package for the core common functionality of Jupyter projects. Jupyter Core prior to version 4.11.2 contains an arbitrary code execution vulnerability in `jupyter_core` that stems from `jupyter_core` executing untrusted files in CWD. This vulnerability allows one user to run code as another. Version 4.11.2 contains a patch for this issue. There are no known workarounds.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-39286",
+    "workdir": "/workspace/jupyter_core"
+  },
+  {
+    "cve_id": "CVE-2025-43859",
+    "description": "h11 is a Python implementation of HTTP/1.1. Prior to version 0.16.0, a leniency in h11's parsing of line terminators in chunked-coding message bodies can lead to request smuggling vulnerabilities under certain conditions. This issue has been patched in version 0.16.0. Since exploitation requires the combination of buggy h11 with a buggy (reverse) proxy, fixing either component is sufficient to mitigate this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-43859",
+    "workdir": "/workspace/h11"
+  },
+  {
+    "cve_id": "CVE-2020-7631",
+    "description": "diskusage-ng through 0.2.4 is vulnerable to Command Injection.It allows execution of arbitrary commands via the path argument.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7631",
+    "workdir": "/workspace/node-diskusage-ng"
+  },
+  {
+    "cve_id": "CVE-2024-54132",
+    "description": "The GitHub CLI is GitHub’s official command line tool. A security vulnerability has been identified in GitHub CLI that could create or overwrite files in unintended directories when users download a malicious GitHub Actions workflow artifact through gh run download. This vulnerability stems from a GitHub Actions workflow artifact named .. when downloaded using gh run download. The artifact name and --dir flag are used to determine the artifact’s download path. When the artifact is named .., the resulting files within the artifact are extracted exactly 1 directory higher than the specified --dir flag value. This vulnerability is fixed in 2.63.1.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-54132",
+    "workdir": "/workspace/cli"
+  },
+  {
+    "cve_id": "CVE-2021-32701",
+    "description": "ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision API that authorizes HTTP requests based on sets of Access Rules. When you make a request to an endpoint that requires the scope `foo` using an access token granted with that `foo` scope, introspection will be valid and that token will be cached. The problem comes when a second requests to an endpoint that requires the scope `bar` is made before the cache has expired. Whether the token is granted or not to the `bar` scope, introspection will be valid. A patch will be released with `v0.38.12-beta.1`. Per default, caching is disabled for the `oauth2_introspection` authenticator. When caching is disabled, this vulnerability does not exist. The cache is checked in [`func (a *AuthenticatorOAuth2Introspection) Authenticate(...)`](https://github.com/ory/oathkeeper/blob/6a31df1c3779425e05db1c2a381166b087cb29a4/pipeline/authn/authenticator_oauth2_introspection.go#L152). From [`tokenFromCache()`](https://github.com/ory/oathkeeper/blob/6a31df1c3779425e05db1c2a381166b087cb29a4/pipeline/authn/authenticator_oauth2_introspection.go#L97) it seems that it only validates the token expiration date, but ignores whether the token has or not the proper scopes. The vulnerability was introduced in PR #424. During review, we failed to require appropriate test coverage by the submitter which is the primary reason that the vulnerability passed the review process.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-32701",
+    "workdir": "/workspace/oathkeeper"
+  },
+  {
+    "cve_id": "CVE-2022-1992",
+    "description": "Path Traversal in GitHub repository gogs/gogs prior to 0.12.9.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-1992",
+    "workdir": "/workspace/gogs"
+  },
+  {
+    "cve_id": "CVE-2023-45809",
+    "description": "Wagtail's admin user-account bulk action views can disclose information about selected user accounts to authenticated admin users who have access to the Wagtail admin but do not have permission to add, change, or delete users. A low-privileged editor can directly request user bulk-action URLs and supply arbitrary user IDs in the query parameters. This issue is not limited to deleting users; any user-account bulk action that renders a confirmation, error, no-access, or other response for selected users can become an information-disclosure path, including actions such as deletion, changing active status, or assigning roles. Even when the requested action is not performed, the response may reveal readable account identifiers such as display names, usernames, email addresses, or full names, allowing unauthorized enumeration or discovery of user identities.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-45809",
+    "workdir": "/workspace/wagtail"
+  },
+  {
+    "cve_id": "CVE-2023-50726",
+    "description": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. \"Local sync\" is an Argo CD feature that allows developers to temporarily override an Application's manifests with locally-defined manifests. Use of the feature should generally be limited to highly-trusted users, since it allows the user to bypass any merge protections in git. An improper validation bug allows users who have `create` privileges but not `override` privileges to sync local manifests on app creation. All other restrictions, including AppProject restrictions are still enforced. The only restriction which is not enforced is that the manifests come from some approved git/Helm/OCI source. The bug was introduced in 1.2.0-rc1 when the local manifest sync feature was added. The bug has been patched in Argo CD versions 2.10.3, 2.9.8, and 2.8.12. Users are advised to upgrade. Users unable to upgrade may mitigate the risk of branch protection bypass by removing `applications, create` RBAC access. The only way to eliminate the issue without removing RBAC access is to upgrade to a patched version.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-50726",
+    "workdir": "/workspace/argo-cd"
+  },
+  {
+    "cve_id": "CVE-2021-3583",
+    "description": "A flaw was found in Ansible, where a user's controller is vulnerable to template injection. This issue can occur through facts used in the template if the user is trying to put templates in multi-line YAML strings and the facts being handled do not routinely include special template characters. This flaw allows attackers to perform command injection, which discloses sensitive information. The highest threat from this vulnerability is to confidentiality and integrity.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-3583",
+    "workdir": "/workspace/ansible"
+  },
+  {
+    "cve_id": "CVE-2020-10691",
+    "description": "An archive traversal flaw was found in all ansible-engine versions 2.9.x prior to 2.9.7, when running ansible-galaxy collection install. When extracting a collection .tar.gz file, the directory is created without sanitizing the filename. An attacker could take advantage to overwrite any file within the system.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-10691",
+    "workdir": "/workspace/ansible"
+  },
+  {
+    "cve_id": "CVE-2022-24825",
+    "description": "Smokescreen is a simple HTTP proxy that fogs over naughty URLs. The primary use case for Smokescreen is to prevent server-side request forgery (SSRF) attacks in which external attackers leverage the behavior of applications to connect to or scan internal infrastructure. Smokescreen also offers an option to deny access to additional (e.g., external) URLs by way of a deny list. There was an issue in Smokescreen that made it possible to bypass the deny list feature by appending a dot to the end of user-supplied URLs, or by providing input in a different letter case. Recommended to upgrade Smokescreen to version 0.0.3 or later.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-24825",
+    "workdir": "/workspace/smokescreen"
+  },
+  {
+    "cve_id": "CVE-2017-16198",
+    "description": "ritp is a static web server. ritp is vulnerable to a directory traversal issue whereby an attacker can gain access to the file system by placing ../ in the URL. Access is restricted to files with a file extension, so files such as /etc/passwd are not accessible.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-16198",
+    "workdir": "/workspace/ritp"
+  },
+  {
+    "cve_id": "CVE-2024-10220",
+    "description": "The kubelet gitRepo volume plugin processes pod-supplied GitRepoVolumeSource fields and invokes the external git binary while preparing the volume. A user who can create a pod with a gitRepo volume can control the repository, revision, and target directory values. If these values are not validated before git is executed, specially crafted option-like arguments or unsafe directory paths can be interpreted by git or can cause clone, checkout, or reset operations to run against paths outside the intended volume directory. This can lead to command execution or filesystem access on the node in the kubelet's execution context. The fix should treat all gitRepo fields as untrusted input, reject values that can be parsed as git options or make the checkout target escape the volume, and ensure any git operations that remain allowed are confined to the intended local volume directory while preserving normal benign gitRepo usage.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-10220",
+    "workdir": "/workspace/kubernetes"
+  },
+  {
+    "cve_id": "CVE-2024-45043",
+    "description": "The OpenTelemetry Collector module AWS firehose receiver is for ingesting AWS Kinesis Data Firehose delivery stream messages and parsing the records received based on the configured record type. `awsfirehosereceiver` allows unauthenticated remote requests, even when configured to require a key. OpenTelemetry Collector can be configured to receive CloudWatch metrics via an AWS Firehose Stream. Firehose sets the header `X-Amz-Firehose-Access-Key` with an arbitrary configured string. The OpenTelemetry Collector awsfirehosereceiver can optionally be configured to require this key on incoming requests. However, when this is configured it **still accepts incoming requests with no key**. Only OpenTelemetry Collector users configured with the “alpha” `awsfirehosereceiver` module are affected. This module was added in version v0.49.0 of the “Contrib” distribution (or may be included in custom builds). There is a risk of unauthorized users writing metrics. Carefully crafted metrics could hide other malicious activity. There is no risk of exfiltrating data. It’s likely these endpoints will be exposed to the public internet, as Firehose does not support private HTTP endpoints. A fix was introduced in PR #34847 and released with v0.108.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-45043",
+    "workdir": "/workspace/opentelemetry-collector-contrib"
+  },
+  {
+    "cve_id": "CVE-2024-24747",
+    "description": "MinIO is a High Performance Object Storage. When someone creates an access key, it inherits the permissions of the parent key. Not only for `s3:*` actions, but also `admin:*` actions. Which means unless somewhere above in the access-key hierarchy, the `admin` rights are denied, access keys will be able to simply override their own `s3` permissions to something more permissive. The vulnerability is fixed in RELEASE.2024-01-31T20-20-33Z.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-24747",
+    "workdir": "/workspace/minio"
+  },
+  {
+    "cve_id": "CVE-2023-33977",
+    "description": "Kiwi TCMS has an upload-related cross-site scripting weakness in its attachment handling. Authenticated users who can upload attachments to objects such as test plans or test cases may supply browser-renderable files, especially SVG content, that contain executable JavaScript through constructs such as script elements or event-handler attributes like onload, including case variations. The attachment validation applied by the real configured upload path must reject such active content rather than only detecting a narrow spelling or a single helper-specific pattern. If a malicious attachment is accepted and later served to other users, their browsers may execute attacker-controlled JavaScript in the Kiwi TCMS context. In addition, deployments that serve uploaded files through Nginx or a reverse proxy must continue to deliver effective browser security headers for uploaded content so that proxy/location configuration does not remove protections such as content sniffing prevention, frame restrictions, and Content-Security-Policy.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-33977",
+    "workdir": "/workspace/kiwi"
+  },
+  {
+    "cve_id": "CVE-2022-24794",
+    "description": "Express OpenID Connect is an Express JS middleware implementing sign on for Express web apps using OpenID Connect. Users of the `requiresAuth` middleware, either directly or through the default `authRequired` option, are vulnerable to an Open Redirect when the middleware is applied to a catch all route. If all routes under `example.com` are protected with the `requiresAuth` middleware, a visit to `http://example.com//google.com` will be redirected to `google.com` after login because the original url reported by the Express framework is not properly sanitized. This vulnerability affects versions prior to 2.7.2. Users are advised to upgrade. There are no known workarounds.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-24794",
+    "workdir": "/workspace/express-openid-connect"
+  },
+  {
+    "cve_id": "CVE-2023-30172",
+    "description": "A directory traversal vulnerability in the /get-artifact API method of the mlflow platform up to v2.0.1 allows attackers to read arbitrary files on the server via the path parameter.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-30172",
+    "workdir": "/workspace/mlflow"
+  },
+  {
+    "cve_id": "CVE-2024-0243",
+    "description": "With the following crawler configuration:\n\n```python\nfrom bs4 import BeautifulSoup as Soup\n\nurl = \"https://example.com\"\nloader = RecursiveUrlLoader(\n    url=url, max_depth=2, extractor=lambda x: Soup(x, \"html.parser\").text\n)\ndocs = loader.load()\n```\n\nAn attacker in control of the contents of `https://example.com` could place a malicious HTML file in there with links like \"https://example.completely.different/my_file.html\" and the crawler would proceed to download that file as well even though `prevent_outside=True`.\n\nhttps://github.com/langchain-ai/langchain/blob/bf0b3cc0b5ade1fb95a5b1b6fa260e99064c2e22/libs/community/langchain_community/document_loaders/recursive_url_loader.py#L51-L51\n\nResolved in https://github.com/langchain-ai/langchain/pull/15559",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-0243",
+    "workdir": "/workspace/langchain"
+  },
+  {
+    "cve_id": "CVE-2023-6831",
+    "description": "MLflow's artifact-serving HTTP API is vulnerable to path traversal when attacker-controlled artifact paths are accepted without robust normalization and validation. An attacker can submit artifact path components or query parameters to the mlflow-artifacts endpoints that contain parent-directory traversal sequences, including URL-encoded or repeatedly encoded forms and Windows-style backslash separators such as \"..\\\\file\". If these paths are passed to artifact repository operations, the server may read, write, delete, or enumerate files outside the intended artifact root.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-6831",
+    "workdir": "/workspace/mlflow"
+  },
+  {
+    "cve_id": "CVE-2015-3295",
+    "description": "markdown-it's Markdown link and image rendering can allow attacker-controlled data: URL destinations to be emitted into generated HTML href or src attributes. A malicious document may supply dangerous data: payloads through any Markdown syntax that defines a link or image destination, including inline destinations and reference-style link or image definitions. These payloads can use HTML, XHTML, SVG, mixed-case schemes, or other active or browser-parseable data: URL variants, causing the rendered HTML to load active content or execute script when displayed or clicked.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2015-3295",
+    "workdir": "/workspace/markdown-it"
+  },
+  {
+    "cve_id": "CVE-2022-35936",
+    "description": "Ethermint is an Ethereum library. In Ethermint running versions before `v0.17.2`, the contract `selfdestruct` invocation permanently removes the corresponding bytecode from the internal database storage. However, due to a bug in the `DeleteAccount`function, all contracts that used the identical bytecode (i.e shared the same `CodeHash`) will also stop working once one contract invokes `selfdestruct`, even though the other contracts did not invoke the `selfdestruct` OPCODE. This vulnerability has been patched in Ethermint version v0.18.0. The patch has state machine-breaking changes for applications using Ethermint, so a coordinated upgrade procedure is required. A workaround is available. If a contract is subject to DoS due to this issue, the user can redeploy the same contract, i.e. with identical bytecode, so that the original contract's code is recovered. The new contract deployment restores the `bytecode hash -> bytecode` entry in the internal state.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-35936",
+    "workdir": "/workspace/ethermint"
+  },
+  {
+    "cve_id": "CVE-2022-36103",
+    "description": "Talos Linux is a Linux distribution built for Kubernetes deployments. Talos worker nodes use a join token to get accepted into the Talos cluster. Due to improper validation of the request while signing a worker node CSR (certificate signing request) Talos control plane node might issue Talos API certificate which allows full access to Talos API on a control plane node. Accessing Talos API with full level access on a control plane node might reveal sensitive information which allows full level access to the cluster (Kubernetes and Talos PKI, etc.). Talos API join token is stored in the machine configuration on the worker node. When configured correctly, Kubernetes workloads don't have access to the machine configuration, but due to a misconfiguration workload might access the machine configuration and reveal the join token. This problem has been fixed in Talos 1.2.2. Enabling the Pod Security Standards mitigates the vulnerability by denying hostPath mounts and host networking by default in the baseline policy. Clusters that don't run untrusted workloads are not affected. Clusters with correct Pod Security configurations which don't allow hostPath mounts, and secure access to cloud metadata server (or machine configuration is not supplied via cloud metadata server) are not affected.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-36103",
+    "workdir": "/workspace/talos"
+  },
+  {
+    "cve_id": "CVE-2021-21354",
+    "description": "Pollbot is open source software which \"frees its human masters from the toilsome task of polling for the state of things during the Firefox release process.\" In Pollbot before version 1.4.4 there is an open redirection vulnerability in the path of \"https://pollbot.services.mozilla.com/\". An attacker can redirect anyone to malicious sites. To Reproduce type in this URL: \"https://pollbot.services.mozilla.com//evil.com/\". Affected versions will redirect to that website when you inject a payload like \"//evil.com/\". This is fixed in version 1.4.4.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-21354",
+    "workdir": "/workspace/PollBot"
+  },
+  {
+    "cve_id": "CVE-2016-1000232",
+    "description": "Tough-Cookie's cookie parsing logic is vulnerable to a regular-expression denial of service when processing attacker-controlled Cookie or Set-Cookie style header strings. A remote client can supply a malformed cookie header containing a very long run of semicolons followed by additional non-semicolon input, causing the parser's semicolon trimming or attribute parsing path to spend excessive CPU time or hang the Node.js event loop. This can be exploited to cause denial of service in applications that parse untrusted cookie headers with tough-cookie.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2016-1000232",
+    "workdir": "/workspace/tough-cookie"
+  },
+  {
+    "cve_id": "CVE-2020-7687",
+    "description": "The fast-http server is vulnerable to path traversal when translating an HTTP request URL into the filesystem path passed to fs.readFile in index.js. An attacker can control the requested URL path and include parent-directory traversal components or equivalent path forms that cause the resolved filename to escape the server's configured document root. This can allow disclosure of files outside the intended web root.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7687",
+    "workdir": "/workspace/fast-http"
+  },
+  {
+    "cve_id": "CVE-2023-26125",
+    "description": "Gin's redirect logic for routes that trigger RedirectTrailingSlash uses the client-supplied X-Forwarded-Prefix header when constructing the HTTP redirect Location header. If this header is not strictly validated, an attacker can send a crafted request with a malicious prefix containing URL control syntax such as query or fragment delimiters, schemes, encoded separators, backslashes, or path traversal-like components. Those attacker-controlled values can be reflected into the redirect Location, creating a cache-poisoning input vector and potentially enabling other downstream issues in deployments that rely on forwarded-prefix behavior.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-26125",
+    "workdir": "/workspace/gin"
+  },
+  {
+    "cve_id": "CVE-2021-32796",
+    "description": "xmldom is an open source pure JavaScript W3C standard-based (XML DOM Level 2 Core) DOMParser and XMLSerializer module. xmldom versions 0.6.0 and older do not correctly escape special characters when serializing elements removed from their ancestor. This may lead to unexpected syntactic changes during XML processing in some downstream applications. This issue has been resolved in version 0.7.0. As a workaround downstream applications can validate the input and reject the maliciously crafted documents.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-32796",
+    "workdir": "/workspace/xmldom"
+  },
+  {
+    "cve_id": "CVE-2022-3920",
+    "description": "Consul's UI-facing HTTP/RPC endpoints that return node and service inventory can include both local data and data imported from peered clusters. The vulnerable behavior is that imported peer nodes, services, and health checks may be left unfiltered, or may be authorized as if they were local resources with the same node or service names. An attacker who can invoke these UI/RPC inventory endpoints with an ACL token that is authorized only for local resources could therefore learn imported peer node, service, or health-check information that the token should not permit, causing unauthorized cross-cluster information disclosure.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-3920",
+    "workdir": "/workspace/consul"
+  },
+  {
+    "cve_id": "CVE-2022-0722",
+    "description": "Exposure of Sensitive Information to an Unauthorized Actor in GitHub repository ionicabizau/parse-url prior to 7.0.0.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0722",
+    "workdir": "/workspace/parse-url"
+  },
+  {
+    "cve_id": "CVE-2023-40267",
+    "description": "GitPython's Repo.clone and Repo.clone_from APIs can accept git-clone command-line options through ordinary keyword arguments as well as multi_options. The vulnerable implementation does not consistently validate unsafe clone options when they are supplied as non-multi keyword arguments, so attacker-controlled input passed to these APIs can be transformed into dangerous git clone flags such as alternate upload-pack commands or unsafe configuration overrides. If these options reach the git clone process, they may allow arbitrary command execution or bypass Git safety restrictions through malicious clone configuration.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-40267",
+    "workdir": "/workspace/GitPython"
+  },
+  {
+    "cve_id": "CVE-2022-29822",
+    "description": "Due to improper parameter filtering in the Feathers js library, which may ultimately lead to SQL injection",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-29822",
+    "workdir": "/workspace/feathers-sequelize"
+  },
+  {
+    "cve_id": "CVE-2021-35042",
+    "description": "Django's QuerySet.order_by() handling is vulnerable to SQL injection when an application passes untrusted, client-controlled ordering strings to the ORM. Dotted ordering values may be treated as raw table.column aliases and later interpolated into the generated SQL ORDER BY clause without complete field parsing or safe identifier handling. An attacker who controls such an order_by value can include SQL syntax, comments, or ordering modifiers to alter the generated query and compromise query integrity or database security.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-35042",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2025-24976",
+    "description": "Distribution is a toolkit to pack, ship, store, and deliver container content. Systems running registry versions 3.0.0-beta.1 through 3.0.0-rc.2 with token authentication enabled may be vulnerable to an issue in which token authentication allows an attacker to inject an untrusted signing key in a JSON web token (JWT). The issue lies in how the JSON web key (JWK) verification is performed. When a JWT contains a JWK header without a certificate chain, the code only checks if the KeyID (`kid`) matches one of the trusted keys, but doesn't verify that the actual key material matches. A fix for the issue is available at commit 5ea9aa028db65ca5665f6af2c20ecf9dc34e5fcd and expected to be a part of version 3.0.0-rc.3. There is no way to work around this issue without patching if the system requires token authentication.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-24976",
+    "workdir": "/workspace/distribution"
+  },
+  {
+    "cve_id": "CVE-2017-1001003",
+    "description": "math.js before 3.17.0 had an issue where private properties such as a constructor could be replaced by using unicode characters when creating an object.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-1001003",
+    "workdir": "/workspace/mathjs"
+  },
+  {
+    "cve_id": "CVE-2017-0360",
+    "description": "file_open in Tryton 3.x and 4.x through 4.2.2 allows remote authenticated users with certain permissions to read arbitrary files via a \"same root name but with a suffix\" attack. NOTE: This vulnerability exists because of an incomplete fix for CVE-2016-1242.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2017-0360",
+    "workdir": "/workspace/trytond"
+  },
+  {
+    "cve_id": "CVE-2022-2024",
+    "description": "OS Command Injection in GitHub repository gogs/gogs prior to 0.12.11.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-2024",
+    "workdir": "/workspace/gogs"
+  },
+  {
+    "cve_id": "CVE-2018-16482",
+    "description": "mcstatic's static file serving logic is vulnerable to directory traversal when it derives a filesystem path from the client-controlled URL path and normalizes it after joining it with the configured static root. An attacker can craft a request path containing slash-separated parent-directory traversal segments, such as slash-prefixed ../ components appended in the URL, causing the resolved path to escape the server's intended root directory. This can allow disclosure of arbitrary readable files outside the directory that mcstatic is supposed to serve.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-16482",
+    "workdir": "/workspace/mcstatic"
+  },
+  {
+    "cve_id": "CVE-2024-30260",
+    "description": "Undici is an HTTP/1.1 client, written from scratch for Node.js. Undici cleared Authorization and Proxy-Authorization headers for `fetch()`, but did not clear them for `undici.request()`. This vulnerability was patched in version(s) 5.28.4 and 6.11.1.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-30260",
+    "workdir": "/workspace/undici"
+  },
+  {
+    "cve_id": "CVE-2021-21384",
+    "description": "shescape is a simple shell escape package for JavaScript. In shescape before version 1.1.3, anyone using _Shescape_ to defend against shell injection may still be vulnerable against shell injection if the attacker manages to insert a into the payload. For an example see the referenced GitHub Security Advisory. The problem has been patched in version 1.1.3. No further changes are required.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-21384",
+    "workdir": "/workspace/shescape"
+  },
+  {
+    "cve_id": "CVE-2022-24065",
+    "description": "The package cookiecutter before 2.1.1 are vulnerable to Command Injection via hg argument injection. When calling the cookiecutter function from Python code with the checkout parameter, it is passed to the hg checkout command in a way that additional flags can be set. The additional flags can be used to perform a command injection.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-24065",
+    "workdir": "/workspace/cookiecutter"
+  },
+  {
+    "cve_id": "CVE-2023-5122",
+    "description": "Grafana is an open-source platform for monitoring and observability. The CSV datasource plugin is a Grafana Labs maintained plugin for Grafana that allows for retrieving and processing CSV data from a remote endpoint configured by an administrator. If this plugin was configured to send requests to a bare host with no path (e.g.  https://www.example.com/ https://www.example.com/` ), requests to an endpoint other than the one configured by the administrator could be triggered by a specially crafted request from any user, resulting in an SSRF vector. AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:N/A:N https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-5122",
+    "workdir": "/workspace/grafana-csv-datasource"
+  },
+  {
+    "cve_id": "CVE-2025-27154",
+    "description": "Spotipy is a lightweight Python library for the Spotify Web API. The `CacheHandler` class creates a cache file to store the auth token. Prior to version 2.25.1, the file created has `rw-r--r--` (644) permissions by default, when it could be locked down to `rw-------` (600) permissions. This leads to overly broad exposure of the spotify auth token. If this token can be read by an attacker (another user on the machine, or a process running as another user), it can be used to perform administrative actions on the Spotify account, depending on the scope granted to the token. Version 2.25.1 tightens the cache file permissions.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-27154",
+    "workdir": "/workspace/spotipy"
+  },
+  {
+    "cve_id": "CVE-2022-0577",
+    "description": "Exposure of Sensitive Information to an Unauthorized Actor in GitHub repository scrapy/scrapy prior to 2.6.1.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0577",
+    "workdir": "/workspace/scrapy"
+  },
+  {
+    "cve_id": "CVE-2023-49736",
+    "description": "A where_in JINJA macro allows users to specify a quote, which combined with a carefully crafted statement would allow for SQL injection in Apache Superset.This issue affects Apache Superset: before 2.1.2, from 3.0.0 before 3.0.2.\n\nUsers are recommended to upgrade to version 3.0.2, which fixes the issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-49736",
+    "workdir": "/workspace/superset"
+  },
+  {
+    "cve_id": "CVE-2020-4037",
+    "description": "In OAuth2 Proxy from version 5.1.1 and less than version 6.0.0, users can provide a redirect address for the proxy to send the authenticated user to at the end of the authentication flow. This is expected to be the original URL that the user was trying to access. This redirect URL is checked within the proxy and validated before redirecting the user to prevent malicious actors providing redirects to potentially harmful sites. This has been fixed in version 6.0.0.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-4037",
+    "workdir": "/workspace/oauth2-proxy"
+  },
+  {
+    "cve_id": "CVE-2023-52081",
+    "description": "ffcss is a CLI interface to apply and configure Firefox CSS themes. Prior to 0.2.0, the function `lookupPreprocess()` is meant to apply some transformations to a string by disabling characters in the regex `[-_ .]`. However, due to the use of late Unicode normalization of type NFKD, it is possible to bypass that validation and re-introduce all the characters in the regex `[-_ .]`. The `lookupPreprocess()` can be easily bypassed with equivalent Unicode characters like U+FE4D (﹍), which would result in the omitted U+005F (_), for instance. The `lookupPreprocess()` function is only ever used to search for themes loosely (case insensitively, while ignoring dashes, underscores and dots), so the actual security impact is classified as low. This vulnerability is fixed in 0.2.0. There are no known workarounds.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-52081",
+    "workdir": "/workspace/ffcss"
+  },
+  {
+    "cve_id": "CVE-2022-29188",
+    "description": "Smokescreen is an HTTP proxy. The primary use case for Smokescreen is to prevent server-side request forgery (SSRF) attacks in which external attackers leverage the behavior of applications to connect to or scan internal infrastructure. Smokescreen also offers an option to deny access to additional (e.g., external) URLs by way of a deny list. There was an issue in Smokescreen that made it possible to bypass the deny list feature by surrounding the hostname with square brackets (e.g. `[example.com]`). This only impacted the HTTP proxy functionality of Smokescreen. HTTPS requests were not impacted. Smokescreen version 0.0.4 contains a patch for this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-29188",
+    "workdir": "/workspace/smokescreen"
+  },
+  {
+    "cve_id": "CVE-2025-23042",
+    "description": "Gradio is an open-source Python package that allows quick building of demos and web application for machine learning models, API, or any arbitrary Python function. Gradio's Access Control List (ACL) for file paths can be bypassed by altering the letter case of a blocked file or directory path. This vulnerability arises due to the lack of case normalization in the file path validation logic. On case-insensitive file systems, such as those used by Windows and macOS, this flaw enables attackers to circumvent security restrictions and access sensitive files that should be protected. This issue can lead to unauthorized data access, exposing sensitive information and undermining the integrity of Gradio's security model. Given Gradio's popularity for building web applications, particularly in machine learning and AI, this vulnerability may pose a substantial threat if exploited in production environments. This issue has been addressed in release version 5.6.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-23042",
+    "workdir": "/workspace/gradio"
+  },
+  {
+    "cve_id": "CVE-2021-21411",
+    "description": "OAuth2-Proxy is an open source reverse proxy that provides authentication with Google, Github or other providers. The `--gitlab-group` flag for group-based authorization in the GitLab provider stopped working in the v7.0.0 release. Regardless of the flag settings, authorization wasn't restricted. Additionally, any authenticated users had whichever groups were set in `--gitlab-group` added to the new `X-Forwarded-Groups` header to the upstream application. While adding GitLab project based authorization support in #630, a bug was introduced where the user session's groups field was populated with the `--gitlab-group` config entries instead of pulling the individual user's group membership from the GitLab Userinfo endpoint. When the session groups where compared against the allowed groups for authorization, they matched improperly (since both lists were populated with the same data) so authorization was allowed. This impacts GitLab Provider users who relies on group membership for authorization restrictions. Any authenticated users in your GitLab environment can access your applications regardless of `--gitlab-group` membership restrictions. This is patched in v7.1.0. There is no workaround for the Group membership bug. But `--gitlab-project` can be set to use Project membership as the authorization checks instead of groups; it is not broken.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-21411",
+    "workdir": "/workspace/oauth2-proxy"
+  },
+  {
+    "cve_id": "CVE-2022-0235",
+    "description": "node-fetch is vulnerable to Exposure of Sensitive Information to an Unauthorized Actor",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0235",
+    "workdir": "/workspace/node-fetch"
+  },
+  {
+    "cve_id": "CVE-2022-2900",
+    "description": "The parse-url library is vulnerable to server-side request forgery when it is given attacker-controlled URL strings that are malformed or ambiguous but still contain network destinations. In the vulnerable behavior, URLs that the underlying parser cannot reliably interpret may still be returned to callers as usable parsed URL objects, exposing schemes, hosts, paths, or original href values that can represent loopback, private, link-local, metadata-service, or other internal targets. Applications that rely on parse-url output for URL validation or request routing can therefore be tricked into accepting or requesting attacker-chosen internal resources.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-2900",
+    "workdir": "/workspace/parse-url"
+  },
+  {
+    "cve_id": "CVE-2021-3987",
+    "description": "An improper access control vulnerability exists in janeczku/calibre-web. The affected version allows users without public shelf permissions to create public shelves. The vulnerability is due to the `create_shelf` method in `shelf.py` not verifying if the user has the necessary permissions to create a public shelf. This issue can lead to unauthorized actions being performed by users.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-3987",
+    "workdir": "/workspace/calibre-web"
+  },
+  {
+    "cve_id": "CVE-2022-0436",
+    "description": "Grunt's file path containment logic can incorrectly classify paths outside the current working directory as being contained within it. An attacker who can influence file paths passed to Grunt file APIs, such as paths used by tasks or plugins that invoke deletion, may supply crafted sibling or boundary paths that bypass the intended current-working-directory guard. This can allow path traversal effects such as deleting files outside the project directory when deletion is performed without an explicit force option.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0436",
+    "workdir": "/workspace/grunt"
+  },
+  {
+    "cve_id": "CVE-2022-23536",
+    "description": "Cortex provides multi-tenant, long term storage for Prometheus. A local file inclusion vulnerability exists in Cortex versions 1.13.0, 1.13.1 and 1.14.0, where a malicious actor could remotely read local files as a result of parsing maliciously crafted Alertmanager configurations when submitted to the Alertmanager Set Configuration API. Only users of the Alertmanager service where `-experimental.alertmanager.enable-api` or `enable_api: true` is configured are affected. Affected Cortex users are advised to upgrade to patched versions 1.13.2 or 1.14.1. However as a workaround, Cortex administrators may reject Alertmanager configurations containing the `api_key_file` setting in the `opsgenie_configs` section before sending to the Set Alertmanager Configuration API.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-23536",
+    "workdir": "/workspace/cortex"
+  },
+  {
+    "cve_id": "CVE-2023-23947",
+    "description": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. All Argo CD versions starting with 2.3.0-rc1 and prior to 2.3.17, 2.4.23  2.5.11, and 2.6.2 are vulnerable to an improper authorization bug which allows users who have the ability to update at least one cluster secret to update any cluster secret. The attacker could use this access to escalate privileges (potentially controlling Kubernetes resources) or to break Argo CD functionality (by preventing connections to external clusters). A patch for this vulnerability has been released in Argo CD versions 2.6.2, 2.5.11, 2.4.23, and 2.3.17. Two workarounds are available. Either modify the RBAC configuration to completely revoke all `clusters, update` access, or use the `destinations` and `clusterResourceWhitelist` fields to apply similar restrictions as the `namespaces` and `clusterResources` fields.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-23947",
+    "workdir": "/workspace/argo-cd"
+  },
+  {
+    "cve_id": "CVE-2023-45128",
+    "description": "Fiber's CSRF middleware has an improper token validation and token lifecycle flaw. After a legitimate unsafe request is processed, the middleware can take an internal raw value from its CSRF storage/session backend and expose it as the next client-visible CSRF token, then later accept that value as if it were a valid middleware-issued token. An attacker who can cause or observe a request flow and control the CSRF cookie plus the configured request token location, such as a form or query parameter, may replay such a promoted unissued value to forge protected unsafe requests on behalf of a user. This can allow unauthorized state-changing actions to reach application handlers despite CSRF protection.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-45128",
+    "workdir": "/workspace/fiber"
+  },
+  {
+    "cve_id": "CVE-2024-3571",
+    "description": "langchain-ai/langchain is vulnerable to path traversal due to improper limitation of a pathname to a restricted directory ('Path Traversal') in its LocalFileStore functionality. An attacker can leverage this vulnerability to read or write files anywhere on the filesystem, potentially leading to information disclosure or remote code execution. The issue lies in the handling of file paths in the mset and mget methods, where user-supplied input is not adequately sanitized, allowing directory traversal sequences to reach unintended directories.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-3571",
+    "workdir": "/workspace/langchain"
+  },
+  {
+    "cve_id": "CVE-2025-24882",
+    "description": "regclient does not reliably enforce the integrity of digest-pinned manifests when constructing manifest objects from registry responses. A malicious registry can control the returned manifest body and response metadata such as Docker-Content-Digest, and can provide digest metadata that conflicts with a digest pinned in the requested reference or supplied descriptor. If regclient allows registry-supplied metadata to overwrite, hide, or satisfy only one expected digest, or skips verification for a supported manifest format such as signed Docker schema1, it may accept a manifest whose actual or format-defined canonical content does not match the digest the caller intended to trust. This breaks the security guarantee of digest-pinned pulls and can allow substitution of a different image manifest or image content. The fix should treat all caller-supplied or accepted expected manifest digests from the reference, descriptor, and registry response metadata as integrity constraints; recompute the digest over the appropriate bytes or canonical representation for the manifest type using the expected digest's algorithm; reject mismatches or conflicting digest sources; and ensure untrusted registry metadata cannot bypass a pinned reference digest.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-24882",
+    "workdir": "/workspace/regclient"
+  },
+  {
+    "cve_id": "CVE-2024-42005",
+    "description": "An issue was discovered in Django 5.0 before 5.0.8 and 4.2 before 4.2.15. QuerySet.values() and values_list() methods on models with a JSONField are subject to SQL injection in column aliases via a crafted JSON object key as a passed *arg.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-42005",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2025-24366",
+    "description": "SFTPGo is an open source, event-driven file transfer solution. SFTPGo supports execution of a defined set of commands via SSH. Besides a set of default commands some optional commands can be activated, one of them being `rsync`. It is disabled in the default configuration and it is limited to the local filesystem, it does not work with cloud/remote storage backends. Due to missing sanitization of the client provided `rsync` command, an authenticated remote user can use some options of the rsync command to read or write files with the permissions of the SFTPGo server process. This issue was fixed in version v2.6.5 by checking the client provided arguments. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2025-24366",
+    "workdir": "/workspace/sftpgo"
+  },
+  {
+    "cve_id": "CVE-2020-7675",
+    "description": "cd-messenger through 2.7.26 is vulnerable to Arbitrary Code Execution. User input provided to the `color` argument executed by the `eval` function resulting in code execution.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7675",
+    "workdir": "/workspace/cd-messenger"
+  },
+  {
+    "cve_id": "CVE-2022-23857",
+    "description": "model/criteria/criteria.go in Navidrome before 0.47.5 is vulnerable to SQL injection attacks when processing crafted Smart Playlists. An authenticated user could abuse this to extract arbitrary data from the database, including the user table (which contains sensitive information such as the users' encrypted passwords).",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-23857",
+    "workdir": "/workspace/navidrome"
+  },
+  {
+    "cve_id": "CVE-2022-36087",
+    "description": "OAuthLib is an implementation of the OAuth request-signing logic for Python 3.6+. In OAuthLib versions 3.1.1 until 3.2.1, an attacker providing malicious redirect uri can cause denial of service. An attacker can also leverage usage of `uri_validate` functions depending where it is used. OAuthLib applications using OAuth2.0 provider support or use directly `uri_validate` are affected by this issue. Version 3.2.1 contains a patch. There are no known workarounds.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-36087",
+    "workdir": "/workspace/oauthlib"
+  },
+  {
+    "cve_id": "CVE-2020-7781",
+    "description": "This affects the package connection-tester before 0.2.1. The injection point is located in line 15 in index.js. The following PoC demonstrates the vulnerability:",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-7781",
+    "workdir": "/workspace/node-connection-tester"
+  },
+  {
+    "cve_id": "CVE-2024-43405",
+    "description": "Nuclei is a vulnerability scanner powered by YAML based templates. Starting in version 3.0.0 and prior to version 3.3.2, a vulnerability in Nuclei's template signature verification system could allow an attacker to bypass the signature check and possibly execute malicious code via custom code template. The vulnerability is present in the template signature verification process, specifically in the `signer` package. The vulnerability stems from a discrepancy between how the signature verification process and the YAML parser handle newline characters, combined with the way multiple signatures are processed. This allows an attacker to inject malicious content into a template while maintaining a valid signature for the benign part of the template. CLI users are affected if they execute custom code templates from unverified sources. This includes templates authored by third parties or obtained from unverified repositories. SDK Users are affected if they are developers integrating Nuclei into their platforms, particularly if they permit the execution of custom code templates by end-users. The vulnerability is addressed in Nuclei v3.3.2. Users are strongly recommended to update to this version to mitigate the security risk. As an interim measure, users should refrain from using custom templates if unable to upgrade immediately. Only trusted, verified templates should be executed. Those who are unable to upgrade Nuclei should disable running custom code templates as a workaround.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-43405",
+    "workdir": "/workspace/nuclei"
+  },
+  {
+    "cve_id": "CVE-2022-4643",
+    "description": "A vulnerability was found in docconv up to 1.2.0. It has been declared as critical. This vulnerability affects the function ConvertPDFImages of the file pdf_ocr.go. The manipulation of the argument path leads to os command injection. The attack can be initiated remotely. Upgrading to version 1.2.1 is able to address this issue. The name of the patch is b19021ade3d0b71c89d35cb00eb9e589a121faa5. It is recommended to upgrade the affected component. VDB-216502 is the identifier assigned to this vulnerability.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-4643",
+    "workdir": "/workspace/docconv"
+  },
+  {
+    "cve_id": "CVE-2020-15278",
+    "description": "Red Discord Bot before version 3.4.1 has an unauthorized privilege escalation exploit in the Mod module. This exploit allows Discord users with a high privilege level within the guild to bypass hierarchy checks when the application is in a specific condition that is beyond that user's control. By abusing this exploit, it is possible to perform destructive actions within the guild the user has high privileges in. This exploit has been fixed in version 3.4.1. As a workaround, unloading the Mod module with unload mod or, disabling the massban command with command disable global massban can render this exploit not accessible. We still highly recommend updating to 3.4.1 to completely patch this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2020-15278",
+    "workdir": "/workspace/Red-DiscordBot"
+  },
+  {
+    "cve_id": "CVE-2022-31130",
+    "description": "Grafana is an open source observability and data visualization platform. Versions of Grafana for endpoints prior to 9.1.8 and 8.5.14 could leak authentication tokens to some destination plugins under some conditions. The vulnerability impacts data source and plugin proxy endpoints with authentication tokens. The destination plugin could receive a user's Grafana authentication token. Versions 9.1.8 and 8.5.14 contain a patch for this issue. As a workaround, do not use API keys, JWT authentication, or any HTTP Header based authentication.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-31130",
+    "workdir": "/workspace/grafana"
+  },
+  {
+    "cve_id": "CVE-2024-53900",
+    "description": "Mongoose is vulnerable to search injection when user-controlled populate() match options can introduce a $where query operator into the MongoDB query used to load populated documents. An attacker who can influence populate match criteria, whether through literal match objects or match callback return values, can cause $where predicates to be propagated across query populate, document.populate(), and virtual populate paths. This risk applies to any $where occurrence in the resulting populate filter, including executable string or function predicates and $where keys nested inside logical containers or arrays produced when match callbacks are evaluated for multiple documents, not only to a top-level $where field. Because MongoDB $where represents server-side JavaScript/search predicates, allowing it to reach the database can execute attacker-controlled predicates or bypass intended query restrictions.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-53900",
+    "workdir": "/workspace/mongoose"
+  },
+  {
+    "cve_id": "CVE-2021-37712",
+    "description": "The npm package \"tar\" (aka node-tar) before versions 4.4.18, 5.0.10, and 6.1.9 has an arbitrary file creation/overwrite and arbitrary code execution vulnerability. node-tar aims to guarantee that any file whose location would be modified by a symbolic link is not extracted. This is, in part, achieved by ensuring that extracted directories are not symlinks. Additionally, in order to prevent unnecessary stat calls to determine whether a given path is a directory, paths are cached when directories are created. This logic was insufficient when extracting tar files that contained both a directory and a symlink with names containing unicode values that normalized to the same value. Additionally, on Windows systems, long path portions would resolve to the same file system entities as their 8.3 \"short path\" counterparts. A specially crafted tar archive could thus include a directory with one form of the path, followed by a symbolic link with a different string that resolves to the same file system entity, followed by a file using the first form. By first creating a directory, and then replacing that directory with a symlink that had a different apparent name that resolved to the same entry in the filesystem, it was thus possible to bypass node-tar symlink checks on directories, essentially allowing an untrusted tar file to symlink into an arbitrary location and subsequently extracting arbitrary files into that location, thus allowing arbitrary file creation and overwrite. These issues were addressed in releases 4.4.18, 5.0.10 and 6.1.9. The v3 branch of node-tar has been deprecated and did not receive patches for these issues. If you are still using a v3 release we recommend you update to a more recent version of node-tar. If this is not possible, a workaround is available in the referenced GHSA-qq89-hq3f-393p.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-37712",
+    "workdir": "/workspace/node-tar"
+  },
+  {
+    "cve_id": "CVE-2022-21699",
+    "description": "IPython (Interactive Python) is a command shell for interactive computing in multiple programming languages, originally developed for the Python programming language. Affected versions are subject to an arbitrary code execution vulnerability achieved by not properly managing cross user temporary files. This vulnerability allows one user to run code as another on the same machine. All users are advised to upgrade.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-21699",
+    "workdir": "/workspace/ipython"
+  },
+  {
+    "cve_id": "CVE-2021-43798",
+    "description": "Grafana is an open-source platform for monitoring and observability. Grafana versions 8.0.0-beta1 through 8.3.0 (except for patched versions) iss vulnerable to directory traversal, allowing access to local files. The vulnerable URL path is: `<grafana_host_url>/public/plugins//`, where is the plugin ID for any installed plugin. At no time has Grafana Cloud been vulnerable. Users are advised to upgrade to patched versions 8.0.7, 8.1.8, 8.2.7, or 8.3.1. The GitHub Security Advisory contains more information about vulnerable URL paths, mitigation, and the disclosure timeline.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-43798",
+    "workdir": "/workspace/grafana"
+  },
+  {
+    "cve_id": "CVE-2018-3785",
+    "description": "A command injection in git-dummy-commit v1.3.0 allows os level commands to be executed due to an unescaped parameter.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-3785",
+    "workdir": "/workspace/git-dummy-commit"
+  },
+  {
+    "cve_id": "CVE-2023-26145",
+    "description": "This affects versions of the package pydash before 6.0.0. A number of pydash methods such as pydash.objects.invoke() and pydash.collections.invoke_map() accept dotted paths (Deep Path Strings) to target a nested Python object, relative to the original source object. These paths can be used to target internal class attributes and dict items, to retrieve, modify or invoke nested Python objects.\r\r**Note:**\r\rThe pydash.objects.invoke() method is vulnerable to Command Injection when the following prerequisites are satisfied:\r\r1) The source object (argument 1) is not a built-in object such as list/dict (otherwise, the __init__.__globals__ path is not accessible)\r\r2) The attacker has control over argument 2 (the path string) and argument 3 (the argument to pass to the invoked method)\r\r\rThe pydash.collections.invoke_map() method is also vulnerable, but is harder to exploit as the attacker does not have direct control over the argument to be passed to the invoked function.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-26145",
+    "workdir": "/workspace/pydash"
+  },
+  {
+    "cve_id": "CVE-2022-0155",
+    "description": "follow-redirects is vulnerable to Exposure of Private Personal Information to an Unauthorized Actor",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-0155",
+    "workdir": "/workspace/follow-redirects"
+  },
+  {
+    "cve_id": "CVE-2021-23387",
+    "description": "The package trailing-slash before 2.0.1 are vulnerable to Open Redirect via the use of trailing double slashes in the URL when accessing the vulnerable endpoint (such as https://example.com//attacker.example/). The vulnerable code is in index.js::createTrailing(), as the web server uses relative URLs instead of absolute URLs.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-23387",
+    "workdir": "/workspace/trailing-slash"
+  },
+  {
+    "cve_id": "CVE-2023-41891",
+    "description": "FlyteAdmin is the control plane for Flyte responsible for managing entities and administering workflow executions. Prior to version 1.1.124, list endpoints on FlyteAdmin have a SQL vulnerability where a malicious user can send a REST request with custom SQL statements as list filters. The attacker needs to have access to the FlyteAdmin installation, typically either behind a VPN or authentication. Version 1.1.124 contains a patch for this issue.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-41891",
+    "workdir": "/workspace/flyteadmin"
+  },
+  {
+    "cve_id": "CVE-2024-49750",
+    "description": "The Snowflake Connector for Python provides an interface for developing Python applications that can connect to Snowflake and perform all standard operations. Prior to version 3.12.3, when the logging level was set by the user to DEBUG, the Connector could have logged Duo passcodes (when specified via the `passcode` parameter) and Azure SAS tokens. Additionally, the SecretDetector logging formatter, if enabled, contained bugs which caused it to not fully redact JWT tokens and certain private key formats. Snowflake released version 3.12.3 of the Snowflake Connector for Python, which fixes the issue. In addition to upgrading, users should review their logs for any potentially sensitive information that may have been captured.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2024-49750",
+    "workdir": "/workspace/snowflake-connector-python"
+  },
+  {
+    "cve_id": "CVE-2023-39660",
+    "description": "PandasAI executes Python code generated from user-controlled prompts in its prompt/run_code workflow. A remote attacker can craft a prompt that causes the generated code to escape the intended restricted execution environment by abusing exposed Python builtins, dunder attributes, object introspection chains such as subclasses traversal, or function globals to recover process-level capabilities. This can allow arbitrary Python code or operating-system command execution in the server process, leading to external side effects and compromise of local data or execution context.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2023-39660",
+    "workdir": "/workspace/pandas-ai"
+  },
+  {
+    "cve_id": "CVE-2022-28346",
+    "description": "An issue was discovered in Django 2.2 before 2.2.28, 3.2 before 3.2.13, and 4.0 before 4.0.4. QuerySet.annotate(), aggregate(), and extra() methods are subject to SQL injection in column aliases via a crafted dictionary (with dictionary expansion) as the passed **kwargs.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2022-28346",
+    "workdir": "/workspace/django"
+  },
+  {
+    "cve_id": "CVE-2021-37713",
+    "description": "The npm package \"tar\" (aka node-tar) before versions 4.4.18, 5.0.10, and 6.1.9 has an arbitrary file creation/overwrite and arbitrary code execution vulnerability. node-tar aims to guarantee that any file whose location would be outside of the extraction target directory is not extracted. This is, in part, accomplished by sanitizing absolute paths of entries within the archive, skipping archive entries that contain `..` path portions, and resolving the sanitized paths against the extraction target directory. This logic was insufficient on Windows systems when extracting tar files that contained a path that was not an absolute path, but specified a drive letter different from the extraction target, such as `C:some\\path`. If the drive letter does not match the extraction target, for example `D:\\extraction\\dir`, then the result of `path.resolve(extractionDirectory, entryPath)` would resolve against the current working directory on the `C:` drive, rather than the extraction target directory. Additionally, a `..` portion of the path could occur immediately after the drive letter, such as `C:../foo`, and was not properly sanitized by the logic that checked for `..` within the normalized and split portions of the path. This only affects users of `node-tar` on Windows systems. These issues were addressed in releases 4.4.18, 5.0.10 and 6.1.9. The v3 branch of node-tar has been deprecated and did not receive patches for these issues. If you are still using a v3 release we recommend you update to a more recent version of node-tar. There is no reasonable way to work around this issue without performing the same path normalization procedures that node-tar now does. Users are encouraged to upgrade to the latest patched versions of node-tar, rather than attempt to sanitize paths themselves.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-37713",
+    "workdir": "/workspace/node-tar"
+  },
+  {
+    "cve_id": "CVE-2021-23384",
+    "description": "The package koa-remove-trailing-slashes before 2.0.2 are vulnerable to Open Redirect via the use of trailing double slashes in the URL when accessing the vulnerable endpoint (such as https://example.com//attacker.example/). The vulnerable code is in index.js::removeTrailingSlashes(), as the web server uses relative URLs instead of absolute URLs.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-23384",
+    "workdir": "/workspace/koa-remove-trailing-slashes"
+  },
+  {
+    "cve_id": "CVE-2018-3778",
+    "description": "Improper authorization in aedes version <0.35.0 will publish a LWT in a channel when a client is not authorized.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2018-3778",
+    "workdir": "/workspace/aedes"
+  },
+  {
+    "cve_id": "CVE-2021-41803",
+    "description": "HashiCorp Consul's Auto Config RPC uses caller-supplied request fields such as the node name and segment name when interpolating variables into JWT claim assertion expressions. These values are not sufficiently validated before interpolation, allowing malformed names or expression metacharacters to break out of the intended string context or otherwise alter the authorization expression. An attacker who can submit an Auto Config initial configuration request with a valid JWT and crafted node or segment values may bypass the intended claim-to-request binding and reach the auto-configuration provisioning path, potentially obtaining sensitive configuration material such as ACL agent tokens, gossip or TLS configuration, CA roots, or certificates for an unauthorized node or segment.",
+    "image_url": "ghcr.io/patcheval-cve/patcheval-cve:cve-2021-41803",
+    "workdir": "/workspace/consul"
+  }
+]
