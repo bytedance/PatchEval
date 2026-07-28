@@ -9179,11 +9179,11 @@
         "vul_func": [
             {
                 "id": "vul_py_68_1",
-                "commit": "114803a29ce50116dc47951c690ad4892b1a36ed",
+                "commit": "9462006f6ce4941661888228cbd4ac1ea80689b0",
                 "file_path": "h11/_readers.py",
                 "start_line": 149,
-                "end_line": 154,
-                "snippet": "    def __init__(self) -> None:\n        self._bytes_in_chunk = 0\n        # After reading a chunk, we have to throw away the trailing \\r\\n.\n        # This tracks the bytes that we need to match and throw away.\n        self._bytes_to_discard = b\"\"\n        self._reading_trailer = False",
+                "end_line": 155,
+                "snippet": "    def __init__(self) -> None:\n        self._bytes_in_chunk = 0\n        # After reading a chunk, we have to throw away the trailing \\r\\n; if\n        # this is >0 then we discard that many bytes before resuming regular\n        # de-chunkification.\n        self._bytes_to_discard = 0\n        self._reading_trailer = False",
                 "vul_localization": [
                     {
                         "patch_lines": [
@@ -9195,11 +9195,11 @@
             },
             {
                 "id": "vul_py_68_2",
-                "commit": "114803a29ce50116dc47951c690ad4892b1a36ed",
+                "commit": "9462006f6ce4941661888228cbd4ac1ea80689b0",
                 "file_path": "h11/_readers.py",
-                "start_line": 156,
-                "end_line": 204,
-                "snippet": "    def __call__(self, buf: ReceiveBuffer) -> Union[Data, EndOfMessage, None]:\n        if self._reading_trailer:\n            lines = buf.maybe_extract_lines()\n            if lines is None:\n                return None\n            return EndOfMessage(headers=list(_decode_header_lines(lines)))\n        if self._bytes_to_discard:\n            data = buf.maybe_extract_at_most(len(self._bytes_to_discard))\n            if data is None:\n                return None\n            if data != self._bytes_to_discard[:len(data)]:\n                raise LocalProtocolError(\n                    f\"malformed chunk footer: {data!r} (expected {self._bytes_to_discard!r})\"\n                )\n            self._bytes_to_discard = self._bytes_to_discard[len(data):]\n            if self._bytes_to_discard:\n                return None\n            # else, fall through and read some more\n        assert self._bytes_to_discard == b\"\"\n        if self._bytes_in_chunk == 0:\n            # We need to refill our chunk count\n            chunk_header = buf.maybe_extract_next_line()\n            if chunk_header is None:\n                return None\n            matches = validate(\n                chunk_header_re,\n                chunk_header,\n                \"illegal chunk header: {!r}\",\n                chunk_header,\n            )\n            # XX FIXME: we discard chunk extensions. Does anyone care?\n            self._bytes_in_chunk = int(matches[\"chunk_size\"], base=16)\n            if self._bytes_in_chunk == 0:\n                self._reading_trailer = True\n                return self(buf)\n            chunk_start = True\n        else:\n            chunk_start = False\n        assert self._bytes_in_chunk > 0\n        data = buf.maybe_extract_at_most(self._bytes_in_chunk)\n        if data is None:\n            return None\n        self._bytes_in_chunk -= len(data)\n        if self._bytes_in_chunk == 0:\n            self._bytes_to_discard = b\"\\r\\n\"\n            chunk_end = True\n        else:\n            chunk_end = False\n        return Data(data=data, chunk_start=chunk_start, chunk_end=chunk_end)",
+                "start_line": 157,
+                "end_line": 201,
+                "snippet": "    def __call__(self, buf: ReceiveBuffer) -> Union[Data, EndOfMessage, None]:\n        if self._reading_trailer:\n            lines = buf.maybe_extract_lines()\n            if lines is None:\n                return None\n            return EndOfMessage(headers=list(_decode_header_lines(lines)))\n        if self._bytes_to_discard > 0:\n            data = buf.maybe_extract_at_most(self._bytes_to_discard)\n            if data is None:\n                return None\n            self._bytes_to_discard -= len(data)\n            if self._bytes_to_discard > 0:\n                return None\n            # else, fall through and read some more\n        assert self._bytes_to_discard == 0\n        if self._bytes_in_chunk == 0:\n            # We need to refill our chunk count\n            chunk_header = buf.maybe_extract_next_line()\n            if chunk_header is None:\n                return None\n            matches = validate(\n                chunk_header_re,\n                chunk_header,\n                \"illegal chunk header: {!r}\",\n                chunk_header,\n            )\n            # XX FIXME: we discard chunk extensions. Does anyone care?\n            self._bytes_in_chunk = int(matches[\"chunk_size\"], base=16)\n            if self._bytes_in_chunk == 0:\n                self._reading_trailer = True\n                return self(buf)\n            chunk_start = True\n        else:\n            chunk_start = False\n        assert self._bytes_in_chunk > 0\n        data = buf.maybe_extract_at_most(self._bytes_in_chunk)\n        if data is None:\n            return None\n        self._bytes_in_chunk -= len(data)\n        if self._bytes_in_chunk == 0:\n            self._bytes_to_discard = 2\n            chunk_end = True\n        else:\n            chunk_end = False\n        return Data(data=data, chunk_start=chunk_start, chunk_end=chunk_end)",
                 "vul_localization": [
                     {
                         "patch_lines": [
