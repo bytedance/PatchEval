@@ -38,6 +38,7 @@
 | trae | seed-2.1-turbo | 166/230 (72.17%) |
 | Opencode | kimi-2.7-code | 157/230 (68.26%) |
 | Opencode | GLM 5.2 | 154/230 (66.96%) |
+| Opencode | qwen3.7 plus | 144/230 (62.61%) |
 | Opencode | Deepseek V4 Pro | 143/230 (62.17%) |
 
 ## 👋 Overview
