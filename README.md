@@ -167,6 +167,11 @@ The agent runner uses `cve_description`, `repo`, and `image_url` to construct th
 ghcr.io/patcheval-cve/patcheval-cve:cve-<year>-<id>
 ```
 
+> [!IMPORTANT]
+> Each image includes a `/workspace/fix.patch` based on the original CVE fix.
+> Because PatchEval-Verified uses strengthened PoCs, this patch may not fully
+> fix the tested vulnerability, and `fix-run.sh` may exit with a non-zero status.
+
 Pull all images with:
 
 ```bash
