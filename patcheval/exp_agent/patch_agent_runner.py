@@ -219,11 +219,10 @@ async def _hide_workspace_payload(container: str, workdir: str, session_key: str
     script = f"""
 set -e
 rm -f /workspace/fix.patch
-mkdir -p /tmp/{_safe_name(session_key)}
 workdir={shlex.quote(workdir)}
 top_name=${{workdir#/workspace/}}
 top_name=${{top_name%%/*}}
-find /workspace -mindepth 1 -maxdepth 1 ! -name "$top_name" -exec mv -t /tmp/{_safe_name(session_key)} -- {{}} + 2>/dev/null || true
+find /workspace -mindepth 1 -maxdepth 1 ! -name "$top_name" -exec rm -rf -- {{}} + 2>/dev/null || true
 """
     result = await _docker_exec(container, script, timeout_s=300)
     if result.exit_code != 0:
