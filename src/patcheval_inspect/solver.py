@@ -36,18 +36,15 @@ call `submit` again with that path as the `answer`.
 
 @solver
 def hide_evaluator_assets_setup() -> Solver:
-    """Hide evaluator assets from the agent sandbox before repair starts."""
+    """Remove evaluator assets from the agent sandbox before repair starts."""
 
     async def solve(state: TaskState, generate: Generate) -> TaskState:
         workdir = state.metadata["workdir"]
         script = f"""
 set -e
 rm -f {DEFAULT_PATCH_PATH}
-hidden=/tmp/patcheval_hidden_assets
-rm -rf "$hidden"
-mkdir -p "$hidden"
 repo_name=$(basename {shlex.quote(workdir)})
-find /workspace -mindepth 1 -maxdepth 1 ! -name "$repo_name" -exec mv -t "$hidden" -- {{}} + 2>/dev/null || true
+find /workspace -mindepth 1 -maxdepth 1 ! -name "$repo_name" -exec rm -rf -- {{}} + 2>/dev/null || true
 """
         await sandbox().exec(["bash", "-lc", script], timeout=300)
         return state
