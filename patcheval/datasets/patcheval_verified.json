@@ -12,7 +12,7 @@
         "patch_url": [
             "https://github.com/TRomesh/ffmpegdotjs/commit/dae868764d6418dac081ed1aa84c636645ba6adb"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_21_1",
@@ -57,7 +57,7 @@
         "patch_url": [
             "https://github.com/jupyter/notebook/commit/3cec4bbe21756de9f0c4bccf18cf61d840314d74"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_47_1",
@@ -109,7 +109,7 @@
         "patch_url": [
             "https://github.com/gogs/gogs/commit/38aff73251cc46ced96dd608dab6190415032a82"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_6_1",
@@ -163,7 +163,7 @@
         "patch_url": [
             "https://github.com/helm/helm/commit/0d0f91d1ce277b2c8766cdc4c7aa04dbafbf2503"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_16_2",
@@ -215,7 +215,7 @@
         "patch_url": [
             "https://github.com/FederatedAI/FATE/commit/6feccf6d752184a6f9365d56a76fe627983e7139"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_44_1",
@@ -275,7 +275,7 @@
         "patch_url": [
             "https://github.com/totaljs/framework/commit/6192491ab2631e7c1d317c221f18ea613e2c18a5"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_22_1",
@@ -327,7 +327,7 @@
         "patch_url": [
             "https://github.com/authelia/authelia/commit/d4a54189aa6563912f9427b96dcb01eacafa785c"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_76_1",
@@ -384,7 +384,7 @@
             "https://github.com/argoproj/argo-cd/commit/1f82078e7463228477e6c2cd959c14e7426c99d7",
             "https://github.com/argoproj/argo-cd/commit/9b6815f06f0f58ecd7240999e6b32cf16ebd0d9e"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_61_1",
@@ -442,7 +442,7 @@
         "patch_url": [
             "https://github.com/cmusatyalab/opendiamond/commit/398049c187ee644beabab44d6fece82251c1ea56"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_22_1",
@@ -486,7 +486,7 @@
         "patch_url": [
             "https://github.com/project-zot/zot/commit/8a99a3ed231fdcd8467e986182b4705342b6a15e"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_74_1",
@@ -546,7 +546,7 @@
             "https://github.com/skoranga/node-dns-sync/commit/d9abaae384b198db1095735ad9c1c73d7b890a0d)))",
             "https://github.com/skoranga/node-dns-sync/commit/d9abaae384b198db1095735ad9c1c73d7b890a0d"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_2_1",
@@ -599,7 +599,7 @@
         "patch_url": [
             "https://github.com/zopefoundation/Products.GenericSetup/commit/700319512b3615b3871a1f24e096cf66dc488c57"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_51_1",
@@ -675,7 +675,7 @@
         "patch_url": [
             "https://github.com/vvo/node-whereis/commit/0f64e3780235004fb6e43bfd153ea3e0e210ee2b"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_17_1",
@@ -721,7 +721,7 @@
         "patch_url": [
             "https://github.com/ikus060/rdiffweb/commit/c4a19cf67d575c4886171b8efcbf4675d51f3929"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_54_1",
@@ -797,7 +797,7 @@
         "patch_url": [
             "https://github.com/helm/helm/commit/5abcf74227bfe8e5a3dbf105fe62e7b12deb58d2"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_49_1",
@@ -927,7 +927,7 @@
         "patch_url": [
             "https://github.com/sylabs/scs-library-client/commit/68ac4cab5cda0afd8758ff5b5e2e57be6a22fcfa"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_71_1",
@@ -977,7 +977,7 @@
         "patch_url": [
             "https://github.com/cypress-io/request/commit/c5bcf21d40fb61feaff21a0e5a2b3934a440024f"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_32_1",
@@ -1024,7 +1024,7 @@
             "https://github.com/django/django/commit/6723a26e59b0b5429a0c5873941e01a2e1bdbb81",
             "https://github.com/django/django/commit/9e19accb6e0a00ba77d5a95a91675bf18877c72d"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_7_1",
@@ -1123,7 +1123,7 @@
         "patch_url": [
             "https://github.com/tj/node-growl/commit/d71177d5331c9de4658aca62e0ac921f178b0669"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_44_2",
@@ -1212,7 +1212,7 @@
         "patch_url": [
             "https://github.com/megaease/easeprobe/commit/caaf5860df2aaa76acd29bc40ec9a578d0b1d6e1"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_26_2",
@@ -1269,7 +1269,7 @@
         "patch_url": [
             "https://github.com/spotify/luigi/commit/b5d1b965ead7d9f777a3216369b5baf23ec08999"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_36_1",
@@ -1367,7 +1367,7 @@
         "patch_url": [
             "https://github.com/camptocamp/terraboard/commit/2a5dbaac015dc0714b41a59995e24f5767f89ddc"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_31_1",
@@ -1421,7 +1421,7 @@
         "patch_url": [
             "https://github.com/zeromicro/go-zero/commit/d9d79e930dff6218a873f4f02115df61c38b15db"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_11_1",
@@ -1480,7 +1480,7 @@
         "patch_url": [
             "https://github.com/apache/airflow/commit/12bfb571a895a28a58d3189b0fc10cfc1b89e24c"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_27_1",
@@ -1540,7 +1540,7 @@
         "patch_url": [
             "https://github.com/celery/celery/commit/1f7ad7e6df1e02039b6ab9eec617d283598cad6b"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_41_1",
@@ -1618,7 +1618,7 @@
             "https://github.com/django/django/commit/c4e5ff7fdb5fce447675e90291fd33fddd052b3c",
             "https://github.com/django/django/commit/6fffc3c6d420e44f4029d5643f38d00a39b08525"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_10_1",
@@ -1688,7 +1688,7 @@
         "patch_url": [
             "https://github.com/oauth2-proxy/oauth2-proxy/commit/780ae4f3c99b579cb2ea9845121caebb6192f725"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_12_1",
@@ -1740,7 +1740,7 @@
         "patch_url": [
             "https://github.com/kubernetes/kubernetes/commit/dcf60e04ddd6c50c8bf9b0c9d913bf82bff44333"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_62_1",
@@ -1784,7 +1784,7 @@
         "patch_url": [
             "https://github.com/garimpeiro-it/node-key-sender/commit/bea7d317576efa981536a6bf4dd3ff2f5660be44"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_14_1",
@@ -1833,7 +1833,7 @@
         "patch_url": [
             "https://github.com/go-vela/server/commit/cb4352918b8ecace9fe969b90404d337b0744d46"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_3_2",
@@ -1885,7 +1885,7 @@
         "patch_url": [
             "https://github.com/grafana/grafana/commit/19dbd27c5caa1a160bd5854b65a4e1fe2a8a4f00"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_30_1",
@@ -1947,7 +1947,7 @@
             "https://github.com/django/django/commit/02e6592835b4559909aa3aaaf67988fef435f624",
             "https://github.com/django/django/commit/21e7622dec1f8612c85c2fc37fe8efbfd3311e37"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_9_1",
@@ -2024,7 +2024,7 @@
         "patch_url": [
             "https://github.com/pomerium/pomerium/commit/e018cf0fc0979d2abe25ff705db019feb7523444"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_72_1",
@@ -2092,7 +2092,7 @@
             "https://github.com/expressjs/express/commit/0b746953c4bd8e377123527db11f9cd866e39f94",
             "https://github.com/expressjs/express/commit/0867302ddbde0e9463d0564fea5861feb708c2dd"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_49_1",
@@ -2136,7 +2136,7 @@
         "patch_url": [
             "https://github.com/google/exposure-notifications-verification-server/commit/eb8cf40b12dbe79304f1133c06fb73419383cd95"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_50_1",
@@ -2180,7 +2180,7 @@
         "patch_url": [
             "https://github.com/hapijs/nes/commit/249ba1755ed6977fbc208463c87364bf884ad655"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_59_1",
@@ -2227,7 +2227,7 @@
             "https://github.com/socketio/socket.io-parser/commit/b5d0cb7dc56a0601a09b056beaeeb0e43b160050",
             "https://github.com/socketio/socket.io-parser/commit/fb21e422fc193b34347395a33e0f625bebc09983"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_30_1",
@@ -2272,7 +2272,7 @@
         "patch_url": [
             "https://github.com/jupyter/notebook/commit/979e0bd15e794ceb00cc63737fcd5fd9addc4a99"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_46_1",
@@ -2328,7 +2328,7 @@
         "patch_url": [
             "https://github.com/martinpitt/python-dbusmock/commit/4e7d0df9093"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_68_1",
@@ -2385,7 +2385,7 @@
             "https://github.com/django/django/commit/9f4f63e9ebb7bf6cb9547ee4e2526b9b96703270",
             "https://github.com/django/django/commit/2b00edc0151a660d1eb86da4059904a0fc4e095e"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_4_1",
@@ -2462,7 +2462,7 @@
         "patch_url": [
             "https://github.com/twisted/twisted/commit/af8fe78542a6f2bf2235ccee8158d9c88d31e8e2"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_53_1",
@@ -2536,7 +2536,7 @@
         "patch_url": [
             "https://github.com/npm/node-tar/commit/7ecef07da6a9e72cc0c4d0c9c6a8e85b6b52395d"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_63_1",
@@ -2582,7 +2582,7 @@
         "patch_url": [
             "https://github.com/jmjuanes/stattic/commit/1649daafa646b12d7311640690df967b0107d768"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_41_1",
@@ -2634,7 +2634,7 @@
         "patch_url": [
             "https://github.com/NYUCCL/psiTurk/commit/47787e15cecd66f2aa87687bf852ae0194a4335f"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_34_1",
@@ -2744,7 +2744,7 @@
         "patch_url": [
             "https://github.com/highlightjs/highlight.js/commit/7241013ae011a585983e176ddc0489a7a52f6bb0"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_76_1",
@@ -2789,7 +2789,7 @@
         "patch_url": [
             "https://github.com/gofiber/template/commit/28cff3ac4d4c117ab25b5396954676d624b6cb46"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_79_1",
@@ -2833,7 +2833,7 @@
         "patch_url": [
             "https://github.com/thinkst/opencanary/commit/2c11575b1a3dd8b0df26a879ba856c0aa350c049"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_63_1",
@@ -2923,7 +2923,7 @@
         "patch_url": [
             "https://github.com/encode/starlette/commit/1797de464124b090f10cf570441e8292936d63e3"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_58_1",
@@ -2979,7 +2979,7 @@
         "patch_url": [
             "https://github.com/containerd/containerd/commit/133f6bb6cd827ce35a5fb279c1ead12b9d21460a"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_52_2",
@@ -3225,7 +3225,7 @@
         "patch_url": [
             "https://github.com/openfga/openfga/commit/cdf2c76ea34b33a9e37d6be516706ef8bf865782"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_59_2",
@@ -3281,7 +3281,7 @@
         "patch_url": [
             "https://github.com/nodejs/undici/commit/124f7ebf705366b2e1844dff721928d270f87895"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_5_1",
@@ -3365,7 +3365,7 @@
         "patch_url": [
             "https://github.com/unshiftio/url-parse/commit/9be7ee88afd2bb04e4d5a1a8da9a389ac13f8c40"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_38_1",
@@ -3447,7 +3447,7 @@
         "patch_url": [
             "https://github.com/openfga/openfga/commit/779d73d4b6d067ee042ec9b59fec707eed71e42f"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_18_1",
@@ -3511,7 +3511,7 @@
         "patch_url": [
             "https://github.com/hashicorp/go-getter/commit/268c11cae8cf0d9374783e06572679796abe9ce9"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_20_1",
@@ -3583,7 +3583,7 @@
         "patch_url": [
             "https://github.com/anchore/stereoscope/commit/09dacab4d9ee65ee8bc7af8ebf4aa7b5aaa36204"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_35_1",
@@ -3660,7 +3660,7 @@
         "patch_url": [
             "https://github.com/manvel-khnkoyan/jpv/commit/e3eec1215caa8d5c560f5e88d0943422831927d6"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_71_1",
@@ -3716,7 +3716,7 @@
         "patch_url": [
             "https://github.com/npm/node-tar/commit/1f036ca23f64a547bdd6c79c1a44bc62e8115da4"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_58_1",
@@ -3769,7 +3769,7 @@
         "patch_url": [
             "https://github.com/autovance/ftp-srv/commit/457b859450a37cba10ff3c431eb4aa67771122e3"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_55_1",
@@ -3857,7 +3857,7 @@
         "patch_url": [
             "https://github.com/remy/undefsafe/commit/f272681b3a50e2c4cbb6a8533795e1453382c822"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_73_1",
@@ -3903,7 +3903,7 @@
             "https://github.com/dahlia/fedify/commit/c505eb82fcd6b5b17174c6659c29721bc801ab9a",
             "https://github.com/dahlia/fedify/commit/8be3c2038eebf4ae12481683a1e809b314be3151"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_37_1",
@@ -3947,7 +3947,7 @@
         "patch_url": [
             "https://github.com/matrix-org/gomatrixserverlib/commit/723fd495dde835d078b9f2074b6b62c06dea4575"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_55_1",
@@ -3997,7 +3997,7 @@
             "https://github.com/django/django/commit/dfaba12cda060b8b292ae1d271b44bf810b1c5b9",
             "https://github.com/django/django/commit/053cc9534d174dc89daba36724ed2dcb36755b90"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_6_1",
@@ -4041,7 +4041,7 @@
         "patch_url": [
             "https://github.com/snapcore/snapd/commit/aa191f97713de8dc3ce3ac818539f0b976eb8ef6"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_60_1",
@@ -4085,7 +4085,7 @@
         "patch_url": [
             "https://github.com/argoproj/argo-cd/commit/f5b0db240b4e3abf18e97f6fd99096b4f9e94dc5"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_66_1",
@@ -4129,7 +4129,7 @@
         "patch_url": [
             "https://github.com/Pylons/waitress/commit/11d9e138125ad46e951027184b13242a3c1de017"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_72_1",
@@ -4265,7 +4265,7 @@
         "patch_url": [
             "https://github.com/auth0/express-jwt/commit/7ecab5f8f0cab5297c2b863596566eb0c019cdef"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_29_1",
@@ -4314,7 +4314,7 @@
             "https://github.com/gitpython-developers/GitPython/commit/74e55ee4544867e1bd976b7df5a45869ee397b0b",
             "https://github.com/gitpython-developers/GitPython/commit/e98f57b81f792f0f5e18d33ee658ae395f9aa3c4"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_59_1",
@@ -4367,7 +4367,7 @@
         "patch_url": [
             "https://github.com/openfga/openfga/commit/244302e7a8b979d66cc1874a3899cdff7d47862f"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_67_1",
@@ -4411,7 +4411,7 @@
         "patch_url": [
             "https://github.com/CVEProject/cve-services/commit/5c50baf3bda28133a3bc90b854765a64fb538304"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_52_1",
@@ -4469,7 +4469,7 @@
             "https://github.com/django/django/commit/4cb35b384ceef52123fc66411a73c36a706825e1",
             "https://github.com/django/django/commit/8d2f7cff76200cbd2337b2cf1707e383eb1fb54b"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_11_1",
@@ -4585,7 +4585,7 @@
         "patch_url": [
             "https://github.com/zopefoundation/RestrictedPython/commit/4134aedcff17c977da7717693ed89ce56d54c120"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_64_1",
@@ -4663,7 +4663,7 @@
         "patch_url": [
             "https://github.com/SpectoLabs/hoverfly/commit/40f9b44"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_48_1",
@@ -4721,7 +4721,7 @@
             "https://github.com/django/django/commit/25d84d64122c15050a0ee739e859f22ddab5ac48",
             "https://github.com/django/django/commit/c98f446c188596d4ba6de71d1b77b4a6c5c2a007"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_3_1",
@@ -4773,7 +4773,7 @@
         "patch_url": [
             "https://github.com/nats-io/nats-server/commit/55b7f11"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_45_1",
@@ -4825,7 +4825,7 @@
         "patch_url": [
             "https://github.com/frenchbread/private-ip/commit/840664c4b9ba7888c41cfee9666e9a593db133e9"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_1_1",
@@ -4893,7 +4893,7 @@
         "patch_url": [
             "https://github.com/Turistforeningen/node-im-resize/commit/de624dacf6a50e39fe3472af1414d44937ce1f03"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_7_1",
@@ -4946,7 +4946,7 @@
             "https://github.com/tobychui/zoraxy/commit/2e9bc77a5d832bff1093058d42ce7a61382e4bc6",
             "https://github.com/tobychui/zoraxy/commit/c07d5f85dfc37bd32819358ed7d4bc32c604e8f0"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_32_1",
@@ -5006,7 +5006,7 @@
         "patch_url": [
             "https://github.com/patrickfuller/camp/commit/bf6af5c2e5cf713e4050c11c52dd4c55e89880b1"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_py_18_1",
@@ -5080,7 +5080,7 @@
         "patch_url": [
             "https://github.com/snyk/broker/commit/90e0bac07a800b7c4c6646097c9c89d6b878b429"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_54_1",
@@ -5124,7 +5124,7 @@
         "patch_url": [
             "https://github.com/oauth2-proxy/oauth2-proxy/commit/0d5fa211df8ef2449347a56b22c779eb8d894c43"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_14_2",
@@ -5180,7 +5180,7 @@
         "patch_url": [
             "https://github.com/mooz/node-pdf-image/commit/15c13846a966c8513e30aff58471163a872b3b6d"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_42_1",
@@ -5264,7 +5264,7 @@
         "patch_url": [
             "https://github.com/mde/ejs/commit/49264e0037e313a0a3e033450b5c184112516d8f"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_67_1",
@@ -5325,7 +5325,7 @@
             "https://github.com/jhuckaby/pixl-class/commit/47677a3638e3583e42f3a05cc7f0b30293d2acc8,",
             "https://github.com/jhuckaby/pixl-class/commit/47677a3638e3583e42f3a05cc7f0b30293d2acc8"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_18_1",
@@ -5372,7 +5372,7 @@
         "patch_url": [
             "https://github.com/prometheus/exporter-toolkit/commit/5b1eab34484ddd353986bce736cd119d863e4ff5"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_64_1",
@@ -5424,7 +5424,7 @@
             "https://github.com/rudderlabs/rudder-server/commit/9c009d9775abc99e72fc470f4c4c8e8f1775e82a",
             "https://github.com/rudderlabs/rudder-server/commit/0d061ff2d8c16845179d215bf8012afceba12a30"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_28_1",
@@ -5492,7 +5492,7 @@
         "patch_url": [
             "https://github.com/matrix-org/synapse/commit/cb35df940a"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_48_1",
@@ -5552,7 +5552,7 @@
         "patch_url": [
             "https://github.com/omphalos/crud-file-server/commit/4fc3b404f718abb789f4ce4272c39c7a138c7a82"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_27_1",
@@ -5596,7 +5596,7 @@
         "patch_url": [
             "https://github.com/flyteorg/flyteadmin/commit/a1ec282d02706e074bc4986fd0412e5da3b9d00a"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_65_1",
@@ -5657,7 +5657,7 @@
         "patch_url": [
             "https://github.com/TupleAustin/access-policy/commit/b5b12e22887a782d8b56a0464db7aaa22cc36d73"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_20_1",
@@ -5701,7 +5701,7 @@
         "patch_url": [
             "https://github.com/adriano-di-giovanni/node-df/commit/72bcceab653bc064583d438072eb20f2d73654be"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_13_1",
@@ -5745,7 +5745,7 @@
         "patch_url": [
             "https://github.com/MechanicalSoup/MechanicalSoup/commit/d57c4a269bba3b9a0c5bfa20292955b849006d9e"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_66_1",
@@ -5879,7 +5879,7 @@
         "patch_url": [
             "https://github.com/unshiftio/url-parse/commit/d5c64791ef496ca5459ae7f2176a31ea53b127e5"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_35_1",
@@ -5952,7 +5952,7 @@
             "https://github.com/hashicorp/go-slug/commit/764785bc4cbb9e600ad1cf1a6bd21b535c182983",
             "https://github.com/hashicorp/go-slug/commit/28cafc59c8da6126a3ae94dfa84181df4073454f"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_24_1",
@@ -5996,7 +5996,7 @@
         "patch_url": [
             "https://github.com/auth0/express-openid-connect/commit/5ab67ff2bd84f76674066b5e129b43ab5f2f430f"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_60_1",
@@ -6052,7 +6052,7 @@
         "patch_url": [
             "https://github.com/KubeOperator/KubeOperator/commit/7ef42bf1c16900d13e6376f8be5ecdbfdfb44aaf"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_54_1",
@@ -6096,7 +6096,7 @@
         "patch_url": [
             "https://github.com/kyverno/kyverno/commit/8777672"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_44_1",
@@ -6145,7 +6145,7 @@
             "https://github.com/helm/helm/commit/0ad800ef43d3b826f31a5ad8dfbb4fe05d143688",
             "https://github.com/helm/helm/commit/b6bbe4f08bbb98eadd6c9cd726b08a5c639908b3"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_36_1",
@@ -6189,7 +6189,7 @@
         "patch_url": [
             "https://github.com/requests/requests/commit/c45d7c49ea75133e52ab22a8e9e13173938e36ff"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_38_1",
@@ -6246,7 +6246,7 @@
         "patch_url": [
             "https://github.com/drakkan/sftpgo/commit/88b1850b5806eee81150873d4e565144b21021fb"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_78_1",
@@ -6312,7 +6312,7 @@
         "patch_url": [
             "https://github.com/navidrome/navidrome/commit/7f030b0859653593fd2ac0df69f4a313f9caf9ff"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_77_1",
@@ -6394,7 +6394,7 @@
         "patch_url": [
             "https://github.com/snapcore/snapd/commit/6bcaeeccd16ed8298a301dd92f6907f88c24cc85"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_43_1",
@@ -6438,7 +6438,7 @@
         "patch_url": [
             "https://github.com/unshiftio/url-parse/commit/81ab967889b08112d3356e451bf03e6aa0cbb7e0"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_50_1",
@@ -6518,7 +6518,7 @@
         "patch_url": [
             "https://github.com/wagtail/wagtail/commit/5fe901e5d86ed02dbbb63039a897582951266afd"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_16_1",
@@ -6573,7 +6573,7 @@
         "patch_url": [
             "https://github.com/unshiftio/url-parse/commit/ef45a1355375a8244063793a19059b4f62fc8788"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_39_1",
@@ -6617,7 +6617,7 @@
         "patch_url": [
             "https://github.com/inikulin/replicator/commit/2c626242fb4a118855262c64b5731b2ce98e521b"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_64_1",
@@ -6699,7 +6699,7 @@
         "patch_url": [
             "https://github.com/josdejong/typed-function/commit/6478ef4f2c3f3c2d9f2c820e2db4b4ba3425e6fe"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_66_1",
@@ -6755,7 +6755,7 @@
         "patch_url": [
             "https://github.com/canonical/snapd/commit/68ee9c6aa916ab87dbfd9a26030690f2cabf1e14"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_10_1",
@@ -6806,7 +6806,7 @@
         "patch_url": [
             "https://github.com/mlflow/mlflow/commit/f8d51e21523238280ebcfdb378612afd7844eca8"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_32_1",
@@ -6876,7 +6876,7 @@
         "patch_url": [
             "https://github.com/django/django/commit/316bc3fc9437c5960c24baceb93c73f1939711e4"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_12_1",
@@ -6932,7 +6932,7 @@
         "patch_url": [
             "https://github.com/cortexproject/cortex/commit/d9e1f81f40c607b9e97c2fc6db70ae54679917c4"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_22_1",
@@ -6992,7 +6992,7 @@
         "patch_url": [
             "https://github.com/brianc/node-heroku-env/commit/55830e3ab777d3565bd37c084e6abb7ebc5497e8"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_24_1",
@@ -7036,7 +7036,7 @@
         "patch_url": [
             "https://github.com/mozilla/bleach/commit/c5df5789ec3471a31311f42c2d19fc2cf21b35ef"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_67_1",
@@ -7150,7 +7150,7 @@
         "patch_url": [
             "https://github.com/kylefarris/clamscan/commit/5f557c970817fe8c578ec3f7ad3bcbcef4cf5538"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_23_1",
@@ -7202,7 +7202,7 @@
         "patch_url": [
             "https://github.com/GuyMograbi/kill-by-port/commit/ea5b1f377e196a4492e05ff070eba8b30b7372c4"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_10_1",
@@ -7246,7 +7246,7 @@
         "patch_url": [
             "https://github.com/tharsis/evmos/commit/28870258d4ee9f1b8aeef5eba891681f89348f71"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_69_2",
@@ -7314,7 +7314,7 @@
         "patch_url": [
             "https://github.com/diegohaz/bodymen/commit/5d52e8cf360410ee697afd90937e6042c3a8653b"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_72_1",
@@ -7366,7 +7366,7 @@
         "patch_url": [
             "https://github.com/Turistforeningen/node-im-metadata/commit/ea15dddbe0f65694bfde36b78dd488e90f246639"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_11_1",
@@ -7410,7 +7410,7 @@
         "patch_url": [
             "https://github.com/planetlabs/planet-client-python/commit/d71415a83119c5e89d7b80d5f940d162376ee3b7"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_52_1",
@@ -7491,7 +7491,7 @@
         "patch_url": [
             "https://github.com/aio-libs/aiohttp/commit/1c335944d6a8b1298baf179b7c0b3069f10c514b"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_17_1",
@@ -7567,7 +7567,7 @@
         "patch_url": [
             "https://github.com/hakobe/paranoidhttp/commit/07f671da14ce63a80f4e52432b32e8d178d75fd3"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_40_1",
@@ -7611,7 +7611,7 @@
         "patch_url": [
             "https://github.com/gaizhenbiao/chuanhuchatgpt/commit/720c23d755a4a955dcb0a54e8c200a2247a27f8b"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_56_1",
@@ -7675,7 +7675,7 @@
         "patch_url": [
             "https://github.com/unshiftio/url-parse/commit/0e3fb542d60ddbf6933f22eb9b1e06e25eaa5b63"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_6_1",
@@ -7719,7 +7719,7 @@
         "patch_url": [
             "https://github.com/scrapy/scrapy/commit/b01d69a1bf48060daec8f751368622352d8b85a6"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_50_1",
@@ -7787,7 +7787,7 @@
         "patch_url": [
             "https://github.com/MoOx/reduce-css-calc/commit/aebe8f7adce937c0fec4c1315e4113ef74cadb6a"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_26_1",
@@ -7839,7 +7839,7 @@
         "patch_url": [
             "https://github.com/semantic-release/semantic-release/commit/ca90b34c4a9333438cc4d69faeb43362bb991e5a"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_75_1",
@@ -7883,7 +7883,7 @@
         "patch_url": [
             "https://github.com/jpadilla/pyjwt/commit/9c528670c455b8d948aff95ed50e22940d1ad3fc"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_71_1",
@@ -7999,7 +7999,7 @@
         "patch_url": [
             "https://github.com/pterodactyl/wings/commit/429ac62dba22997a278bc709df5ac00a5a25d83d"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_83_1",
@@ -8075,7 +8075,7 @@
         "patch_url": [
             "https://github.com/apache/airflow/commit/8159f6e24704f5e0e3b3217cf79ecf5083dce531"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_20_1",
@@ -8131,7 +8131,7 @@
         "patch_url": [
             "https://github.com/projectcontour/contour/commit/b53a5c4fd927f4ea2c6cf02f1359d8e28bef852e"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_42_1",
@@ -8191,7 +8191,7 @@
         "patch_url": [
             "https://github.com/go-vela/compiler/commit/f1ace5f8a05c95c4d02264556e38a959ee2d9bda"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_5_1",
@@ -8241,7 +8241,7 @@
         "patch_url": [
             "https://github.com/ikus060/rdiffweb/commit/626cca1b75b6c587afd4241a9692e8929b1921a5"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_26_1",
@@ -8285,7 +8285,7 @@
         "patch_url": [
             "https://github.com/argoproj/argo-cd/commit/4b2e5b06bff2ffd8ed1970654ddd8e55fc4a41c4"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_82_1",
@@ -8361,7 +8361,7 @@
         "patch_url": [
             "https://github.com/snowflakedb/snowflake-connector-python/commit/1cdbd3b1403c5ef520d7f4d9614fe35165e101ac"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_14_1",
@@ -8440,7 +8440,7 @@
         "patch_url": [
             "https://github.com/pydata/numexpr/commit/4b2d89cf14e75030d27629925b9998e1e91d23c7"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_35_1",
@@ -8484,7 +8484,7 @@
         "patch_url": [
             "https://github.com/fastify/fastify-reply-from/commit/dea227dda606900cc01870d08541b4dcc69d3889"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_70_1",
@@ -8529,7 +8529,7 @@
         "patch_url": [
             "https://github.com/delvedor/find-my-way/commit/ab408354690e6b9cf3c4724befb3b3fa4bb90aac"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_65_1",
@@ -8624,7 +8624,7 @@
         "patch_url": [
             "https://github.com/ory/fosite/commit/cdee51ebe721bfc8acca0fd0b86b030ca70867bf"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_23_1",
@@ -8699,7 +8699,7 @@
         "patch_url": [
             "https://github.com/jackc/pgx/commit/f94eb0e2f96782042c96801b5ac448f44f0a81df"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_27_1",
@@ -8761,7 +8761,7 @@
             "https://github.com/django/django/commit/254326cb3682389f55f886804d2c43f7b9f23e4f",
             "https://github.com/django/django/commit/f824655bc2c50b19d2f202d7640785caabc82787"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_8_1",
@@ -8805,7 +8805,7 @@
         "patch_url": [
             "https://github.com/liamg/gitjacker/commit/d72a53a"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_46_1",
@@ -8858,7 +8858,7 @@
             "https://github.com/hoperyy/get-npm-package-version/commit/40b1cf31a0607ea66f9e30a0c3af1383b52b2dec",
             "https://github.com/hoperyy/get-npm-package-version/commit/49459d4a3ce68587d48ffa8dead86fc9ed58e965"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_16_1",
@@ -8902,7 +8902,7 @@
         "patch_url": [
             "https://github.com/golang/gddo/commit/daffe1f90ec57f8ed69464f9094753fc6452e983"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_19_1",
@@ -8955,7 +8955,7 @@
             "https://github.com/adi928/ipycache/commit/9cc7cb891ff169b3e8a6f5e84afd8238f566ad8e",
             "https://github.com/adi928/ipycache/commit/c73a726744c90cc2cb200b159edbaf5deddcb753"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_23_1",
@@ -9007,7 +9007,7 @@
         "patch_url": [
             "https://github.com/npm/node-tar/commit/9dbdeb6df8e9dbd96fa9e84341b9d74734be6c20"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_47_1",
@@ -9079,7 +9079,7 @@
         "patch_url": [
             "https://github.com/sandy98/node-simple-router/commit/dfdd52e2e80607af433097d940b3834fd96df488"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_25_1",
@@ -9131,7 +9131,7 @@
         "patch_url": [
             "https://github.com/jupyter/jupyter_core/commit/1118c8ce01800cb689d51f655f5ccef19516e283"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_45_1",
@@ -9175,7 +9175,7 @@
         "patch_url": [
             "https://github.com/python-hyper/h11/commit/114803a29ce50116dc47951c690ad4892b1a36ed"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_68_1",
@@ -9263,7 +9263,7 @@
         "patch_url": [
             "https://github.com/iximiuz/node-diskusage-ng/commit/48e7e093486b528f0c81ec699573e0e4a431b8d3"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_15_1",
@@ -9323,7 +9323,7 @@
         "patch_url": [
             "https://github.com/cli/cli/commit/1136764c369aaf0cae4ec2ee09dc35d871076932"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_21_1",
@@ -9382,7 +9382,7 @@
         "patch_url": [
             "https://github.com/ory/oathkeeper/commit/1f9f625c1a49e134ae2299ee95b8cf158feec932"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_56_2",
@@ -9619,7 +9619,7 @@
         "patch_url": [
             "https://github.com/gogs/gogs/commit/2ca014250fbf0bba94c914d9e43b1f6d8eca3bb0"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_4_1",
@@ -9663,7 +9663,7 @@
         "patch_url": [
             "https://github.com/wagtail/wagtail/commit/bc96aed6ac53f998b2f4c4bf97e2d4f5fe337e5b"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_70_1",
@@ -9716,7 +9716,7 @@
         "patch_url": [
             "https://github.com/argoproj/argo-cd/commit/3b8f673f06c2d228e01cbc830e5cb57cef008978"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_8_1",
@@ -9770,7 +9770,7 @@
             "https://github.com/ansible/ansible/commit/03aff644cc1c00e1f7551195c68fbd0d13a39e6e",
             "https://github.com/ansible/ansible/commit/8b17e5b9229ffaecfe10a4881bc3f87dd2c184e1"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_15_1",
@@ -9824,7 +9824,7 @@
         "patch_url": [
             "https://github.com/ansible/ansible/commit/b2551bb6943eec078066aa3a923e0bb3ed85abe8"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_25_1",
@@ -9910,7 +9910,7 @@
         "patch_url": [
             "https://github.com/stripe/smokescreen/commit/fafb6ae48c6c40aa011d87b61306abc48db8797b"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_41_1",
@@ -10007,7 +10007,7 @@
         "patch_url": [
             "https://github.com/hardog/ritp/commit/1eadc2746d0fb60d0050bad302b4081f802476e4"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_19_1",
@@ -10055,7 +10055,7 @@
         "patch_url": [
             "https://github.com/kubernetes/kubernetes/commit/1ab06efe92d8e898ca1931471c9533ce94aba29b"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_1_1",
@@ -10107,7 +10107,7 @@
         "patch_url": [
             "https://github.com/open-telemetry/opentelemetry-collector-contrib/commit/371bf6afbd7cfa3253fa1674f5444064e86ef0ac"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_2_1",
@@ -10166,7 +10166,7 @@
         "patch_url": [
             "https://github.com/minio/minio/commit/0ae4915a9391ef4b3ec80f5fcdcf24ee6884e776"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_73_1",
@@ -10218,7 +10218,7 @@
         "patch_url": [
             "https://github.com/kiwitcms/Kiwi/commit/d789f4b51025de4f8c747c037d02e1b0da80b034"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_21_1",
@@ -10262,7 +10262,7 @@
         "patch_url": [
             "https://github.com/auth0/express-openid-connect/commit/0947b92164a2c5f661ebcc183d37e7f21de719ad"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_45_1",
@@ -10310,7 +10310,7 @@
         "patch_url": [
             "https://github.com/mlflow/mlflow/commit/ac4b697bb0bb8a331944dca63f4235b4bf602ab8"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_30_1",
@@ -10442,7 +10442,7 @@
         "patch_url": [
             "https://github.com/langchain-ai/langchain/commit/bf0b3cc0b5ade1fb95a5b1b6fa260e99064c2e22"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_29_1",
@@ -10525,7 +10525,7 @@
         "patch_url": [
             "https://github.com/mlflow/mlflow/commit/1da75dfcecd4d169e34809ade55748384e8af6c1"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_31_1",
@@ -10569,7 +10569,7 @@
         "patch_url": [
             "https://github.com/markdown-it/markdown-it/commit/f76d3beb46abd121892a2e2e5c78376354c214e3"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_61_1",
@@ -10615,7 +10615,7 @@
         "patch_url": [
             "https://github.com/evmos/ethermint/commit/144741832007a26dbe950512acbda4ed95b2a451"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_58_2",
@@ -10670,7 +10670,7 @@
         "patch_url": [
             "https://github.com/siderolabs/talos/commit/9eaf33f3f274e746ca1b442c0a1a0dae0cec088f"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_53_2",
@@ -10740,7 +10740,7 @@
         "patch_url": [
             "https://github.com/mozilla/PollBot/commit/6db74a4fcbff258c7cdf51a6ff0724fc10c485e5"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_33_1",
@@ -10784,7 +10784,7 @@
         "patch_url": [
             "https://github.com/salesforce/tough-cookie/commit/615627206357d997d5e6ff9da158997de05235ae"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_69_1",
@@ -10828,7 +10828,7 @@
         "patch_url": [
             "https://github.com/cedced19/fast-http/commit/e4cfee6db8850afc4d8837800682fdaf029685ca"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_8_1",
@@ -10872,7 +10872,7 @@
         "patch_url": [
             "https://github.com/t0rchwo0d/gin/commit/fd9f98e70fb4107ee68c783482d231d35e60507b"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_39_1",
@@ -10930,7 +10930,7 @@
         "patch_url": [
             "https://github.com/xmldom/xmldom/commit/7b4b743917a892d407356e055b296dcd6d107e8b"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_74_1",
@@ -10989,7 +10989,7 @@
         "patch_url": [
             "https://github.com/hashicorp/consul/commit/706866fa0016b0aa302679f9c648859050d19b2e"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_9_1",
@@ -11049,7 +11049,7 @@
         "patch_url": [
             "https://github.com/ionicabizau/parse-url/commit/21c72ab9412228eea753e2abc48f8962707b1fe3"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_53_1",
@@ -11101,7 +11101,7 @@
         "patch_url": [
             "https://github.com/gitpython-developers/GitPython/commit/ca965ecc81853bca7675261729143f54e5bf4cdd"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_40_1",
@@ -11145,7 +11145,7 @@
         "patch_url": [
             "https://github.com/feathersjs-ecosystem/feathers-sequelize/commit/0f2d85f0b2d556f2b6c70423dcebdbd29d95e3dc"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_31_1",
@@ -11191,7 +11191,7 @@
             "https://github.com/django/django/commit/dae83a24519d6f284c74414e0b81d64d9b5a0db4",
             "https://github.com/django/django/commit/a34a5f724c5d5adb2109374ba3989ebb7b11f81f"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_5_1",
@@ -11243,7 +11243,7 @@
         "patch_url": [
             "https://github.com/distribution/distribution/commit/5ea9aa028db65ca5665f6af2c20ecf9dc34e5fcd"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_68_1",
@@ -11317,7 +11317,7 @@
         "patch_url": [
             "https://github.com/josdejong/mathjs/commit/a60f3c8d9dd714244aed7a5569c3dccaa3a4e761"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_68_1",
@@ -11374,7 +11374,7 @@
             "https://github.com/tryton/trytond/commit/a67a7f03c30277515f530cad5950056171ed5bd1",
             "https://github.com/tryton/trytond/commit/30e978593733385db3144f8c583eeb4679575cf0"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_37_1",
@@ -11426,7 +11426,7 @@
         "patch_url": [
             "https://github.com/gogs/gogs/commit/15d0d6a94be0098a8227b6b95bdf2daed105ec41"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_17_1",
@@ -11470,7 +11470,7 @@
         "patch_url": [
             "https://github.com/tjchaplin/mcstatic/commit/342d0d225b86f2cd6d648e607cc96ee325642bf9"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_9_1",
@@ -11528,7 +11528,7 @@
             "https://github.com/nodejs/undici/commit/64e3402da4e032e68de46acb52800c9a06aaea3f",
             "https://github.com/nodejs/undici/commit/6805746680d27a5369d7fb67bc05f95a28247d75"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_36_1",
@@ -11573,7 +11573,7 @@
         "patch_url": [
             "https://github.com/ericcornelissen/shescape/commit/07a069a66423809cbedd61d980c11ca44a29ea2b"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_62_1",
@@ -11625,7 +11625,7 @@
         "patch_url": [
             "https://github.com/cookiecutter/cookiecutter/commit/fdffddb31fd2b46344dfa317531ff155e7999f77"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_42_1",
@@ -11675,7 +11675,7 @@
         "patch_url": [
             "https://github.com/grafana/grafana-csv-datasource/commit/aedd016bdb93b0c43613ce69d8ca257163ec01eb"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_63_1",
@@ -11719,7 +11719,7 @@
         "patch_url": [
             "https://github.com/spotipy-dev/spotipy/commit/1ca453f6ef87a2a9e9876f52b6cb38d13532ccf2"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_61_1",
@@ -11769,7 +11769,7 @@
         "patch_url": [
             "https://github.com/scrapy/scrapy/commit/8ce01b3b76d4634f55067d6cfdf632ec70ba304a"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_49_1",
@@ -11849,7 +11849,7 @@
             "https://github.com/apache/superset/commit/1d403dab9822a8cee6108669c53e53fad881c751",
             "https://github.com/apache/superset/commit/34101594e284ab3acce692f41aff7759ccb4bf1d"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_19_1",
@@ -11933,7 +11933,7 @@
         "patch_url": [
             "https://github.com/oauth2-proxy/oauth2-proxy/commit/ee5662e0f5001d76ec76562bb605abbd07c266a2"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_15_1",
@@ -11977,7 +11977,7 @@
         "patch_url": [
             "https://github.com/ewen-lbh/ffcss/commit/f9c491874b858a32fcae15045f169fd7d02f90dc"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_80_1",
@@ -12021,7 +12021,7 @@
         "patch_url": [
             "https://github.com/stripe/smokescreen/commit/dea7b3c89df000f4072ff9866d61d78e30df6a36"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_7_1",
@@ -12097,7 +12097,7 @@
         "patch_url": [
             "https://github.com/gradio-app/gradio/commit/6b63fdec441b5c9bf910f910a2505d8defbb6bf8"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_24_1",
@@ -12141,7 +12141,7 @@
         "patch_url": [
             "https://github.com/oauth2-proxy/oauth2-proxy/commit/0279fa7dff1752f1710707dbd1ffac839de8bbfc"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_57_1",
@@ -12200,7 +12200,7 @@
             "https://github.com/node-fetch/node-fetch/commit/36e47e8a6406185921e4985dcbeff140d73eaa10",
             "https://github.com/node-fetch/node-fetch/commit/1ef4b560a17e644a02a3bfdea7631ffeee578b35"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_48_1",
@@ -12252,7 +12252,7 @@
         "patch_url": [
             "https://github.com/ionicabizau/parse-url/commit/b88c81df8f4c5168af454eaa4f92afa9349e4e13"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_33_1",
@@ -12327,7 +12327,7 @@
         "patch_url": [
             "https://github.com/janeczku/calibre-web/commit/bcdc97641447965af486964537f3821f47b28874"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_39_1",
@@ -12377,7 +12377,7 @@
             "https://github.com/gruntjs/grunt/commit/b0ec6e12426fc8d5720dee1702f6a67455c5986c",
             "https://github.com/gruntjs/grunt/commit/aad3d4521c3098fb255fb2db8f2e1d691a033665"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_46_1",
@@ -12433,7 +12433,7 @@
         "patch_url": [
             "https://github.com/cortexproject/cortex/commit/03e023d8b012887b31cc268d0d011b01e1e65506"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_34_1",
@@ -12517,7 +12517,7 @@
         "patch_url": [
             "https://github.com/argoproj/argo-cd/commit/fbb0b99b1ac3361b253052bd30259fa43a520945"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_51_1",
@@ -12569,7 +12569,7 @@
         "patch_url": [
             "https://github.com/gofiber/fiber/commit/8c3916dbf4ad2ed427d02c6eb63ae8b2fa8f019a"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_81_1",
@@ -12680,7 +12680,7 @@
         "patch_url": [
             "https://github.com/langchain-ai/langchain/commit/aad3d8bd47d7f5598156ff2bdcc8f736f24a7412"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_28_1",
@@ -12748,7 +12748,7 @@
         "patch_url": [
             "https://github.com/regclient/regclient/commit/7d17cff26c22196b5ddd66bda8c5ee4abf3d1269"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_75_1",
@@ -12841,7 +12841,7 @@
             "https://github.com/django/django/commit/f4af67b9b41e0f4c117a8741da3abbd1c869ab28",
             "https://github.com/django/django/commit/32ebcbf2e1fe3e5ba79a6554a167efce81f7422d"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_1_1",
@@ -12893,7 +12893,7 @@
         "patch_url": [
             "https://github.com/drakkan/sftpgo/commit/b347ab6051f6c501da205c09315fe99cd1fa3ba1"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_37_1",
@@ -12949,7 +12949,7 @@
         "patch_url": [
             "https://github.com/mikeerickson/cd-messenger/commit/cbdf7d8c06463388fd4f088bfbdc5eeaa65eba56"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_12_1",
@@ -12995,7 +12995,7 @@
         "patch_url": [
             "https://github.com/navidrome/navidrome/commit/9e79b5cbf2a48c1e4344df00fea4ed3844ea965d"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_29_1",
@@ -13051,7 +13051,7 @@
         "patch_url": [
             "https://github.com/oauthlib/oauthlib/commit/2e40b412c844ecc4673c3fa3f72181f228bdbacd"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_57_1",
@@ -13095,7 +13095,7 @@
         "patch_url": [
             "https://github.com/skoranga/node-connection-tester/commit/c1dc374138e1a9d3361c4b8e1ddb1a81d4b45bee"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_28_1",
@@ -13170,7 +13170,7 @@
         "patch_url": [
             "https://github.com/projectdiscovery/nuclei/commit/0da993afe6d41b4b1b814e8fad23a2acba13c60a"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_25_2",
@@ -13293,7 +13293,7 @@
         "patch_url": [
             "https://github.com/sajari/docconv/commit/b19021ade3d0b71c89d35cb00eb9e589a121faa5"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_38_1",
@@ -13373,7 +13373,7 @@
         "patch_url": [
             "https://github.com/Cog-Creators/Red-DiscordBot/commit/726bfd38adfdfaef760412a68e01447b470f438b"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_62_1",
@@ -13438,7 +13438,7 @@
         "patch_url": [
             "https://github.com/grafana/grafana/commit/4dd56e4dabce10007bf4ba1059bf54178c35b177"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_70_2",
@@ -13483,7 +13483,7 @@
             "https://github.com/Automattic/mongoose/commit/c9e86bff7eef477da75a29af62a06d41a835a156",
             "https://github.com/Automattic/mongoose/commit/33679bcf8ca43d74e3e8ecd4cc224826772d805b"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_4_1",
@@ -13560,7 +13560,7 @@
             "https://github.com/isaacs/node-tar/commit/3aaf19b2501bbddb145d92b3322c80dcaed3c35f",
             "https://github.com/isaacs/node-tar/commit/d56f790bda9fea807dd80c5083f24771dbdd6eb1"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_56_1",
@@ -13632,7 +13632,7 @@
             "https://github.com/ipython/ipython/commit/a06ca837273271b4acb82c29be97c0b6d12a30ea",
             "https://github.com/ipython/ipython/commit/67ca2b3aa9039438e6f80e3fccca556f26100b4d"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_13_1",
@@ -13680,7 +13680,7 @@
         "patch_url": [
             "https://github.com/grafana/grafana/commit/c798c0e958d15d9cc7f27c72113d572fa58545ce"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_13_1",
@@ -13737,7 +13737,7 @@
         "patch_url": [
             "https://github.com/stevemao/git-dummy-commit/commit/71ab972fc7cd5f49b15a9eb82b9df2e41100d391"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_43_2",
@@ -13827,7 +13827,7 @@
         "patch_url": [
             "https://github.com/dgilland/pydash/commit/6ff0831ad285fff937cafd2a853f20cc9ae92021"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_43_1",
@@ -13903,7 +13903,7 @@
         "patch_url": [
             "https://github.com/follow-redirects/follow-redirects/commit/8b347cbcef7c7b72a6e9be20f5710c17d6163c22"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_51_1",
@@ -13947,7 +13947,7 @@
         "patch_url": [
             "https://github.com/fardog/trailing-slash/commit/f8e66f1429308247e5a119d430203077d8f05048"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_40_1",
@@ -13999,7 +13999,7 @@
         "patch_url": [
             "https://github.com/flyteorg/flyteadmin/commit/b3177ef70f068e908140b8a4a9913dfa74f289fd"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_33_2",
@@ -14055,7 +14055,7 @@
         "patch_url": [
             "https://github.com/snowflakedb/snowflake-connector-python/commit/dbc9284a3c0382c131b971b35e8d6ab93c46f37a"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_69_1",
@@ -14113,7 +14113,7 @@
         "patch_url": [
             "https://github.com/gventuri/pandas-ai/commit/3aac79be8fc1d18b53d66a566adddbbdd2b38ad5"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_60_1",
@@ -14168,7 +14168,7 @@
             "https://github.com/django/django/commit/2044dac5c6968441be6f534c4139bcf48c5c7e48",
             "https://github.com/django/django/commit/800828887a0509ad1162d6d407e94d8de7eafc60"
         ],
-        "programing_language": "Python",
+        "programming_language": "Python",
         "vul_func": [
             {
                 "id": "vul_py_2_1",
@@ -14250,7 +14250,7 @@
             "https://github.com/isaacs/node-tar/commit/82eac952f7c10765969ed464e549375854b26edc",
             "https://github.com/isaacs/node-tar/commit/875a37e3ec031186fc6599f6807341f56c584598"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_57_1",
@@ -14295,7 +14295,7 @@
         "patch_url": [
             "https://github.com/vgno/koa-remove-trailing-slashes/commit/e7ce4000e9fe4d957332df1056640a22ebea28ee"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_3_1",
@@ -14348,7 +14348,7 @@
         "patch_url": [
             "https://github.com/moscajs/aedes/commit/ffbc1702bb24b596afbb96407cc6db234a4044a8"
         ],
-        "programing_language": "JavaScript",
+        "programming_language": "JavaScript",
         "vul_func": [
             {
                 "id": "vul_js_34_1",
@@ -14397,7 +14397,7 @@
         "patch_url": [
             "https://github.com/hashicorp/consul/commit/fb3e29ec22ccda61f03da7e8e15e84da64f7fe82"
         ],
-        "programing_language": "Go",
+        "programming_language": "Go",
         "vul_func": [
             {
                 "id": "vul_go_47_1",
