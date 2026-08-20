@@ -19,7 +19,7 @@ def main() -> int:
     args = ap.parse_args()
 
     dataset = read_json(args.test_data_path)
-    cve2lang = {item["cve_id"]: item["programing_language"] for item in dataset}
+    cve2lang = {item["cve_id"]: item["programming_language"] for item in dataset}
     cve2image = {item["cve_id"]: item.get("image_url") for item in dataset if item.get("image_url")}
     patch_dir = args.runner_output / "patches"
     if not patch_dir.is_dir():
