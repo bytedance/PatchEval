@@ -54,6 +54,6 @@ patcheval/evaluation/evaluation_output/results/<prefix>/
 ## Notes
 
 - The evaluator reads each Docker image from the dataset's `image_url` field.
-- `patcheval_verified.json` provides CVE metadata such as `programing_language`.
+- `patcheval_verified.json` provides CVE metadata such as `programming_language`.
 - The current verified workflow evaluates patches with the case PoC validation command.
 - Failure categories are inferred heuristically from validation logs.

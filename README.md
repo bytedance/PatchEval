@@ -150,14 +150,11 @@ cve_description
 cwe_info
 repo
 patch_url
-programing_language
+programming_language
 vul_func
 fix_func
 image_url
 ```
-
-> [!NOTE]
-> `programing_language` is the field name used by the released dataset and is intentionally preserved for compatibility.
 
 The agent runner uses `cve_description`, `repo`, and `image_url` to construct the task and runtime environment. Reference information such as `patch_url` and `fix_func` is not included in the agent prompt and should not be used as a repair source.
 
