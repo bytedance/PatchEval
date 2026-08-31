@@ -18,7 +18,7 @@ import logging
 import argparse
 import os
 import re
-from collections import defaultdict
+from collections import Counter, defaultdict
 import json
 import tempfile
 from typing import Optional, Tuple
@@ -226,6 +226,21 @@ def main():
         patchs = utils.read_jsonl(args.patch_file)
 
     cve2lang, cve2image = _init()
+
+    submitted_cves = [patch["cve"] for patch in patchs]
+    duplicate_cves = sorted(
+        cve for cve, count in Counter(submitted_cves).items() if count > 1
+    )
+    unknown_cves = sorted(set(submitted_cves) - set(cve2lang))
+
+    validation_errors = []
+    if duplicate_cves:
+        validation_errors.append(f"duplicate CVEs: {', '.join(duplicate_cves)}")
+    if unknown_cves:
+        validation_errors.append(f"unknown CVEs: {', '.join(unknown_cves)}")
+    if validation_errors:
+        raise ValueError("invalid patch submission: " + "; ".join(validation_errors))
+
     if args.log_level.upper() == "DEBUG":
         log_level = logging.DEBUG
     else:
