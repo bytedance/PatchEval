@@ -18,7 +18,7 @@ import logging
 import argparse
 import os
 import re
-from collections import defaultdict
+from collections import Counter, defaultdict
 import json
 import tempfile
 from typing import Optional, Tuple
@@ -239,6 +239,28 @@ class Evaluation:
                 return "validation_fail"
 
 
+def _normalize_cve_identifier(cve):
+    if "ghcr.io/anonymous2578-data/" in cve:
+        return cve.split("/")[-1].split(":")[0]
+    return cve
+
+
+def _validate_patch_cves(patches, cve2lang):
+    submitted_cves = [_normalize_cve_identifier(patch["cve"]) for patch in patches]
+    duplicate_cves = sorted(
+        cve for cve, count in Counter(submitted_cves).items() if count > 1
+    )
+    unknown_cves = sorted(set(submitted_cves) - set(cve2lang))
+
+    validation_errors = []
+    if duplicate_cves:
+        validation_errors.append(f"duplicate CVEs: {', '.join(duplicate_cves)}")
+    if unknown_cves:
+        validation_errors.append(f"unknown CVEs: {', '.join(unknown_cves)}")
+    if validation_errors:
+        raise ValueError("invalid patch submission: " + "; ".join(validation_errors))
+
+
 def main():
     def _init():
         all_info = utils.read_json(args.input_file)
@@ -255,17 +277,15 @@ def main():
             patchs = utils.read_jsonl(args.patch_file)
 
     cve2lang = _init()
+    _validate_patch_cves(patchs, cve2lang)
     if args.log_level.upper() == "DEBUG":
         log_level = logging.DEBUG
     else:
         log_level = logging.INFO
     main_logger = utils.get_logger(f"./evaluation_output/{args.output}/run_evaluation.log", log_level)
-    success_cves_all = []
     main_logger.info(args, extra={'cve': 'SETUP'})
     def process_patch(patch):
-        cve, fix_patch = patch['cve'], patch['fix_patch']
-        if "ghcr.io/anonymous2578-data/" in cve:
-            cve = cve.split("/")[-1].split(":")[0]
+        cve, fix_patch = _normalize_cve_identifier(patch['cve']), patch['fix_patch']
         
         task_logger_name = f"task-{cve}-{threading.get_ident()}"
         task_logger = logging.getLogger(task_logger_name)
@@ -286,8 +306,6 @@ def main():
         else:
             language = cve2lang[cve]
         image_name = f"ghcr.io/anonymous2578-data/{cve.lower()}:latest"
-        if cve in success_cves_all:
-            return None  
         _, log_dir = utils.creat_patch_file(f"./evaluation_output/{args.output}/logs/{cve}", fix_patch)
         try:
             run_poc_result, run_poc_msg, unittest_result, unittest_msg, validation_type = evaluation.run_evaluation(
