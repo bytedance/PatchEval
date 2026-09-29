@@ -99,10 +99,15 @@ def batch_pull_github_images(
     logger.info(f"Pull images finish, success: {success}, fail: {fail}")
     return success, fail
 
-if __name__ == "__main__":
-    batch_pull_github_images(
+def main():
+    success, fail = batch_pull_github_images(
         images_file="images.txt",
         log_file="pull_images.log",
         ghcr_token="",  
         max_workers=16,  
     )
+    return 0 if success > 0 and fail == 0 else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
